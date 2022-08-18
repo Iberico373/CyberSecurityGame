@@ -54,11 +54,12 @@ public class DSAction : Effect
                             {
                                 character.GetComponent<DataStructure>()._currentState = State.Detective;
                                 manager.selectedCharacter.GetComponent<Unit>().UseCard();
-                                tutorial.SetTutorial(2);
+                                
                                 if (SceneManager.GetActiveScene().name == "TestLevel")
                                 {
                                     manager.Takeover.SetActive(false);
                                     manager.Takeovercomplete.SetActive(true);
+                                    tutorial.SetTutorial(2);
                                 }
                             }
                         }                                   

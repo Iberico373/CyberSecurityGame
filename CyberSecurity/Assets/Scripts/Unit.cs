@@ -6,6 +6,7 @@ public class Unit : MonoBehaviour
 {
     public int speed;
     public int health;
+    public int maxHealth;
     public int movementSpeed;
     public bool isDetected;
     public bool startTurn;
@@ -34,7 +35,7 @@ public class Unit : MonoBehaviour
     {
         request = GameObject.Find("Grid").GetComponent<PathRequestManager>();
         anim = GetComponent<Animator>();
-
+        maxHealth = health;
         if (!gameObject.CompareTag("Malware"))
         {
             isDetected = true;
