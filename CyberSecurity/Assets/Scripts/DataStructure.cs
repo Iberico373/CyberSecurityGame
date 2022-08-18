@@ -185,6 +185,7 @@ public class DataStructure : Unit
                     {
                         GameObject botClone = Instantiate(bot, manager.unitGroup.transform);
                         botClone.transform.position = n.worldPos;
+                        botClone.layer = 3;
                         botClone.GetComponent<BotAI>().GetAggroList();
                         manager.SortTurnOrder();
 

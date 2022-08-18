@@ -16,7 +16,6 @@ public class Unit : MonoBehaviour
     public bool isStunned;
     public int isCorrupted;
     public Animator anim;
-    public List<GameObject> aggrolist;
     public GameObject pointer;
     public GameObject aura;
     public GameObject turnOrderDisplay;

@@ -19,4 +19,4 @@ MonoBehaviour:
   cost: 1
   cardArtwork: {fileID: 0}
   cardType: Recovery Control
-  maxAmount: 5
+  maxAmount: 1

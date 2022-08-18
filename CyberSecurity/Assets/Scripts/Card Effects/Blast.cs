@@ -36,7 +36,7 @@ public class Blast : Effect
                     {
                         Vector3 dir = (character.transform.position - manager.selectedCharacter.transform.position).normalized;
                         character.transform.position = character.transform.position + dir * manager.grid.nodeRadius * 2;
-                        character.GetComponent<Unit>().aggrolist.Insert(0, manager.selectedCharacter.gameObject);
+                        character.GetComponent<BaseAI>().aggrolist.Insert(0, manager.selectedCharacter.gameObject);
                     }
 
                     manager.selectedCharacter.GetComponent<Unit>().DeselectCard();

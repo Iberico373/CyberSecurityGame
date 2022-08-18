@@ -37,7 +37,7 @@ public class Scan : Effect
                             manager.selectedCharacter.anim.SetTrigger("Scan");
 
                             character.GetComponent<Unit>().isDetected = true;
-                            character.GetComponent<Unit>().aggrolist.Insert(0, manager.selectedCharacter.gameObject);
+                            character.GetComponent<BaseAI>().aggrolist.Insert(0, manager.selectedCharacter.gameObject);
                             manager.selectedCharacter.GetComponent<Unit>().UseCard();
                             
                         }                        

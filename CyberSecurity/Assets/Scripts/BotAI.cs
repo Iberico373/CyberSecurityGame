@@ -3,13 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BotAI : Unit
+public class BotAI : BaseAI
 {
-    UnitManager manager;
-    GameObject target;
-    Vector3 targetPos;
-    List<GameObject> infectedDS = new List<GameObject>();
-
     private void Awake()
     {
         manager = UnitManager.instance;
@@ -56,126 +51,8 @@ public class BotAI : Unit
         }
     }
 
-    public void GetAggroList()
-    {
-        foreach (Unit unit in manager.unitList)
-        {
-            if (unit.gameObject.name.Equals("Data Structure"))
-            {
-                if (unit.GetComponent<DataStructure>().capturedM)
-                {
-                    continue;
-                }
-
-                aggrolist.Add(unit.gameObject);
-            }
-        }
-
-        aggrolist.Add(GameObject.Find("Objective"));
-    }
-
-    public void SelectTarget()
-    {
-        target = aggrolist[0];
-
-        if (InRange())
-        {
-            Action();
-            manager.EndTurn();
-        }
-
-        else
-        {
-            targetPos = GetNearestTile(manager.grid.NodeFromWorldPoint(target.transform.position));
-            Move(targetPos);
-        }
-    }
-
-    Vector3 GetNearestTile(Node targetNode)
-    {
-        Vector3 nearestTile = new Vector3();     
-
-        while (true)
-        {
-            List<Node> AdjacentTiles = manager.grid.GetNeighbours(targetNode, 1);
-            Node nearestNode = AdjacentTiles[0];
-            List<Node> tempOpen = new List<Node>();
-
-            foreach (Node n in AdjacentTiles)
-            {
-                if (n.ReturnObject() == null)
-                {
-                    tempOpen.Add(n);
-                }
-
-                nearestNode = CompareNodeDist(nearestNode, n);
-            }
-
-            if (nearestNode.ReturnObject() != null)
-            {
-                if (tempOpen != null)
-                {
-                    nearestNode = tempOpen[0];
-
-                    foreach (Node m in tempOpen)
-                    {
-                        nearestNode = CompareNodeDist(nearestNode, m);
-                    }
-
-                    nearestTile = nearestNode.worldPos;
-                    break;
-                }
-
-                else if (nearestNode.ReturnObject().CompareTag("Security Control"))
-                {
-                    targetNode = nearestNode;
-                    aggrolist.Add(nearestNode.ReturnObject());
-                }
-            }
-
-            else
-            {
-                nearestTile = nearestNode.worldPos;
-                break;
-            }
-        }
-
-        return nearestTile;
-    }
-
-    Node CompareNodeDist(Node nodeA, Node nodeB)
-    {
-        if (manager.pathfinding.GetDistance(manager.grid.NodeFromWorldPoint(transform.position), nodeA)
-            > manager.pathfinding.GetDistance(manager.grid.NodeFromWorldPoint(transform.position), nodeB))
-        {
-            return nodeB;
-        }
-
-        else
-        {
-            return nodeA;
-        }
-    }
-
-    bool InRange()
-    {
-        List<Node> tiles = manager.grid.GetNeighbours(manager.grid.NodeFromWorldPoint(manager.selectedCharacter.transform.position), 1);
-
-        foreach (Node n in tiles)
-        {
-            if (n.ReturnObject() != null)
-            {
-                if (n.ReturnObject() == target)
-                {
-                    return true;
-                }
-            }
-        }
-
-        return false;
-    }
-
-    void Action()
+    
+    public override void Action()
     {
         if (target.CompareTag("Security Control") || target.name.Equals("Objective"))
         {
@@ -196,15 +73,5 @@ public class BotAI : Unit
             infectedDS.Add(target);
             NextUnit();
         }
-    }
-
-    void NextUnit()
-    {
-        GameObject temp = aggrolist[0];
-        aggrolist.Remove(aggrolist[0]);
-        aggrolist.Insert(aggrolist.Count, temp);
-
-        target = aggrolist[0];
-        targetPos = GetNearestTile(manager.grid.NodeFromWorldPoint(target.transform.position));
     }
 }
