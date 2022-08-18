@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "Heal", menuName = "Effect/Heal")]
-public class Heal : Effect
+[CreateAssetMenu(fileName = "Revive", menuName = "Effect/Revive")]
+public class Revive : Effect
 {
     UnitManager manager;
-    public int heal;
     public override void UseEffect()
     {
         manager = UnitManager.instance;
@@ -30,18 +29,13 @@ public class Heal : Effect
                     if (scanTiles.Contains(node) && character != null)
                     {
 
-                        if (character.CompareTag("Security Control") && character.GetComponent<Unit>().downed == false && character.GetComponent<Unit>().health > character.GetComponent<Unit>().maxHealth)
+                        if (character.CompareTag("Security Control") && character.GetComponent<Unit>().downed == true)
                         {
                             manager.selectedCharacter.transform.LookAt(character.transform);
                             manager.selectedCharacter.anim.SetTrigger("Heal");
-                            if(character.GetComponent<Unit>().health + heal > character.GetComponent<Unit>().maxHealth)
-                            {
-                                character.GetComponent<Unit>().health = character.GetComponent<Unit>().maxHealth;
-                            }
-                            else
-                            {
-                                character.GetComponent<Unit>().health += 20;
-                            }
+                            manager.selectedCharacter.anim.SetTrigger("Revive");
+                            manager.selectedCharacter.downed = false;
+                            character.GetComponent<Unit>().health += 10;
                             manager.selectedCharacter.GetComponent<Unit>().UseCard();
                         }
                     }
