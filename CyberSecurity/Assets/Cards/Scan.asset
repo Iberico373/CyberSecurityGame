@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Scan
+  m_EditorClassIdentifier: Assembly-CSharp::CardSO
+  id: 3
+  cardName: Scan
+  cardEffect: {fileID: 11400000, guid: 7e9b2a69c14eb654c98107586e0bac5a, type: 2}
+  cardDesc: Detects malware
+  cost: 1
+  cardArtwork: {fileID: 21300000, guid: 9b8f8952d8eba9a439d89f217fc15745, type: 3}
+  cardType: Detective Control
+  maxAmount: 1
