@@ -1,8 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 public class UnitManager : MonoBehaviour
 {
     public static UnitManager instance;
@@ -22,6 +23,7 @@ public class UnitManager : MonoBehaviour
     public List<Unit> unitList;
     public GameObject Takeover;
     public GameObject Takeovercomplete;
+
     private void Awake()
     {
         if (instance == null)
@@ -53,7 +55,7 @@ public class UnitManager : MonoBehaviour
         }
     }
 
-    void SortTurnOrder()
+    public void SortTurnOrder()
     {
         unitList = new List<Unit>(unitGroup.GetComponentsInChildren<Unit>());
         Unit temp;
@@ -83,9 +85,9 @@ public class UnitManager : MonoBehaviour
     {
         selectedCharacter = unitList[0];
 
-        switch (selectedCharacter.name)
+        switch (selectedCharacter.id)
         {
-            case "Preventative Control":
+            case 0:
                 if (selectedCharacter.downed)
                 {
                     EndTurn();
@@ -103,7 +105,7 @@ public class UnitManager : MonoBehaviour
 
                 break;
 
-            case "Detective Control":
+            case 1:
                 if (selectedCharacter.downed)
                 {
                     EndTurn();
@@ -121,7 +123,7 @@ public class UnitManager : MonoBehaviour
 
                 break;
 
-            case "Recovery Control":
+            case 2:
                 if (selectedCharacter.downed)
                 {
                     EndTurn();
@@ -139,7 +141,7 @@ public class UnitManager : MonoBehaviour
 
                 break;
 
-            case "Deterrent Control":
+            case 3:
                 if (selectedCharacter.downed)
                 {
                     EndTurn();
@@ -157,7 +159,7 @@ public class UnitManager : MonoBehaviour
 
                 break;
 
-            case "Bot":
+            case 4:
                 if (selectedCharacter == null)
                 {
                     EndTurn();
@@ -174,13 +176,15 @@ public class UnitManager : MonoBehaviour
 
                     preventativeDeck.SetActive(false);
                     detectiveDeck.SetActive(false);
+                    recoveryDeck.SetActive(false);
+                    deterrentDeck.SetActive(false);
                     selectedCharacter.pointer.SetActive(true);
                     selectedCharacter.GetComponent<RansomwareAI>().SelectTarget();
                 }
-                
+
                 break;
 
-            case "Virus":
+            case 5:
                 if (selectedCharacter == null)
                 {
                     EndTurn();
@@ -203,7 +207,32 @@ public class UnitManager : MonoBehaviour
                 
                 break;
 
-            case "Data Structure":
+            case 6:
+                if (selectedCharacter == null)
+                {
+                    EndTurn();
+                }
+
+                else
+                {
+                    if (selectedCharacter.isStunned)
+                    {
+                        selectedCharacter.CheckStatus();
+                        EndTurn();
+                        break;
+                    }
+
+                    preventativeDeck.SetActive(false);
+                    detectiveDeck.SetActive(false);
+                    recoveryDeck.SetActive(false);
+                    deterrentDeck.SetActive(false);
+                    selectedCharacter.pointer.SetActive(true);
+                    selectedCharacter.GetComponent<BotAI>().SelectTarget();
+                }
+
+                break;
+
+            case 7:
                 preventativeDeck.SetActive(false);
                 detectiveDeck.SetActive(false);
                 selectedCharacter.pointer.SetActive(true);

@@ -93,7 +93,6 @@ public class Deck : MonoBehaviour
         ram = 3;
     }
 
-    //Rip random cards ye will be missed o7
     public void Shuffle(List<CardSO> cardList)
     {
         //System.Random _random = new System.Random();

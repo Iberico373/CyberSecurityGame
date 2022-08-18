@@ -16,16 +16,7 @@ public class BotAI : Unit
         anim = GetComponent<Animator>();
         startTurn = true;
 
-        foreach (Unit unit in manager.unitList)
-        {
-            if (unit.gameObject.name.Equals("Data Structure") && !unit.gameObject.CompareTag("Malware"))
-            {
-                aggrolist.Add(unit.gameObject);
-            }
-        }
-
-        aggrolist.Add(GameObject.Find("Objective"));
-
+        GetAggroList();
         target = aggrolist[0];
         targetPos = GetNearestTile(manager.grid.NodeFromWorldPoint(target.transform.position));
     }
@@ -63,6 +54,24 @@ public class BotAI : Unit
             startTurn = true;
             manager.EndTurn();
         }
+    }
+
+    public void GetAggroList()
+    {
+        foreach (Unit unit in manager.unitList)
+        {
+            if (unit.gameObject.name.Equals("Data Structure"))
+            {
+                if (unit.GetComponent<DataStructure>().capturedM)
+                {
+                    continue;
+                }
+
+                aggrolist.Add(unit.gameObject);
+            }
+        }
+
+        aggrolist.Add(GameObject.Find("Objective"));
     }
 
     public void SelectTarget()

@@ -15,6 +15,8 @@ public enum State
 public class DataStructure : Unit
 {
     public bool isLocked;
+    public bool capturedM = false;
+    public bool capturedSC = false;
     public State _currentState;
     public Renderer render;
     public GameObject bot;
@@ -64,8 +66,7 @@ public class DataStructure : Unit
     {
         switch (_currentState)
         {
-            case State.None:
-                
+            case State.None:              
                 break;
 
             case State.Preventative:
@@ -73,6 +74,9 @@ public class DataStructure : Unit
                 {
                     return;
                 }
+
+                capturedSC = true;
+                capturedM = false;
 
                 GameObject summonedLaser = Instantiate(laser);
                 summonedLaser.transform.position = transform.position;
@@ -98,6 +102,9 @@ public class DataStructure : Unit
                     return;
                 }
 
+                capturedSC = true;
+                capturedM = false;
+
                 GameObject summonedScan = Instantiate(scan);
                 summonedScan.transform.position = transform.position;
                 Destroy(summonedScan, 4);
@@ -114,6 +121,14 @@ public class DataStructure : Unit
                 break;
 
             case State.Deterrent:
+                if (isLocked)
+                {
+                    return;
+                }
+
+                capturedSC = true;
+                capturedM = false;
+
                 foreach (Node n in nodesInRange)
                 {
                     if (n.ReturnObject() != null)
@@ -142,6 +157,9 @@ public class DataStructure : Unit
                 break;
 
             case State.Virus:
+                capturedSC = false;
+                capturedM = true;
+
                 foreach (Node n in nodesInRange)
                 {
                     if (n.ReturnObject() != null)
@@ -158,11 +176,18 @@ public class DataStructure : Unit
                 break;
 
             case State.Bot:
+                capturedSC = false;
+                capturedM = true;
+
                 foreach (Node n in adjacentNodes)
                 {
                     if (n.ReturnObject() == null && botCD == 0)
                     {
-                        Instantiate(bot, n.worldPos, Quaternion.identity);
+                        GameObject botClone = Instantiate(bot, manager.unitGroup.transform);
+                        botClone.transform.position = n.worldPos;
+                        botClone.GetComponent<BotAI>().GetAggroList();
+                        manager.SortTurnOrder();
+
                         botCD++;
                         break;
                     }

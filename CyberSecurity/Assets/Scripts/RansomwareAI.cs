@@ -17,8 +17,13 @@ public class RansomwareAI : Unit
 
         foreach (Unit unit in manager.unitList)
         {
-            if (unit.gameObject.name.Equals("Data Structure") && !unit.gameObject.CompareTag("Malware"))
+            if (unit.gameObject.name.Equals("Data Structure"))
             {
+                if (unit.GetComponent<DataStructure>().capturedM)
+                {
+                    continue;
+                }
+
                 aggrolist.Add(unit.gameObject);
             }
         }
