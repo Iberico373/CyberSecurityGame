@@ -8,7 +8,8 @@ public enum State
     Preventative,
     Detective,
     Deterrent,
-    Virus
+    Virus,
+    Bot
 }
 
 public class DataStructure : Unit
@@ -16,9 +17,11 @@ public class DataStructure : Unit
     public bool isLocked;
     public State _currentState;
     public Renderer render;
+    public GameObject bot;
 
     UnitManager manager;
     HashSet<Node> nodesInRange;
+    List<Node> adjacentNodes;
     int deterrentCD = 0;
     int botCD = 0;
 
@@ -30,6 +33,8 @@ public class DataStructure : Unit
     {
         manager = UnitManager.instance;
         nodesInRange = manager.pathfinding.MovementRadius(transform.position);
+        adjacentNodes = manager.grid.GetNeighbours(manager.grid.NodeFromWorldPoint(transform.position), 1);
+
     }
 
     private void Update()
@@ -69,8 +74,6 @@ public class DataStructure : Unit
                     return;
                 }
 
-                Debug.Log("test");
-
                 GameObject summonedLaser = Instantiate(laser);
                 summonedLaser.transform.position = transform.position;
                 Destroy(summonedLaser, 5);
@@ -95,7 +98,6 @@ public class DataStructure : Unit
                     return;
                 }
 
-                Debug.Log("test");
                 GameObject summonedScan = Instantiate(scan);
                 summonedScan.transform.position = transform.position;
                 Destroy(summonedScan, 4);
@@ -124,14 +126,15 @@ public class DataStructure : Unit
                                 deterrentCD++;
                             }
 
-                            else if (deterrentCD > 0)
+                            else
                             {
-                                deterrentCD++;
-                            }
+                                if (deterrentCD == 3)
+                                {
+                                    deterrentCD = 0;
+                                    break;
+                                }
 
-                            else if (deterrentCD == 3)
-                            {
-                                deterrentCD = 0;
+                                deterrentCD++;
                             }
                         }
                     }
@@ -150,6 +153,29 @@ public class DataStructure : Unit
                                 n.ReturnObject().GetComponent<Unit>().isCorrupted++;
                             }
                         }
+                    }
+                }
+                break;
+
+            case State.Bot:
+                foreach (Node n in adjacentNodes)
+                {
+                    if (n.ReturnObject() == null && botCD == 0)
+                    {
+                        Instantiate(bot, n.worldPos, Quaternion.identity);
+                        botCD++;
+                        break;
+                    }
+
+                    else if (botCD > 0)
+                    {
+                        if (botCD == 3)
+                        {
+                            botCD = 0;
+                            break;
+                        }
+
+                        botCD++;
                     }
                 }
                 break;

@@ -12,9 +12,9 @@ public class DisplayCard : MonoBehaviour
     public Image cardArt;
     public GameObject cardHighlight;
 
-    public Text nameText;
-    public Text costText;
-    public Text descText;
+    public TMPro.TextMeshProUGUI nameText;
+    public TMPro.TextMeshProUGUI costText;
+    public TMPro.TextMeshProUGUI descText;
 
     Button button;
     bool dragging;
@@ -52,7 +52,6 @@ public class DisplayCard : MonoBehaviour
     public void OnPointerDown()
     {
         GameObject.Find("Camera Pivot").GetComponent<CameraMove>().playing = true;
-        //GameObject.Find("Grid").GetComponent<whatever>().playing = true;
         dragging = true;
         oldIndex = transform.GetSiblingIndex();
         transform.SetParent(UnitManager.instance.selectedCharacter.GetComponent<Deck>().deckParent);            

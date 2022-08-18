@@ -183,7 +183,7 @@ public class BotAI : Unit
 
         else if (target.name.Equals("Data Structure"))
         {
-            target.GetComponent<DataStructure>().isLocked = true;
+            target.GetComponent<DataStructure>()._currentState = State.Bot;
             infectedDS.Add(target);
             NextUnit();
         }

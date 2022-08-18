@@ -66,7 +66,6 @@ public class RansomwareAI : Unit
 
     public void SelectTarget()
     {
-        //CheckAggroList();
         target = aggrolist[0];
 
         if (InRange())
@@ -84,10 +83,7 @@ public class RansomwareAI : Unit
 
     Vector3 GetNearestTile(Node targetNode)
     {  
-        Vector3 nearestTile = new Vector3();
-        //int currentDistance = manager.pathfinding.
-        //    GetDistance(manager.grid.NodeFromWorldPoint(transform.position),
-        //    AdjacentTiles[0]);       
+        Vector3 nearestTile = new Vector3();    
 
         while (true)
         {
@@ -97,14 +93,6 @@ public class RansomwareAI : Unit
 
             foreach (Node n in AdjacentTiles)
             {
-                //currentDistance = manager.pathfinding.GetDistance(manager.grid.NodeFromWorldPoint(transform.position), n);
-
-                //if (currentDistance > manager.pathfinding.GetDistance(manager.grid.NodeFromWorldPoint(transform.position), n))
-                //{
-                //    currentDistance = manager.pathfinding.GetDistance(manager.grid.NodeFromWorldPoint(transform.position), n);
-                //    nearestTile = n.worldPos;
-                //}
-
                 if (n.ReturnObject() == null)
                 {
                     tempOpen.Add(n);
@@ -205,17 +193,6 @@ public class RansomwareAI : Unit
         if (aggrolist[0].CompareTag("Security Control"))
         {
             target = aggrolist[0];
-
-            //if (InRange())
-            //{
-            //    Action();
-            //    manager.EndTurn();
-            //}
-
-            //else
-            //{
-            //    targetPos = GetNearestTile(manager.grid.NodeFromWorldPoint(target.transform.position));
-            //}
         }
     }
 

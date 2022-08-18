@@ -8,12 +8,15 @@ public class CardColor : MonoBehaviour
     public Sprite detective;
     public Sprite preventative;
     public Sprite recovery;
+    public Sprite deterrent;
     public Sprite dWalk;
     public Sprite pWalk;
     public Sprite rWalk;
+    public Sprite dtWalk;
     public Sprite dDS;
     public Sprite pDS;
     public Sprite rDS;
+    public Sprite dtDS;
     public DisplayCard card;
     UnitManager manager;
 
@@ -60,6 +63,21 @@ public class CardColor : MonoBehaviour
             {
                 card.cardArt.sprite = rWalk;
             }
+        }
+
+        else if (manager.selectedCharacter.name == "Deterrent Control")
+        {
+            img.sprite = deterrent;
+
+            if (card.id == 1)
+            {
+                card.cardArt.sprite = dtWalk;
+            }
+
+            //else if (card.id == 4)
+            //{
+            //    card.cardArt.sprite = dtDS;
+            //}
         }
     }
 }

@@ -17,6 +17,7 @@ public class UnitManager : MonoBehaviour
     public GameObject preventativeDeck;
     public GameObject detectiveDeck;
     public GameObject recoveryDeck;
+    public GameObject deterrentDeck;
     public GameObject turnManager;
     public List<Unit> unitList;
     public GameObject Takeover;
@@ -95,6 +96,7 @@ public class UnitManager : MonoBehaviour
                     preventativeDeck.SetActive(true);
                     detectiveDeck.SetActive(false);
                     recoveryDeck.SetActive(false);
+                    deterrentDeck.SetActive(false);
                     selectedCharacter.pointer.SetActive(true);
                     selectedCharacter.CheckStatus();
                 }
@@ -112,6 +114,7 @@ public class UnitManager : MonoBehaviour
                     preventativeDeck.SetActive(false);
                     detectiveDeck.SetActive(true);
                     recoveryDeck.SetActive(false);
+                    deterrentDeck.SetActive(false);
                     selectedCharacter.pointer.SetActive(true);
                     selectedCharacter.CheckStatus();
                 }
@@ -129,6 +132,25 @@ public class UnitManager : MonoBehaviour
                     preventativeDeck.SetActive(false);
                     detectiveDeck.SetActive(false);
                     recoveryDeck.SetActive(true);
+                    deterrentDeck.SetActive(false);
+                    selectedCharacter.pointer.SetActive(true);
+                    selectedCharacter.CheckStatus();
+                }
+
+                break;
+
+            case "Deterrent Control":
+                if (selectedCharacter.downed)
+                {
+                    EndTurn();
+                }
+
+                else
+                {
+                    preventativeDeck.SetActive(false);
+                    detectiveDeck.SetActive(false);
+                    recoveryDeck.SetActive(false);
+                    deterrentDeck.SetActive(true);
                     selectedCharacter.pointer.SetActive(true);
                     selectedCharacter.CheckStatus();
                 }
@@ -180,6 +202,7 @@ public class UnitManager : MonoBehaviour
                 }
                 
                 break;
+
             case "Data Structure":
                 preventativeDeck.SetActive(false);
                 detectiveDeck.SetActive(false);
