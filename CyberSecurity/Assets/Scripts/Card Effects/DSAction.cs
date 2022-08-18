@@ -62,6 +62,18 @@ public class DSAction : Effect
                                     tutorial.SetTutorial(2);
                                 }
                             }
+
+                            else if (manager.selectedCharacter.name.Equals("Deterrent Control"))
+                            {
+                                character.GetComponent<DataStructure>()._currentState = State.Deterrent;
+                                manager.selectedCharacter.GetComponent<Unit>().UseCard();
+                                tutorial.SetTutorial(2);
+                                if (SceneManager.GetActiveScene().name == "TestLevel")
+                                {
+                                    manager.Takeover.SetActive(false);
+                                    manager.Takeovercomplete.SetActive(true);
+                                }
+                            }
                         }                                   
                     }
 

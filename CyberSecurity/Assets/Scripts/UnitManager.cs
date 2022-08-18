@@ -134,13 +134,22 @@ public class UnitManager : MonoBehaviour
                 }
 
                 break;
+
             case "Bot":
                 if (selectedCharacter == null)
                 {
                     EndTurn();
                 }
+
                 else
                 {
+                    if (selectedCharacter.isStunned)
+                    {
+                        selectedCharacter.CheckStatus();
+                        EndTurn();
+                        break;
+                    }
+
                     preventativeDeck.SetActive(false);
                     detectiveDeck.SetActive(false);
                     selectedCharacter.pointer.SetActive(true);
@@ -148,13 +157,22 @@ public class UnitManager : MonoBehaviour
                 }
                 
                 break;
+
             case "Virus":
                 if (selectedCharacter == null)
                 {
                     EndTurn();
                 }
+
                 else
                 {
+                    if (selectedCharacter.isStunned)
+                    {
+                        selectedCharacter.CheckStatus();
+                        EndTurn();
+                        break;
+                    }
+
                     preventativeDeck.SetActive(false);
                     detectiveDeck.SetActive(false);
                     selectedCharacter.pointer.SetActive(true);

@@ -7,6 +7,7 @@ public enum State
     None,
     Preventative,
     Detective,
+    Deterrent,
     Virus
 }
 
@@ -14,14 +15,17 @@ public class DataStructure : Unit
 {
     public bool isLocked;
     public State _currentState;
+    public Renderer render;
 
     UnitManager manager;
     HashSet<Node> nodesInRange;
-    public Renderer render;
+    int deterrentCD = 0;
+    int botCD = 0;
 
     //Visual Effects for attacks
     public GameObject laser;
     public GameObject scan;
+
     private void Awake()
     {
         manager = UnitManager.instance;
@@ -106,6 +110,34 @@ public class DataStructure : Unit
                     }
                 }
                 break;
+
+            case State.Deterrent:
+                foreach (Node n in nodesInRange)
+                {
+                    if (n.ReturnObject() != null)
+                    {
+                        if (n.ReturnObject().CompareTag("Malware"))
+                        {
+                            if (deterrentCD == 0)
+                            {
+                                n.ReturnObject().GetComponent<Unit>().isStunned = true;
+                                deterrentCD++;
+                            }
+
+                            else if (deterrentCD > 0)
+                            {
+                                deterrentCD++;
+                            }
+
+                            else if (deterrentCD == 3)
+                            {
+                                deterrentCD = 0;
+                            }
+                        }
+                    }
+                }
+                break;
+
             case State.Virus:
                 foreach (Node n in nodesInRange)
                 {
@@ -121,6 +153,7 @@ public class DataStructure : Unit
                     }
                 }
                 break;
+
             default:
                 break;
         }

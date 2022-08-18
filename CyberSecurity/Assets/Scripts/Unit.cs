@@ -12,6 +12,7 @@ public class Unit : MonoBehaviour
     public bool startTurn;
     public bool downed;
     public bool isAlive;
+    public bool isStunned;
     public int isCorrupted;
     public Animator anim;
     public List<GameObject> aggrolist;
@@ -155,6 +156,11 @@ public class Unit : MonoBehaviour
         if(isCorrupted > 0)
         {
             health -= 5 * isCorrupted;
+        }
+
+        else if (isStunned)
+        {
+            isStunned = false;
         }
     }
 }
