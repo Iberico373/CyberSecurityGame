@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 [CreateAssetMenu (fileName = "Walk", menuName = "Effect/Walk")]
 public class Walk : Effect
 {
@@ -41,7 +41,10 @@ public class Walk : Effect
                     if (movementTiles.Contains(node) && character == null)
                     {
                         manager.selectedCharacter.GetComponent<Unit>().UseCard();
-                        tutorial.SetTutorial(1);
+                        if(SceneManager.GetActiveScene().name == "TestLevel")
+                        {
+                            tutorial.SetTutorial(1);
+                        }
                         manager.selectedCharacter.Move(node.worldPos);
                         
                     }
