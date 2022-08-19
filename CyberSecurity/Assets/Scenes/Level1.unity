@@ -3470,7 +3470,6 @@ MonoBehaviour:
   isStunned: 0
   isCorrupted: 0
   anim: {fileID: 0}
-  aggrolist: []
   pointer: {fileID: 502563505}
   aura: {fileID: 0}
   turnOrderDisplay: {fileID: 3210644842802450728, guid: 9564803e49c19c7478e4b4688c26d30e, type: 3}
@@ -5400,7 +5399,6 @@ MonoBehaviour:
   isStunned: 0
   isCorrupted: 0
   anim: {fileID: 0}
-  aggrolist: []
   pointer: {fileID: 835445591}
   aura: {fileID: 0}
   turnOrderDisplay: {fileID: 3412011386547034564, guid: 674c27796500d0c41a6491ca495d15ab, type: 3}
@@ -7437,7 +7435,6 @@ MonoBehaviour:
   isStunned: 0
   isCorrupted: 0
   anim: {fileID: 0}
-  aggrolist: []
   pointer: {fileID: 0}
   aura: {fileID: 0}
   turnOrderDisplay: {fileID: 0}
@@ -9774,7 +9771,6 @@ MonoBehaviour:
   isStunned: 0
   isCorrupted: 0
   anim: {fileID: 0}
-  aggrolist: []
   pointer: {fileID: 248846955}
   aura: {fileID: 1678064438}
   turnOrderDisplay: {fileID: 2490381952743259463, guid: c9d3ffbdc0f7d184ca7cc6d26a4e7401, type: 3}
@@ -9785,6 +9781,11 @@ MonoBehaviour:
   Takeovercomplete: {fileID: 0}
   Killbot: {fileID: 0}
   Killbotcomplete: {fileID: 0}
+  manager: {fileID: 0}
+  target: {fileID: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+  aggrolist: []
+  infectedDS: []
 --- !u!1 &1475231124
 GameObject:
   m_ObjectHideFlags: 0
@@ -10592,7 +10593,6 @@ MonoBehaviour:
   isStunned: 0
   isCorrupted: 0
   anim: {fileID: 0}
-  aggrolist: []
   pointer: {fileID: 1560199404}
   aura: {fileID: 1727779467}
   turnOrderDisplay: {fileID: 5790182629683356187, guid: 1e03e9fe54da0394ea76d8ef1facfd44, type: 3}
@@ -10603,6 +10603,11 @@ MonoBehaviour:
   Takeovercomplete: {fileID: 0}
   Killbot: {fileID: 0}
   Killbotcomplete: {fileID: 0}
+  manager: {fileID: 0}
+  target: {fileID: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+  aggrolist: []
+  infectedDS: []
 --- !u!1 &1562380447
 GameObject:
   m_ObjectHideFlags: 0
@@ -11456,7 +11461,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 2450.958, y: -445.00684}
+  m_AnchoredPosition: {x: 2450.9597, y: -445.0078}
   m_SizeDelta: {x: 4000, y: 10000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1616872067
@@ -12610,7 +12615,6 @@ MonoBehaviour:
   isStunned: 0
   isCorrupted: 0
   anim: {fileID: 0}
-  aggrolist: []
   pointer: {fileID: 1704305392}
   aura: {fileID: 1736907091}
   turnOrderDisplay: {fileID: 5417197588136572534, guid: 51334eb817d6c4c4b96a12d12a7e56b3, type: 3}
@@ -12621,6 +12625,11 @@ MonoBehaviour:
   Takeovercomplete: {fileID: 0}
   Killbot: {fileID: 0}
   Killbotcomplete: {fileID: 0}
+  manager: {fileID: 0}
+  target: {fileID: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+  aggrolist: []
+  infectedDS: []
 --- !u!1 &1715900578
 GameObject:
   m_ObjectHideFlags: 0
@@ -15275,6 +15284,14 @@ PrefabInstance:
       propertyPath: id
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6023909380947480878, guid: 3a8fdd26c20d72a49aebe791a4239899, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: cbbc6d6e5ca3bfa48bc5459539a1fbe6, type: 3}
+    - target: {fileID: 6023909380947480878, guid: 3a8fdd26c20d72a49aebe791a4239899, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f2580cc6e4b3b424c8741a279d950a6a, type: 2}
     - target: {fileID: 7301206736427207717, guid: 3a8fdd26c20d72a49aebe791a4239899, type: 3}
       propertyPath: m_RootOrder
       value: 3
