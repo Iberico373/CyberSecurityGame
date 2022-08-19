@@ -20,12 +20,14 @@ public class BotAI : BaseAI
     {
         if (health <= 0)
         {
-            Destroy(gameObject);
+            manager.unitList.Remove(this);
 
             foreach (GameObject ds in infectedDS)
             {
                 ds.GetComponent<DataStructure>()._currentState = State.None;
             }
+
+            Destroy(gameObject);
         }
 
         if (isDetected)

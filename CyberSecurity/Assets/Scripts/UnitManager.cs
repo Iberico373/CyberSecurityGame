@@ -201,6 +201,8 @@ public class UnitManager : MonoBehaviour
 
                     preventativeDeck.SetActive(false);
                     detectiveDeck.SetActive(false);
+                    recoveryDeck.SetActive(false);
+                    deterrentDeck.SetActive(false);
                     selectedCharacter.pointer.SetActive(true);
                     selectedCharacter.GetComponent<VirusAI>().SelectTarget();
                 }
@@ -235,6 +237,8 @@ public class UnitManager : MonoBehaviour
             case 7:
                 preventativeDeck.SetActive(false);
                 detectiveDeck.SetActive(false);
+                recoveryDeck.SetActive(false);
+                deterrentDeck.SetActive(false);
                 selectedCharacter.pointer.SetActive(true);
                 selectedCharacter.CheckStatus();
                 if (selectedCharacter.GetComponent<DataStructure>()._currentState != State.None)
@@ -258,6 +262,7 @@ public class UnitManager : MonoBehaviour
             effect = null;
             selectedCharacter.GetComponent<Deck>().Discard();
         }
+
         selectedCharacter.pointer.SetActive(false);
         NextUnit();
         displayTurnOrder.UpdateTurnOrder();

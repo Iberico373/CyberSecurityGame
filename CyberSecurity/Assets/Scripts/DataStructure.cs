@@ -42,28 +42,42 @@ public class DataStructure : Unit
 
     private void Update()
     {
-        if(isLocked)
+        if (isLocked)
         {
             aura.SetActive(true);
         }
         else
         {
-            aura.SetActive(false);
-            if(_currentState == State.Detective)
+           
+            if (_currentState == State.Detective)
             {
+                aura.SetActive(false);
                 render.material.color = new Color(0, 20, 255, 100);
             }
             if (_currentState == State.Preventative)
             {
+                aura.SetActive(false);
                 render.material.color = new Color(255, 0, 0, 100);
             }
-            if(_currentState == State.None)
+            if (_currentState == State.None)
             {
+                aura.SetActive(false);
                 render.material.color = new Color(255, 255, 255, 100);
             }
             if (_currentState == State.Deterrent)
             {
+                aura.SetActive(false);
                 render.material.color = new Color(0, 0, 50, 100);
+            }
+            if (_currentState == State.Bot)
+            {
+                aura.SetActive(true);
+                render.material.color = new Color(20, 0, 200);
+            }
+            if(_currentState == State.Virus)
+            {
+                aura.SetActive(true);
+                render.material.color = new Color(20, 0, 200);
             }
         }
     }

@@ -31,20 +31,25 @@ public class Heal : Effect
                     if (scanTiles.Contains(node) && character != null)
                     {
 
-                        if (character.CompareTag("Security Control") && character.GetComponent<Unit>().downed == false && character.GetComponent<Unit>().health > character.GetComponent<Unit>().maxHealth)
+                        if (character.CompareTag("Security Control") && 
+                            character.GetComponent<Unit>().downed == false && 
+                            character.GetComponent<Unit>().health != character.GetComponent<Unit>().maxHealth)
                         {
                             manager.selectedCharacter.transform.LookAt(character.transform);
                             manager.selectedCharacter.anim.SetTrigger("Heal");
+                            manager.selectedCharacter.GetComponent<Unit>().UseCard();
                             Instantiate(healExpansion, character.transform);
+
                             if (character.GetComponent<Unit>().health + heal > character.GetComponent<Unit>().maxHealth)
                             {
                                 character.GetComponent<Unit>().health = character.GetComponent<Unit>().maxHealth;
                             }
+
                             else
                             {
                                 character.GetComponent<Unit>().health += 20;
                             }
-                            manager.selectedCharacter.GetComponent<Unit>().UseCard();
+                           
                         }
                     }
 

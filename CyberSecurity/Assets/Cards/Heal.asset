@@ -15,8 +15,8 @@ MonoBehaviour:
   id: 5
   cardName: Heal
   cardEffect: {fileID: 11400000, guid: dcfabee516dea304594cec860227efde, type: 2}
-  cardDesc: Heal
+  cardDesc: Heal a Security Control for 20 health
   cost: 1
-  cardArtwork: {fileID: 0}
+  cardArtwork: {fileID: 21300000, guid: 9784d980d7789af409f354b84f611f97, type: 3}
   cardType: Recovery Control
   maxAmount: 1

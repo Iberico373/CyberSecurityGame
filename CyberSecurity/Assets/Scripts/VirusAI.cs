@@ -21,17 +21,16 @@ public class VirusAI : BaseAI
     {
         if (health <= 0)
         {
-            Destroy(gameObject);
+            manager.unitList.Remove(this);
 
             foreach (GameObject ds in infectedDS)
             {
-                ds.GetComponent<DataStructure>().isCorrupted = 0;
+                ds.GetComponent<DataStructure>()._currentState = State.None;
             }
-            foreach (GameObject sc in infectedSC)
-            {
-                sc.GetComponent<Unit>().isCorrupted = 0;
-            }
+
+            Destroy(gameObject);
         }
+
         if (isDetected)
         {
             aura.SetActive(false);
