@@ -6,6 +6,7 @@ public class Heal : Effect
 {
     UnitManager manager;
     public int heal;
+    public GameObject healExpansion;
     public override void UseEffect()
     {
         manager = UnitManager.instance;
@@ -34,7 +35,8 @@ public class Heal : Effect
                         {
                             manager.selectedCharacter.transform.LookAt(character.transform);
                             manager.selectedCharacter.anim.SetTrigger("Heal");
-                            if(character.GetComponent<Unit>().health + heal > character.GetComponent<Unit>().maxHealth)
+                            Instantiate(healExpansion, character.transform);
+                            if (character.GetComponent<Unit>().health + heal > character.GetComponent<Unit>().maxHealth)
                             {
                                 character.GetComponent<Unit>().health = character.GetComponent<Unit>().maxHealth;
                             }

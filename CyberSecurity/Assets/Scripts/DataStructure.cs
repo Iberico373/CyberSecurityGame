@@ -30,6 +30,7 @@ public class DataStructure : Unit
     //Visual Effects for attacks
     public GameObject laser;
     public GameObject scan;
+    public GameObject stun;
 
     private void Awake()
     {
@@ -59,6 +60,10 @@ public class DataStructure : Unit
             if(_currentState == State.None)
             {
                 render.material.color = new Color(255, 255, 255, 100);
+            }
+            if (_currentState == State.Deterrent)
+            {
+                render.material.color = new Color(0, 0, 50, 100);
             }
         }
     }
@@ -137,6 +142,9 @@ public class DataStructure : Unit
                         {
                             if (deterrentCD == 0)
                             {
+                                GameObject summonedStun = Instantiate(stun);
+                                summonedStun.transform.position = transform.position;
+                                Destroy(summonedStun, 5);
                                 n.ReturnObject().GetComponent<Unit>().isStunned = true;
                                 deterrentCD++;
                             }
@@ -187,6 +195,7 @@ public class DataStructure : Unit
                         botClone.transform.position = n.worldPos;
                         botClone.layer = 3;
                         botClone.GetComponent<BotAI>().GetAggroList();
+                        manager.grid.UpdateGrid();
                         manager.SortTurnOrder();
 
                         botCD++;

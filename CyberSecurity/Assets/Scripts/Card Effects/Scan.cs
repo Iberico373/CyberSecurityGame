@@ -5,7 +5,7 @@ using UnityEngine;
 public class Scan : Effect
 {
     UnitManager manager;
-    
+    public GameObject scanExpansion;
     public override void UseEffect()
     {
         manager = UnitManager.instance;
@@ -35,7 +35,7 @@ public class Scan : Effect
                         {
                             manager.selectedCharacter.transform.LookAt(character.transform);
                             manager.selectedCharacter.anim.SetTrigger("Scan");
-
+                            Instantiate(scanExpansion, character.transform);
                             character.GetComponent<Unit>().isDetected = true;
                             character.GetComponent<BaseAI>().aggrolist.Insert(0, manager.selectedCharacter.gameObject);
                             manager.selectedCharacter.GetComponent<Unit>().UseCard();

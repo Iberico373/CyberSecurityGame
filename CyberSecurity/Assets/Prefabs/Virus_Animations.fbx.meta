@@ -1,23 +1,17 @@
 fileFormatVersion: 2
-guid: 359d597001e649540bbfa18b12e70da1
+guid: 43ab48a03209e89468c5ebf0e21994dd
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable:
   - first:
-      74: 1827226128182048838
-    second: Attack
-  - first:
-      74: 1358262452650834379
-    second: Move
-  - first:
-      74: -3100369314251171874
-    second: Idle
+      74: 6221187890141279125
+    second: Armature|ArmatureAction.004
   externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -42,11 +36,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Attack
-      takeName: Take 001
+      name: Armature|ArmatureAction.004
+      takeName: Armature|ArmatureAction.004
       internalID: 0
-      firstFrame: 55
-      lastFrame: 85
+      firstFrame: 0
+      lastFrame: 1000
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -70,68 +64,10 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Move
-      takeName: Take 001
-      internalID: 0
-      firstFrame: 100
-      lastFrame: 130
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Idle
-      takeName: Take 001
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 45
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 20
+    globalScale: 0.01
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -184,8 +120,8 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.19999999
-    rootMotionBoneName: joint1
+    globalScale: 0.0001
+    rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
@@ -193,7 +129,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
   userData: 
