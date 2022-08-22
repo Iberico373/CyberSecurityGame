@@ -25,8 +25,8 @@ public class Unit : MonoBehaviour
     public GameObject scancomplete;
     public GameObject Takeover;
     public GameObject Takeovercomplete;
-    public GameObject Killbot;
-    public GameObject Killbotcomplete;
+    //public GameObject Killbot;
+    //public GameObject Killbotcomplete;
 
     PathRequestManager request;    
     Vector3[] path;
@@ -37,10 +37,6 @@ public class Unit : MonoBehaviour
         request = GameObject.Find("Grid").GetComponent<PathRequestManager>();
         anim = GetComponent<Animator>();
         maxHealth = health;
-        if (!gameObject.CompareTag("Malware"))
-        {
-            isDetected = true;
-        }
     }
 
     private void Update()
@@ -63,8 +59,8 @@ public class Unit : MonoBehaviour
         
         else
         {
-            Killbot.SetActive(false);
-            Killbotcomplete.SetActive(true);
+            //Killbot.SetActive(false);
+            //Killbotcomplete.SetActive(true);
             isAlive = false;
             FindObjectOfType<GameManager>().WinGame();
             isAlive = false;

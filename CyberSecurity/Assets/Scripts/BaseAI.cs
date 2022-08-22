@@ -11,6 +11,11 @@ public class BaseAI : Unit
     public List<GameObject> aggrolist;
     public List<GameObject> infectedDS = new List<GameObject>();
 
+    private void Start()
+    {
+        isDetected = true;
+    }
+
     public void GetAggroList()
     {
         foreach (Unit unit in manager.unitList)
