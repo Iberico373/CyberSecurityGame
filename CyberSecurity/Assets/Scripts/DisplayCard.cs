@@ -51,7 +51,7 @@ public class DisplayCard : MonoBehaviour
 
     public void OnPointerDown()
     {
-        GameObject.Find("Camera Pivot").GetComponent<CameraMove>().playing = true;
+        GameObject.Find("Camera Pivot").GetComponent<CameraMovement>().playing = true;
         dragging = true;
         oldIndex = transform.GetSiblingIndex();
         transform.SetParent(UnitManager.instance.selectedCharacter.GetComponent<Deck>().deckParent);            
@@ -60,7 +60,7 @@ public class DisplayCard : MonoBehaviour
     public void OnPointerUp()
     {
         dragging = false;
-        GameObject.Find("Camera Pivot").GetComponent<CameraMove>().playing = false;
+        GameObject.Find("Camera Pivot").GetComponent<CameraMovement>().playing = false;
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
