@@ -25,8 +25,7 @@ public class Unit : MonoBehaviour
     public GameObject scancomplete;
     public GameObject Takeover;
     public GameObject Takeovercomplete;
-    public GameObject Killbot;
-    public GameObject Killbotcomplete;
+    
 
     PathRequestManager request;    
     Vector3[] path;
@@ -63,10 +62,6 @@ public class Unit : MonoBehaviour
         
         else
         {
-            Killbot.SetActive(false);
-            Killbotcomplete.SetActive(true);
-            isAlive = false;
-            FindObjectOfType<GameManager>().WinGame();
             isAlive = false;
             FindObjectOfType<GameManager>().WinGame();
         }
