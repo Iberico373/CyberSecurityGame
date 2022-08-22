@@ -31,7 +31,6 @@ public class DataStructure : Unit
     public GameObject laser;
     public GameObject scan;
     public GameObject stun;
-    public GameObject chain;
 
     private void Awake()
     {
@@ -46,32 +45,27 @@ public class DataStructure : Unit
         if (isLocked)
         {
             aura.SetActive(true);
-            chain.SetActive(true);
         }
         else
         {
-            
+           
             if (_currentState == State.Detective)
             {
-                chain.SetActive(false);
                 aura.SetActive(false);
                 render.material.color = new Color(0, 20, 255, 100);
             }
             if (_currentState == State.Preventative)
             {
-                chain.SetActive(false);
                 aura.SetActive(false);
                 render.material.color = new Color(255, 0, 0, 100);
             }
             if (_currentState == State.None)
             {
-                chain.SetActive(false);
                 aura.SetActive(false);
                 render.material.color = new Color(255, 255, 255, 100);
             }
             if (_currentState == State.Deterrent)
             {
-                chain.SetActive(false);
                 aura.SetActive(false);
                 render.material.color = new Color(0, 0, 50, 100);
             }
