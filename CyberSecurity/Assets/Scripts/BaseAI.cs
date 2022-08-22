@@ -13,7 +13,7 @@ public class BaseAI : Unit
 
     private void Start()
     {
-        isDetected = true;
+        isDetected = false;
     }
 
     public void GetAggroList()

@@ -144,7 +144,6 @@ public class Unit : MonoBehaviour
     {
         UnitManager.instance.selectedCard.GetComponent<DisplayCard>().cardHighlight.SetActive(false);
         UnitManager.instance.selectedCard = null;
-        GameObject.Find("Camera Pivot").GetComponent<CameraMove>().selecting = false;
     }
 
     public void CheckStatus()

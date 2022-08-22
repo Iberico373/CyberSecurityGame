@@ -76,7 +76,6 @@ public class DisplayCard : MonoBehaviour
 
                 if (UnitManager.instance.selectedCharacter.GetComponent<Deck>().ram > 0)
                 {
-                    GameObject.Find("Camera Pivot").GetComponent<CameraMove>().selecting = true;
                     HighlightCard();
                     cardSO.cardEffect.UseEffect();
                 }
