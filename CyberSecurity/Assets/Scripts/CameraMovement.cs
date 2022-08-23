@@ -20,7 +20,6 @@ public class CameraMovement : MonoBehaviour
     [SerializeField]
     private int mapMaxZ;
 
-
     public bool playing;
 
     private Vector3 dragOrigin;
@@ -70,25 +69,37 @@ public class CameraMovement : MonoBehaviour
             {
                 dragCurrentPos = ray.GetPoint(entry);
 
-                newPos = transform.position + (dragOrigin - dragCurrentPos).normalized * speed * Time.deltaTime;
-                //ClampCamera(transform.position + (dragOrigin - dragCurrentPos).normalized * speed * Time.deltaTime);
+                //newPos = transform.position + (dragOrigin - dragCurrentPos).normalized * speed * Time.deltaTime;
+                newPos = ClampCamera(transform.position + (dragOrigin - dragCurrentPos).normalized * speed * Time.deltaTime);
+                //ClampCamera(transform.position);
             }
         }
     }
 
     Vector3 ClampCamera(Vector3 targetPosition)
     {
-        float camHeight = cam.orthographicSize;
-        float camWidth = cam.orthographicSize * cam.aspect;
+        if(targetPosition.x < mapMinX || targetPosition.x > mapMaxX || targetPosition.z > mapMaxZ || targetPosition.z < mapMinZ)
+        {
+            Vector3 extraPos;
 
-        float minX = mapMinX + camWidth;
-        float maxX = mapMaxX - camWidth;
-        float minZ = mapMinZ + camHeight;
-        float maxZ = mapMaxZ - camHeight;
+            //float camHeight = cam.orthographicSize;
+            //float camWidth = cam.orthographicSize * cam.aspect;
 
-        float newX = Mathf.Clamp(targetPosition.x, minX, maxX);
-        float newZ = Mathf.Clamp(targetPosition.z, minZ, maxZ);
+            //float minX = mapMinX + camWidth;
+            //float maxX = mapMaxX - camWidth;
+            //float minZ = mapMinZ + camHeight;
+            //float maxZ = mapMaxZ - camHeight;
 
-        return new Vector3(newX, targetPosition.y, newZ);
+            float newX = -(transform.position.x + (dragOrigin.x - dragCurrentPos.x) * speed * Time.deltaTime);
+            float newZ = -(transform.position.z + (dragOrigin.z - dragCurrentPos.z) * speed * Time.deltaTime);
+            extraPos = new Vector3(newX,0,newZ).normalized * 0.1f;
+            Vector3 clampedPos = transform.position + extraPos;
+            return clampedPos;
+
+        }
+        else
+        {
+            return targetPosition;
+        }
     }
 }

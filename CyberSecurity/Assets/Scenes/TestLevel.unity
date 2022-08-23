@@ -983,10 +983,10 @@ MonoBehaviour:
   cam: {fileID: 1210069569}
   resetPos: {x: 0, y: 0, z: 0}
   speed: 150
-  mapMinX: 0
-  mapMaxX: 0
-  mapMinZ: 0
-  mapMaxZ: 0
+  mapMinX: -45
+  mapMaxX: 45
+  mapMinZ: -45
+  mapMaxZ: 45
   playing: 0
 --- !u!1001 &376972169
 PrefabInstance:
@@ -4866,7 +4866,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2445148980492316543, guid: 1d4389c2b469b374a868afd98d4f0aeb, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2445148980492316543, guid: 1d4389c2b469b374a868afd98d4f0aeb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5446,7 +5446,7 @@ PrefabInstance:
       objectReference: {fileID: 1044322901}
     - target: {fileID: 4340961011917607580, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4340961011917607580, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6850,8 +6850,8 @@ MonoBehaviour:
   hand: []
   discard: []
   card: {fileID: 4125792743563677905, guid: 44b44016528268643b29cae55cc90c47, type: 3}
-  deckParent: {fileID: 0}
-  panel: {fileID: 0}
+  deckParent: {fileID: 1637253408}
+  panel: {fileID: 1573402134}
   manager: {fileID: 0}
   deckSize: 20
   ram: 0
@@ -8029,8 +8029,8 @@ MonoBehaviour:
   hand: []
   discard: []
   card: {fileID: 4125792743563677905, guid: 44b44016528268643b29cae55cc90c47, type: 3}
-  deckParent: {fileID: 0}
-  panel: {fileID: 0}
+  deckParent: {fileID: 1637253408}
+  panel: {fileID: 1573402134}
   manager: {fileID: 0}
   deckSize: 20
   ram: 0
