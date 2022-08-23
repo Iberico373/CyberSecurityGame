@@ -880,12 +880,29 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
+<<<<<<< Updated upstream
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &116298902
 MeshRenderer:
+=======
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48e93ad29af44ca43bc1d865dcb5faa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 1210069569}
+  resetPos: {x: 0, y: 0, z: 0}
+  speed: 150
+  mapMinX: -50
+  mapMaxX: 72
+  mapMinZ: -50
+  mapMaxZ: 72
+  playing: 0
+--- !u!1001 &376972169
+PrefabInstance:
+>>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -14181,7 +14198,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e3d652a86d603f42b56f6ad7072ef82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
 --- !u!114 &1820659851
+=======
+  deck: []
+  hand: []
+  discard: []
+  card: {fileID: 4125792743563677905, guid: 44b44016528268643b29cae55cc90c47, type: 3}
+  deckParent: {fileID: 1637253408}
+  panel: {fileID: 1573402134}
+  deckSize: 20
+  ram: 0
+--- !u!114 &1425397580
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15447,7 +15476,73 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2090720030}
   m_CullTransparentMesh: 1
+<<<<<<< Updated upstream
 --- !u!1 &2110084730
+=======
+--- !u!1 &1853044600 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8516336956864748772, guid: 104f71d6908cecf47bea3373a0201709, type: 3}
+  m_PrefabInstance: {fileID: 823319070}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1853044601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853044600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fddd4ebfc96f7a54e85312eea764d18d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deck: []
+  hand: []
+  discard: []
+  card: {fileID: 4125792743563677905, guid: 44b44016528268643b29cae55cc90c47, type: 3}
+  deckParent: {fileID: 1637253408}
+  panel: {fileID: 1573402134}
+  deckSize: 20
+  ram: 0
+--- !u!4 &1853044605 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9042044958588274270, guid: 104f71d6908cecf47bea3373a0201709, type: 3}
+  m_PrefabInstance: {fileID: 823319070}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1853044608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853044600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d65fb257e4a8604b94a4560aac0679c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1
+  speed: 3
+  health: 50
+  maxHealth: 0
+  movementSpeed: 0
+  isDetected: 0
+  startTurn: 0
+  downed: 0
+  isAlive: 0
+  isStunned: 0
+  isCorrupted: 0
+  anim: {fileID: 0}
+  pointer: {fileID: 644018321}
+  aura: {fileID: 0}
+  turnOrderDisplay: {fileID: 3210644842802450728, guid: 9564803e49c19c7478e4b4688c26d30e, type: 3}
+  gameManager: {fileID: 0}
+  scanobj: {fileID: 0}
+  scancomplete: {fileID: 0}
+  Takeover: {fileID: 0}
+  Takeovercomplete: {fileID: 0}
+--- !u!1 &1872039603
+>>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

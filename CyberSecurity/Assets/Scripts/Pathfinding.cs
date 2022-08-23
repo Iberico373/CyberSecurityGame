@@ -47,7 +47,10 @@ public class Pathfinding : MonoBehaviour
             if (radius - neighbour.cost >= 0)
             {
                 //Add neighbour to ui
-                ui.Add(neighbour);
+                if(neighbour.walkable)
+                {
+                    ui.Add(neighbour);
+                }
             }
         }
 
