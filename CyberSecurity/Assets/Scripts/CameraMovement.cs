@@ -78,16 +78,16 @@ public class CameraMovement : MonoBehaviour
 
     Vector3 ClampCamera(Vector3 targetPosition)
     {
-        float camHeight = cam.orthographicSize;
-        float camWidth = cam.orthographicSize * cam.aspect;
+        float camheight = cam.orthographicSize;
+        float camwidth = cam.orthographicSize * cam.aspect;
 
-        float minX = mapMinX + camWidth;
-        float maxX = mapMaxX - camWidth;
-        float minZ = mapMinZ + camHeight;
-        float maxZ = mapMaxZ - camHeight;
+        float minx = mapMinX + camwidth;
+        float maxx = mapMaxX - camwidth;
+        float minz = mapMinZ + camheight;
+        float maxz = mapMaxZ - camheight;
 
-        float newX = Mathf.Clamp(targetPosition.x, minX, maxX);
-        float newZ = Mathf.Clamp(targetPosition.z, minZ, maxZ);
+        float newX = Mathf.Clamp(targetPosition.x, mapMinX, mapMaxX);
+        float newZ = Mathf.Clamp(targetPosition.z, mapMinZ, mapMaxZ);
 
         return new Vector3(newX, targetPosition.y, newZ);
     }

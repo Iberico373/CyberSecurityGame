@@ -983,10 +983,10 @@ MonoBehaviour:
   cam: {fileID: 1210069569}
   resetPos: {x: 0, y: 0, z: 0}
   speed: 150
-  mapMinX: 0
-  mapMaxX: 0
-  mapMinZ: 0
-  mapMaxZ: 0
+  mapMinX: -36
+  mapMaxX: 36
+  mapMinZ: -36
+  mapMaxZ: 36
   playing: 0
 --- !u!1001 &376972169
 PrefabInstance:
