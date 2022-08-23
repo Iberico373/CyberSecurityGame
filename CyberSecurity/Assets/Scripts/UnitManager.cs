@@ -15,14 +15,23 @@ public class UnitManager : MonoBehaviour
     public DisplayTurnOrder displayTurnOrder;
     public GameObject selectedCard;
     public GameObject unitGroup;
+<<<<<<< Updated upstream
     public GameObject preventativeDeck;
     public GameObject detectiveDeck;
     public GameObject recoveryDeck;
     public GameObject deterrentDeck;
+=======
+    public GameObject deck;
+>>>>>>> Stashed changes
     public GameObject turnManager;
     public List<Unit> unitList;
     public GameObject Takeover;
     public GameObject Takeovercomplete;
+<<<<<<< Updated upstream
+=======
+
+    DeckUI deckUI;
+>>>>>>> Stashed changes
 
     private void Awake()
     {
