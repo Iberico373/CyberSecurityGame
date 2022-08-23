@@ -49,7 +49,6 @@ public class MyGrid : MonoBehaviour
             gridWorldSize.x / 2 - Vector3.forward * gridWorldSize.y / 2;
 
         CreateGrid();
-
     }
 
     public int MaxSize { get { return gridSizeX * gridSizeY; } }
@@ -98,6 +97,16 @@ public class MyGrid : MonoBehaviour
                 //Instantiate a node with the values of 'worldPoint' and 'walkable'
                 //and assign it to the current index of the grid array
                 grid[x, y] = new Node(walkable, worldPoint, tile, x, y, 1);
+
+                if (grid[x, y].ReturnObject() != null)
+                {
+                    grid[x, y].cost = Mathf.Infinity;
+                }
+
+                else
+                {
+                    grid[x, y].cost = 1;
+                }
             }
         }
     }
@@ -132,6 +141,16 @@ public class MyGrid : MonoBehaviour
             {
                 Vector3 worldPoint = grid[x, y].worldPos;
                 grid[x, y].walkable = !Physics.CheckSphere(worldPoint, nodeRadius, obstacleMask);
+
+                if (grid[x,y].ReturnObject() != null)
+                {
+                    grid[x, y].cost = Mathf.Infinity;
+                }
+
+                else
+                {
+                    grid[x, y].cost = 1;
+                }
             }
         }
     }

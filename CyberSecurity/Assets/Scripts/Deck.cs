@@ -10,7 +10,6 @@ public class Deck : MonoBehaviour
     public GameObject card;
     public Transform deckParent;
     public Transform panel;
-    public UnitManager manager;
     public int deckSize;
     public int ram;
 

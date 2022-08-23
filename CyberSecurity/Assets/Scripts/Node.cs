@@ -15,7 +15,7 @@ public class Node : IHeapItem<Node>
     //y position of the node relative to the grid
     public int gridY;
     //Movement cost of a tile
-    public int cost;
+    public float cost;
 
     //Distance from starting node
     public int gCost;
