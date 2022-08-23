@@ -15,10 +15,8 @@ public class UnitManager : MonoBehaviour
     public GameObject selectedCard;
     public GameObject unitGroup;
     public GameObject deck;
-    public GameObject turnManager;
-    public List<Unit> unitList;
-    public GameObject Takeover;
-    public GameObject Takeovercomplete;
+    public GameObject objectives;
+    public List<Unit> unitList;    
 
     DeckUI deckUI;
 

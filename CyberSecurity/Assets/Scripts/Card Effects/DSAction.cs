@@ -43,11 +43,12 @@ public class DSAction : Effect
                             {
                                 character.GetComponent<DataStructure>()._currentState = State.Preventative;
                                 manager.selectedCharacter.GetComponent<Unit>().UseCard();
-                                tutorial.SetTutorial(2);
+                                
                                 if (SceneManager.GetActiveScene().name == "TestLevel")
                                 {
-                                    manager.Takeover.SetActive(false);
-                                    manager.Takeovercomplete.SetActive(true);
+                                    manager.objectives.GetComponent<TutorialObject>().takeovercomp.SetActive(true);
+                                    manager.objectives.GetComponent<TutorialObject>().takeover.SetActive(false);
+                                    tutorial.SetTutorial(2);
                                 }
                                 
                             }
@@ -59,8 +60,8 @@ public class DSAction : Effect
                                 
                                 if (SceneManager.GetActiveScene().name == "TestLevel")
                                 {
-                                    manager.Takeover.SetActive(false);
-                                    manager.Takeovercomplete.SetActive(true);
+                                    manager.objectives.GetComponent<TutorialObject>().takeovercomp.SetActive(true);
+                                    manager.objectives.GetComponent<TutorialObject>().takeover.SetActive(false);
                                     tutorial.SetTutorial(2);
                                 }
                             }

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 [CreateAssetMenu(fileName = "Heal", menuName = "Effect/Heal")]
 public class Heal : Effect
 {
@@ -38,6 +40,11 @@ public class Heal : Effect
                             manager.selectedCharacter.transform.LookAt(character.transform);
                             manager.selectedCharacter.anim.SetTrigger("Heal");
                             manager.selectedCharacter.GetComponent<Unit>().UseCard();
+                            if (SceneManager.GetActiveScene().name == "Level1")
+                            {
+                                manager.objectives.GetComponent<Level1Object>().heal.SetActive(false);
+                                manager.objectives.GetComponent<Level1Object>().healcomp.SetActive(true);
+                            }
                             Instantiate(healExpansion, character.transform);
 
                             if (character.GetComponent<Unit>().health + heal > character.GetComponent<Unit>().maxHealth)
