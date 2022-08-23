@@ -10,28 +10,14 @@ public class Deck : MonoBehaviour
     public GameObject card;
     public Transform deckParent;
     public Transform panel;
-    public UnitManager manager;
-    public TMPro.TextMeshProUGUI nameText;
-    public Text totalDraw;
-    public Text totalDiscard;
-    public Text currentRam;
     public int deckSize;
     public int ram;
 
     private void Awake()
     {
         CreateDeck();
-        Draw();
-
-        nameText.text = transform.name;
     }
 
-    private void Update()
-    {
-        totalDraw.text = deck.Count.ToString();
-        totalDiscard.text = discard.Count.ToString();
-        currentRam.text = ram.ToString();
-    }
     void CreateDeck()
     {
         while (deck.Count < deckSize)
@@ -82,6 +68,12 @@ public class Deck : MonoBehaviour
 
     public void Draw()
     {
+        if (deck.Count <= 0)
+        {
+            Shuffle(discard);
+            return;
+        }
+
         for (int i = 0; i < 5; i++)
         {
             hand.Add(deck[0]);
@@ -95,16 +87,6 @@ public class Deck : MonoBehaviour
 
     public void Shuffle(List<CardSO> cardList)
     {
-        //System.Random _random = new System.Random();
-
-        //for (int i = cardList.Count - 1; i > 1; i--)
-        //{
-        //    int random = _random.Next(i + 1);
-        //    CardSO t = cardList[random];
-        //    cardList[random] = cardList[i];
-        //    cardList[i] = t;
-        //}
-
         int listAmount = cardList.Count;
 
         if (cardList == discard)
@@ -132,16 +114,6 @@ public class Deck : MonoBehaviour
         foreach (Transform child in panel)
         {
             Destroy(child.gameObject);
-        }
-
-        if (deck.Count > 0)
-        {
-            Draw();
-        }
-
-        else
-        {
-            Shuffle(discard);
         }
     }
 

@@ -34,16 +34,6 @@ public class Blast : Effect
 
                     if (blastTiles.Contains(node) && character.CompareTag("Malware"))
                     {
-<<<<<<< Updated upstream
-                        manager.selectedCharacter.transform.LookAt(character.transform.position);
-                        manager.selectedCharacter.anim.SetTrigger("Attack");
-                        manager.selectedCharacter.GetComponent<Unit>().UseCard();
-                        target = character;
-                        //Vector3 dir = (character.transform.position - manager.selectedCharacter.transform.position).normalized;
-                        //character.transform.position = character.transform.position + dir * manager.grid.nodeRadius * 2;
-                        //character.GetComponent<BaseAI>().aggrolist.Insert(0, manager.selectedCharacter.gameObject);
-                        //manager.grid.UpdateGrid();
-=======
                         Vector3 dir = (character.transform.position - manager.selectedCharacter.transform.position).normalized;
                         Vector3 targetPos = character.transform.position + dir * manager.grid.nodeRadius * 2;
 
@@ -53,7 +43,6 @@ public class Blast : Effect
                             manager.selectedCharacter.anim.SetTrigger("Attack");
                             manager.selectedCharacter.GetComponent<Unit>().UseCard();
                         }
->>>>>>> Stashed changes
                     }
 
                     manager.selectedCharacter.GetComponent<Unit>().DeselectCard();

@@ -25,13 +25,8 @@ public class Unit : MonoBehaviour
     public GameObject scancomplete;
     public GameObject Takeover;
     public GameObject Takeovercomplete;
-<<<<<<< Updated upstream
-    public GameObject Killbot;
-    public GameObject Killbotcomplete;
-=======
     //public GameObject Killbot;
     //public GameObject Killbotcomplete;
->>>>>>> Stashed changes
 
     PathRequestManager request;    
     Vector3[] path;
@@ -42,10 +37,6 @@ public class Unit : MonoBehaviour
         request = GameObject.Find("Grid").GetComponent<PathRequestManager>();
         anim = GetComponent<Animator>();
         maxHealth = health;
-        if (!gameObject.CompareTag("Malware"))
-        {
-            isDetected = true;
-        }
     }
 
     private void Update()
@@ -68,13 +59,8 @@ public class Unit : MonoBehaviour
         
         else
         {
-<<<<<<< Updated upstream
-            Killbot.SetActive(false);
-            Killbotcomplete.SetActive(true);
-=======
             //Killbot.SetActive(false);
             //Killbotcomplete.SetActive(true);
->>>>>>> Stashed changes
             isAlive = false;
             FindObjectOfType<GameManager>().WinGame();
             isAlive = false;
@@ -158,7 +144,6 @@ public class Unit : MonoBehaviour
     {
         UnitManager.instance.selectedCard.GetComponent<DisplayCard>().cardHighlight.SetActive(false);
         UnitManager.instance.selectedCard = null;
-        GameObject.Find("Camera Pivot").GetComponent<CameraMove>().selecting = false;
     }
 
     public void CheckStatus()

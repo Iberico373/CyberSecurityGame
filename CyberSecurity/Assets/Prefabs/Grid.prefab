@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3297529765757094516}
   - component: {fileID: 3297529765757094517}
+  - component: {fileID: 4054614059565073282}
   - component: {fileID: 3297529765757094514}
   - component: {fileID: 3297529765757094515}
-  - component: {fileID: 3297529765757094519}
   - component: {fileID: 3297529765757094518}
-  - component: {fileID: 3297529765757094505}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -32,7 +31,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -59,6 +57,30 @@ MonoBehaviour:
   standard: {fileID: 2100000, guid: 2c1c07fbeec088149a7c20881134059c, type: 2}
   highlight: {fileID: 2100000, guid: afdb2b98afe7a834c88d771a6e06d799, type: 2}
   attackHighlight: {fileID: 2100000, guid: d0375581c614c0d4ebd0fcfdd220e86b, type: 2}
+--- !u!114 &4054614059565073282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3297529765757094512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d7f8f24a36babd4bbfe0672dfbaeaaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grid: {fileID: 3297529765757094517}
+  pathfinding: {fileID: 3297529765757094514}
+  selectedCharacter: {fileID: 0}
+  effect: {fileID: 0}
+  displayTurnOrder: {fileID: 0}
+  selectedCard: {fileID: 0}
+  unitGroup: {fileID: 0}
+  deck: {fileID: 0}
+  turnManager: {fileID: 0}
+  unitList: []
+  Takeover: {fileID: 0}
+  Takeovercomplete: {fileID: 0}
 --- !u!114 &3297529765757094514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,30 +105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e3d652a86d603f42b56f6ad7072ef82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3297529765757094519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3297529765757094512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d7f8f24a36babd4bbfe0672dfbaeaaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grid: {fileID: 3297529765757094517}
-  pathfinding: {fileID: 3297529765757094514}
-  selectedCharacter: {fileID: 0}
-  effect: {fileID: 0}
-  selectedCard: {fileID: 0}
-  unitGroup: {fileID: 0}
-  preventativeDeck: {fileID: 0}
-  detectiveDeck: {fileID: 0}
-  turnManager: {fileID: 0}
-  unitList: []
-  Takeover: {fileID: 0}
-  Takeovercomplete: {fileID: 0}
 --- !u!114 &3297529765757094518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,17 +118,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cards: {fileID: 11400000, guid: 0008b60fe007a494bbe75f14d5a25d29, type: 2}
---- !u!114 &3297529765757094505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3297529765757094512}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2582d636606b85143ae67054c7ba1c82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playing: 0
-  cam: {fileID: 0}

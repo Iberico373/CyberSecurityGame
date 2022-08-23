@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class UnitManager : MonoBehaviour
@@ -15,23 +14,13 @@ public class UnitManager : MonoBehaviour
     public DisplayTurnOrder displayTurnOrder;
     public GameObject selectedCard;
     public GameObject unitGroup;
-<<<<<<< Updated upstream
-    public GameObject preventativeDeck;
-    public GameObject detectiveDeck;
-    public GameObject recoveryDeck;
-    public GameObject deterrentDeck;
-=======
     public GameObject deck;
->>>>>>> Stashed changes
     public GameObject turnManager;
     public List<Unit> unitList;
     public GameObject Takeover;
     public GameObject Takeovercomplete;
-<<<<<<< Updated upstream
-=======
 
     DeckUI deckUI;
->>>>>>> Stashed changes
 
     private void Awake()
     {
@@ -44,6 +33,8 @@ public class UnitManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        deckUI = deck.GetComponent<DeckUI>();
 
         SortTurnOrder();
         SwitchState();
@@ -81,6 +72,8 @@ public class UnitManager : MonoBehaviour
                 }
             }
         }
+
+        selectedCharacter = unitList[0];
     }
 
     void NextUnit()
@@ -88,12 +81,11 @@ public class UnitManager : MonoBehaviour
         Unit temp = unitList[0];
         unitList.Remove(unitList[0]);
         unitList.Insert(unitList.Count, temp);
+        selectedCharacter = unitList[0];
     }
 
     void SwitchState()
     {
-        selectedCharacter = unitList[0];
-
         switch (selectedCharacter.id)
         {
             case 0:
@@ -104,10 +96,8 @@ public class UnitManager : MonoBehaviour
 
                 else
                 {
-                    preventativeDeck.SetActive(true);
-                    detectiveDeck.SetActive(false);
-                    recoveryDeck.SetActive(false);
-                    deterrentDeck.SetActive(false);
+                    deck.SetActive(true);
+                    selectedCharacter.GetComponent<Deck>().Draw();
                     selectedCharacter.pointer.SetActive(true);
                     selectedCharacter.CheckStatus();
                 }
@@ -122,10 +112,8 @@ public class UnitManager : MonoBehaviour
 
                 else
                 {
-                    preventativeDeck.SetActive(false);
-                    detectiveDeck.SetActive(true);
-                    recoveryDeck.SetActive(false);
-                    deterrentDeck.SetActive(false);
+                    deck.SetActive(true);
+                    selectedCharacter.GetComponent<Deck>().Draw();
                     selectedCharacter.pointer.SetActive(true);
                     selectedCharacter.CheckStatus();
                 }
@@ -140,10 +128,8 @@ public class UnitManager : MonoBehaviour
 
                 else
                 {
-                    preventativeDeck.SetActive(false);
-                    detectiveDeck.SetActive(false);
-                    recoveryDeck.SetActive(true);
-                    deterrentDeck.SetActive(false);
+                    deck.SetActive(true);
+                    selectedCharacter.GetComponent<Deck>().Draw();
                     selectedCharacter.pointer.SetActive(true);
                     selectedCharacter.CheckStatus();
                 }
@@ -158,10 +144,8 @@ public class UnitManager : MonoBehaviour
 
                 else
                 {
-                    preventativeDeck.SetActive(false);
-                    detectiveDeck.SetActive(false);
-                    recoveryDeck.SetActive(false);
-                    deterrentDeck.SetActive(true);
+                    deck.SetActive(true);
+                    selectedCharacter.GetComponent<Deck>().Draw();
                     selectedCharacter.pointer.SetActive(true);
                     selectedCharacter.CheckStatus();
                 }
@@ -183,10 +167,7 @@ public class UnitManager : MonoBehaviour
                         break;
                     }
 
-                    preventativeDeck.SetActive(false);
-                    detectiveDeck.SetActive(false);
-                    recoveryDeck.SetActive(false);
-                    deterrentDeck.SetActive(false);
+                    deck.SetActive(false);
                     selectedCharacter.pointer.SetActive(true);
                     selectedCharacter.GetComponent<RansomwareAI>().SelectTarget();
                 }
@@ -208,10 +189,7 @@ public class UnitManager : MonoBehaviour
                         break;
                     }
 
-                    preventativeDeck.SetActive(false);
-                    detectiveDeck.SetActive(false);
-                    recoveryDeck.SetActive(false);
-                    deterrentDeck.SetActive(false);
+                    deck.SetActive(false);
                     selectedCharacter.pointer.SetActive(true);
                     selectedCharacter.GetComponent<VirusAI>().SelectTarget();
                 }
@@ -233,10 +211,7 @@ public class UnitManager : MonoBehaviour
                         break;
                     }
 
-                    preventativeDeck.SetActive(false);
-                    detectiveDeck.SetActive(false);
-                    recoveryDeck.SetActive(false);
-                    deterrentDeck.SetActive(false);
+                    deck.SetActive(false);
                     selectedCharacter.pointer.SetActive(true);
                     selectedCharacter.GetComponent<BotAI>().SelectTarget();
                 }
@@ -244,12 +219,10 @@ public class UnitManager : MonoBehaviour
                 break;
 
             case 7:
-                preventativeDeck.SetActive(false);
-                detectiveDeck.SetActive(false);
-                recoveryDeck.SetActive(false);
-                deterrentDeck.SetActive(false);
-                selectedCharacter.pointer.SetActive(true);
+                deck.SetActive(false);
+                //selectedCharacter.pointer.SetActive(true);
                 selectedCharacter.CheckStatus();
+
                 if (selectedCharacter.GetComponent<DataStructure>()._currentState != State.None)
                 {
                     selectedCharacter.GetComponent<DataStructure>().StateEffect();
@@ -272,9 +245,15 @@ public class UnitManager : MonoBehaviour
             selectedCharacter.GetComponent<Deck>().Discard();
         }
 
-        selectedCharacter.pointer.SetActive(false);
+        if (selectedCharacter.id != 7)
+        {
+            selectedCharacter.pointer.SetActive(false);
+        }        
+
         NextUnit();
+        deckUI.UpdateUIValues();
         displayTurnOrder.UpdateTurnOrder();
+
         SwitchState();
     }
 }

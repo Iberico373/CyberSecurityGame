@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class BaseAI : Unit
 {
@@ -10,6 +9,11 @@ public class BaseAI : Unit
     public Vector3 targetPos;
     public List<GameObject> aggrolist;
     public List<GameObject> infectedDS = new List<GameObject>();
+
+    private void Start()
+    {
+        isDetected = false;
+    }
 
     public void GetAggroList()
     {

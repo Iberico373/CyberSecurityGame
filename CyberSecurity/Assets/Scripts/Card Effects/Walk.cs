@@ -45,6 +45,7 @@ public class Walk : Effect
                         {
                             tutorial.SetTutorial(1);
                         }
+
                         manager.selectedCharacter.Move(node.worldPos);
                         
                     }

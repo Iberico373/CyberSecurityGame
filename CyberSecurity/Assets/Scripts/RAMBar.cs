@@ -6,6 +6,7 @@ public class RAMBar : MonoBehaviour
 {
     public Deck deck;
     public Slider ramBar;
+
     // Start is called before the first frame update
     void Start()
     {
