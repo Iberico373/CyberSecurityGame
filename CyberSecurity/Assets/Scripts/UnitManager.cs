@@ -218,7 +218,7 @@ public class UnitManager : MonoBehaviour
 
             case 7:
                 deck.SetActive(false);
-                selectedCharacter.pointer.SetActive(true);
+                //selectedCharacter.pointer.SetActive(true);
                 selectedCharacter.CheckStatus();
 
                 if (selectedCharacter.GetComponent<DataStructure>()._currentState != State.None)
@@ -243,7 +243,10 @@ public class UnitManager : MonoBehaviour
             selectedCharacter.GetComponent<Deck>().Discard();
         }
 
-        selectedCharacter.pointer.SetActive(false);
+        if (selectedCharacter.id != 7)
+        {
+            selectedCharacter.pointer.SetActive(false);
+        }        
 
         NextUnit();
         deckUI.UpdateUIValues();

@@ -46,9 +46,9 @@ public class DSAction : Effect
                                 
                                 if (SceneManager.GetActiveScene().name == "TestLevel")
                                 {
-                                    manager.objectives.GetComponent<TutorialObject>().takeovercomp.SetActive(true);
-                                    manager.objectives.GetComponent<TutorialObject>().takeover.SetActive(false);
                                     tutorial.SetTutorial(2);
+                                    manager.Takeover.SetActive(false);
+                                    manager.Takeovercomplete.SetActive(true);
                                 }
                                 
                             }
@@ -60,8 +60,8 @@ public class DSAction : Effect
                                 
                                 if (SceneManager.GetActiveScene().name == "TestLevel")
                                 {
-                                    manager.objectives.GetComponent<TutorialObject>().takeovercomp.SetActive(true);
-                                    manager.objectives.GetComponent<TutorialObject>().takeover.SetActive(false);
+                                    manager.Takeover.SetActive(false);
+                                    manager.Takeovercomplete.SetActive(true);
                                     tutorial.SetTutorial(2);
                                 }
                             }

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = "Blast", menuName = "Effect/Blast")]
 public class Blast : Effect
@@ -35,19 +34,15 @@ public class Blast : Effect
 
                     if (blastTiles.Contains(node) && character.CompareTag("Malware"))
                     {
-                        manager.selectedCharacter.transform.LookAt(character.transform.position);
-                        manager.selectedCharacter.anim.SetTrigger("Attack");
-                        manager.selectedCharacter.GetComponent<Unit>().UseCard();
-                        if (SceneManager.GetActiveScene().name == "Level1")
+                        Vector3 dir = (character.transform.position - manager.selectedCharacter.transform.position).normalized;
+                        Vector3 targetPos = character.transform.position + dir * manager.grid.nodeRadius * 2;
+
+                        if (manager.grid.NodeFromWorldPoint(targetPos).ReturnObject() == null)
                         {
-                            manager.objectives.GetComponent<Level1Object>().push.SetActive(false);
-                            manager.objectives.GetComponent<Level1Object>().pushcomp.SetActive(true);
+                            manager.selectedCharacter.transform.LookAt(character.transform.position);
+                            manager.selectedCharacter.anim.SetTrigger("Attack");
+                            manager.selectedCharacter.GetComponent<Unit>().UseCard(); 
                         }
-                        target = character;
-                        //Vector3 dir = (character.transform.position - manager.selectedCharacter.transform.position).normalized;
-                        //character.transform.position = character.transform.position + dir * manager.grid.nodeRadius * 2;
-                        //character.GetComponent<BaseAI>().aggrolist.Insert(0, manager.selectedCharacter.gameObject);
-                        //manager.grid.UpdateGrid();
                     }
 
                     manager.selectedCharacter.GetComponent<Unit>().DeselectCard();
