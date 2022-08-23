@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 0a7f7f080cc81ff459b42c9d02e6ad99, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -1913,10 +1913,6 @@ MonoBehaviour:
   aura: {fileID: 0}
   turnOrderDisplay: {fileID: 3210644842802450728, guid: 9564803e49c19c7478e4b4688c26d30e, type: 3}
   gameManager: {fileID: 0}
-  objectives: {fileID: 0}
-  level1obj: {fileID: 0}
-  level2obj: {fileID: 0}
-  level3obj: {fileID: 0}
 --- !u!114 &502563508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3127,10 +3123,6 @@ MonoBehaviour:
   aura: {fileID: 0}
   turnOrderDisplay: {fileID: 3412011386547034564, guid: 674c27796500d0c41a6491ca495d15ab, type: 3}
   gameManager: {fileID: 0}
-  objectives: {fileID: 0}
-  level1obj: {fileID: 0}
-  level2obj: {fileID: 0}
-  level3obj: {fileID: 0}
 --- !u!114 &835445595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6240,10 +6232,6 @@ MonoBehaviour:
   aura: {fileID: 0}
   turnOrderDisplay: {fileID: 0}
   gameManager: {fileID: 0}
-  objectives: {fileID: 0}
-  level1obj: {fileID: 0}
-  level2obj: {fileID: 0}
-  level3obj: {fileID: 0}
 --- !u!23 &1820690242 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 4302213589125686061, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
@@ -7164,21 +7152,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 7, z: 4}
   m_Center: {x: 0, y: 3.7, z: 0}
---- !u!114 &919132149290530608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149290530606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b58f553caa93aee4f9362a5ce243d0bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 11400000, guid: 32e94c9125bd1564bbb8fa7c8caa2650, type: 2}
-  strike: {fileID: 0}
-  waves: {fileID: 5299541203482525432, guid: c891c45025ea5e14bab527ccffa89d78, type: 3}
 --- !u!224 &1230101157777892016
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7533,6 +7506,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1433661569}
     m_Modifications:
+    - target: {fileID: 3284945974677746411, guid: 3a8fdd26c20d72a49aebe791a4239899, type: 3}
+      propertyPath: waves
+      value: 
+      objectReference: {fileID: 5299541203482525432, guid: c891c45025ea5e14bab527ccffa89d78, type: 3}
     - target: {fileID: 6225540415122078140, guid: 3a8fdd26c20d72a49aebe791a4239899, type: 3}
       propertyPath: m_Name
       value: Deterrent Control

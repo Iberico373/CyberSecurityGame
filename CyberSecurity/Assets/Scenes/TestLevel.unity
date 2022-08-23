@@ -123,6 +123,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &96406303 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3996348351227037734, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
+  m_PrefabInstance: {fileID: 1044322899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &96406304
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96406303}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9064636, y: 12.608831, z: 2.005087}
+  m_Center: {x: 0.04776573, y: 5.8044157, z: -0.034062386}
 --- !u!1 &114253855
 GameObject:
   m_ObjectHideFlags: 0
@@ -1818,7 +1836,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8186823390792574363, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8186823390792574367, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
       propertyPath: m_RootOrder
@@ -5461,7 +5479,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3996348351227037734, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
       propertyPath: m_Name
-      value: DataStructure
+      value: Data Structure
       objectReference: {fileID: 0}
     - target: {fileID: 4302213589267663000, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
       propertyPath: render
@@ -5481,7 +5499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4340961011917607580, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4340961011917607580, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6759,11 +6777,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1803493440254597750, guid: f52fd661b471998449c7ae0239b83428, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2677609842861859346, guid: f52fd661b471998449c7ae0239b83428, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6956453453745350319, guid: f52fd661b471998449c7ae0239b83428, type: 3}
       propertyPath: m_Name
@@ -6771,7 +6789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6956453453745350319, guid: f52fd661b471998449c7ae0239b83428, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7321956781349771136, guid: f52fd661b471998449c7ae0239b83428, type: 3}
       propertyPath: m_Name
@@ -7009,7 +7027,6 @@ MonoBehaviour:
   card: {fileID: 4125792743563677905, guid: 44b44016528268643b29cae55cc90c47, type: 3}
   deckParent: {fileID: 1637253408}
   panel: {fileID: 1573402134}
-  manager: {fileID: 0}
   deckSize: 20
   ram: 0
 --- !u!114 &1425397580
@@ -7040,10 +7057,6 @@ MonoBehaviour:
   aura: {fileID: 0}
   turnOrderDisplay: {fileID: 3412011386547034564, guid: 674c27796500d0c41a6491ca495d15ab, type: 3}
   gameManager: {fileID: 0}
-  objectives: {fileID: 1957488062}
-  level1obj: {fileID: 0}
-  level2obj: {fileID: 0}
-  level3obj: {fileID: 0}
 --- !u!1 &1488233214
 GameObject:
   m_ObjectHideFlags: 0
@@ -7761,10 +7774,6 @@ MonoBehaviour:
   aura: {fileID: 0}
   turnOrderDisplay: {fileID: 0}
   gameManager: {fileID: 0}
-  objectives: {fileID: 0}
-  level1obj: {fileID: 0}
-  level2obj: {fileID: 0}
-  level3obj: {fileID: 0}
 --- !u!1 &1820659849
 GameObject:
   m_ObjectHideFlags: 0
@@ -8038,7 +8047,6 @@ MonoBehaviour:
   card: {fileID: 4125792743563677905, guid: 44b44016528268643b29cae55cc90c47, type: 3}
   deckParent: {fileID: 1637253408}
   panel: {fileID: 1573402134}
-  manager: {fileID: 0}
   deckSize: 20
   ram: 0
 --- !u!4 &1853044605 stripped
@@ -8074,10 +8082,6 @@ MonoBehaviour:
   aura: {fileID: 0}
   turnOrderDisplay: {fileID: 3210644842802450728, guid: 9564803e49c19c7478e4b4688c26d30e, type: 3}
   gameManager: {fileID: 0}
-  objectives: {fileID: 1957488062}
-  level1obj: {fileID: 0}
-  level2obj: {fileID: 0}
-  level3obj: {fileID: 0}
 --- !u!1 &1872039603
 GameObject:
   m_ObjectHideFlags: 0

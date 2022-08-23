@@ -44,6 +44,8 @@ public class Walk : Effect
                         if(SceneManager.GetActiveScene().name == "TestLevel")
                         {
                             tutorial.SetTutorial(1);
+                            manager.objectives.GetComponent<TutorialObject>().scan.SetActive(false);
+                            manager.objectives.GetComponent<TutorialObject>().scancomp.SetActive(true);
                         }
 
                         manager.selectedCharacter.Move(node.worldPos);
