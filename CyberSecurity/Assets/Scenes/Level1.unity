@@ -3387,10 +3387,10 @@ MonoBehaviour:
   cam: {fileID: 1562380448}
   resetPos: {x: 0, y: 0, z: 0}
   speed: 150
-  mapMinX: -36
-  mapMaxX: 36
-  mapMinZ: -36
-  mapMaxZ: 36
+  mapMinX: -50
+  mapMaxX: 72
+  mapMinZ: -50
+  mapMaxZ: 72
   playing: 0
 --- !u!1 &978897879
 GameObject:
