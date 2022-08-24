@@ -60,9 +60,9 @@ public class Unit : MonoBehaviour
         }
     }
 
-    public HashSet<Node> Select()
+    public HashSet<Node> Select(bool ignoreObstacle)
     {
-        return request.HighlightMovement(transform.position);
+        return request.HighlightMovement(transform.position, ignoreObstacle);
     }
 
     public void Move(Vector3 targetPos)
@@ -95,7 +95,6 @@ public class Unit : MonoBehaviour
                     {
                         anim.SetBool("Walk", false);
                         startTurn = false;
-                        UnitManager.instance.grid.UpdateGrid();
                         yield break;
                     }
                 }
@@ -109,7 +108,6 @@ public class Unit : MonoBehaviour
                             GetNeighbours(UnitManager.instance.grid.
                             NodeFromWorldPoint(UnitManager.instance.selectedCharacter.transform.position), 1);
                         startTurn = false;
-                        UnitManager.instance.grid.UpdateGrid();
                         yield break;
                     }
                 }

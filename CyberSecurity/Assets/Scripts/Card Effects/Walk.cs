@@ -21,7 +21,7 @@ public class Walk : Effect
 
         manager.grid.ClearGrid();
         manager.effect = this;
-        HashSet<Node> movementTiles = manager.selectedCharacter.Select();
+        HashSet<Node> movementTiles = manager.selectedCharacter.Select(false);
         manager.grid.HighlightGrid(movementTiles);
 
         if (Input.GetButtonDown("Fire1"))

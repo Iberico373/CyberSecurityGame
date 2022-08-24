@@ -26,9 +26,10 @@ public class Pathfinding : MonoBehaviour
     }
 
     //Displays movement radius of a selected unit
-    public HashSet<Node> MovementRadius(Vector3 startPos)
+    public HashSet<Node> MovementRadius(Vector3 startPos, bool ignoreObstacle)
     {
         grid.ClearGrid();
+        grid.UpdateGrid();
 
         Node startingNode = grid.NodeFromWorldPoint(startPos);
 
@@ -61,6 +62,16 @@ public class Pathfinding : MonoBehaviour
                 {
                     if (!final.Contains(neighbour))
                     {
+                        if (tempUi.Contains(neighbour))
+                        {
+                            neighbour.cost = 1;
+                        }
+
+                        if (neighbour.cost == Mathf.Infinity && ignoreObstacle)
+                        {
+                            neighbour.cost = 1;
+                        }
+
                         neighbour.cost = neighbour.cost + n.cost;
 
                         if (radius - neighbour.cost >= 0)
@@ -87,6 +98,9 @@ public class Pathfinding : MonoBehaviour
     //Finds the shortest path from the starting position and the target position
     IEnumerator FindPath(Vector3 startPos, Vector3 targetPos)
     {
+        grid.ClearGrid();
+        grid.UpdateGrid();
+
         waypoints = new Vector3[0];
         startNode = grid.NodeFromWorldPoint(startPos);
         targetNode = grid.NodeFromWorldPoint(targetPos);

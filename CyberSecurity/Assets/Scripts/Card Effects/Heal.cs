@@ -15,7 +15,7 @@ public class Heal : Effect
         manager.grid.ClearGrid();
         manager.effect = this;
 
-        HashSet<Node> scanTiles = manager.selectedCharacter.Select();
+        HashSet<Node> scanTiles = manager.selectedCharacter.Select(true);
         manager.grid.HighlightGrid(scanTiles);
         if (Input.GetButtonDown("Fire1"))
         {

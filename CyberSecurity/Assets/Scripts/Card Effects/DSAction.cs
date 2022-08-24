@@ -18,7 +18,7 @@ public class DSAction : Effect
         manager.grid.ClearGrid();
         manager.effect = this;
 
-        HashSet<Node> actionTiles = manager.selectedCharacter.Select();
+        HashSet<Node> actionTiles = manager.selectedCharacter.Select(true);
         manager.grid.HighlightGrid(actionTiles);
 
         if (Input.GetButtonDown("Fire1"))

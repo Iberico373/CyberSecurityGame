@@ -18,6 +18,5 @@ public class Blasting : MonoBehaviour
 
         strike.transform.position = strike.transform.position + dir * manager.grid.nodeRadius * 2;
         strike.GetComponent<BaseAI>().aggrolist.Insert(0, manager.selectedCharacter.gameObject);
-        manager.grid.UpdateGrid();
     }
 }

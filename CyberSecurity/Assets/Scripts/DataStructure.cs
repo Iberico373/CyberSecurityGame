@@ -36,7 +36,7 @@ public class DataStructure : Unit
     private void Awake()
     {
         manager = UnitManager.instance;
-        nodesInRange = manager.pathfinding.MovementRadius(transform.position);
+        nodesInRange = manager.pathfinding.MovementRadius(transform.position, true);
         adjacentNodes = manager.grid.GetNeighbours(manager.grid.NodeFromWorldPoint(transform.position), 1);
 
     }
@@ -215,7 +215,6 @@ public class DataStructure : Unit
                         botClone.transform.position = n.worldPos;
                         botClone.layer = 3;
                         botClone.GetComponent<BotAI>().GetAggroList();
-                        manager.grid.UpdateGrid();
                         manager.SortTurnOrder();
 
                         botCD++;

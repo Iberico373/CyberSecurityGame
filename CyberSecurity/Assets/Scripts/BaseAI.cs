@@ -78,14 +78,22 @@ public class BaseAI : Unit
         while (true)
         {
             List<Node> AdjacentTiles = manager.grid.GetNeighbours(targetNode, 1);
+            Node openNode = null;
             Node nearestNode = AdjacentTiles[0];
-            List<Node> tempOpen = new List<Node>();
 
             foreach (Node n in AdjacentTiles)
             {
-                if (n.ReturnObject() == null)
+                if (n.walkable)
                 {
-                    tempOpen.Add(n);
+                    if (openNode == null)
+                    {
+                        openNode = n;
+                    }
+
+                    else
+                    {
+                        openNode = CompareNodeDist(openNode, n);
+                    }
                 }
 
                 nearestNode = CompareNodeDist(nearestNode, n);
@@ -93,23 +101,16 @@ public class BaseAI : Unit
 
             if (nearestNode.ReturnObject() != null)
             {
-                if (tempOpen != null)
+                if (openNode != null)
                 {
-                    nearestNode = tempOpen[0];
-
-                    foreach (Node m in tempOpen)
-                    {
-                        nearestNode = CompareNodeDist(nearestNode, m);
-                    }
-
-                    nearestTile = nearestNode.worldPos;
+                    nearestTile = openNode.worldPos;
                     break;
                 }
 
                 else if (nearestNode.ReturnObject().CompareTag("Security Control"))
                 {
                     targetNode = nearestNode;
-                    aggrolist.Add(nearestNode.ReturnObject());
+                    aggrolist.Insert(0, nearestNode.ReturnObject());
                 }
             }
 
@@ -125,8 +126,9 @@ public class BaseAI : Unit
 
     public Node CompareNodeDist(Node nodeA, Node nodeB)
     {
-        if (manager.pathfinding.GetDistance(manager.grid.NodeFromWorldPoint(transform.position), nodeA)
-            > manager.pathfinding.GetDistance(manager.grid.NodeFromWorldPoint(transform.position), nodeB))
+        Node startNode = manager.grid.NodeFromWorldPoint(transform.position);
+
+        if (manager.pathfinding.GetDistance(startNode, nodeA) > manager.pathfinding.GetDistance(startNode, nodeB))
         {
             return nodeB;
         }

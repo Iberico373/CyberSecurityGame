@@ -66,7 +66,7 @@ public class MyGrid : MonoBehaviour
                 //If the area of the node is walkable, color the cube white
                 //If the are of the node is not walkable, color the cube red
                 Gizmos.color = (node.walkable) ? Color.white : Color.red;
-                Gizmos.DrawCube(node.worldPos, Vector3.one * (nodeDiameter - 0.1f));
+                Gizmos.DrawCube(node.worldPos, Vector3.one * nodeDiameter);
             }
         }
     }

@@ -218,7 +218,6 @@ public class UnitManager : MonoBehaviour
 
             case 7:
                 deck.SetActive(false);
-                //selectedCharacter.pointer.SetActive(true);
                 selectedCharacter.CheckStatus();
 
                 if (selectedCharacter.GetComponent<DataStructure>()._currentState != State.None)
