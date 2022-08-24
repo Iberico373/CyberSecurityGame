@@ -3,7 +3,10 @@ guid: b58f553caa93aee4f9362a5ce243d0bc
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - target: {fileID: 11400000, guid: 32e94c9125bd1564bbb8fa7c8caa2650, type: 2}
+  - strike: {instanceID: 0}
+  - waves: {fileID: 5299541203482525432, guid: c891c45025ea5e14bab527ccffa89d78, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

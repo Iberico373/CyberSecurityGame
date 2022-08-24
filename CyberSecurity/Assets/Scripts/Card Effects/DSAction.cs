@@ -50,7 +50,6 @@ public class DSAction : Effect
                                     manager.Takeover.SetActive(false);
                                     manager.Takeovercomplete.SetActive(true);
                                 }
-                                
                             }
 
                             else if (manager.selectedCharacter.name.Equals("Detective Control"))

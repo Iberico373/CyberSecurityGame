@@ -41,6 +41,7 @@ public class Attack : Effect
                         if (character.GetComponent<Unit>().isDetected)
                         {
                             character.GetComponent<Unit>().health -= 10;
+                            character.GetComponent<BaseAI>().anim.SetTrigger("Hurt");
                             character.GetComponent<BaseAI>().aggrolist.Insert(0, manager.selectedCharacter.gameObject);
                         }                        
                     }
