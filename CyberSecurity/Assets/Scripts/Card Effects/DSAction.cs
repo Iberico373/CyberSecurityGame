@@ -34,9 +34,10 @@ public class DSAction : Effect
 
                 if (manager.selectedCharacter != null)
                 {
+
                     if (actionTiles.Contains(node) && character != null)
                     {
-                        if (character.GetComponent<Unit>().id == 7)
+                        if (character.name.Equals("Data Structure"))
                         {
                             if (manager.selectedCharacter.name.Equals("Preventative Control"))
                             {
@@ -46,8 +47,8 @@ public class DSAction : Effect
                                 if (SceneManager.GetActiveScene().name == "TestLevel")
                                 {
                                     tutorial.SetTutorial(2);
-                                    manager.objectives.GetComponent<TutorialObject>().takeover.SetActive(false);
-                                    manager.objectives.GetComponent<TutorialObject>().takeovercomp.SetActive(true);
+                                    manager.Takeover.SetActive(false);
+                                    manager.Takeovercomplete.SetActive(true);
                                 }
                                 
                             }
@@ -59,8 +60,8 @@ public class DSAction : Effect
                                 
                                 if (SceneManager.GetActiveScene().name == "TestLevel")
                                 {
-                                    manager.objectives.GetComponent<TutorialObject>().takeover.SetActive(false);
-                                    manager.objectives.GetComponent<TutorialObject>().takeovercomp.SetActive(true);
+                                    manager.Takeover.SetActive(false);
+                                    manager.Takeovercomplete.SetActive(true);
                                     tutorial.SetTutorial(2);
                                 }
                             }

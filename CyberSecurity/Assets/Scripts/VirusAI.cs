@@ -94,6 +94,7 @@ public class VirusAI : BaseAI
             if (target.GetComponent<DataStructure>().isCorrupted < 5)
             {
                 target.GetComponent<DataStructure>().isCorrupted++;
+                target.GetComponent<DataStructure>()._currentState = State.Virus;
             }
 
             infectedDS.Add(target);

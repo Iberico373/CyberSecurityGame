@@ -145,11 +145,13 @@ public class MyGrid : MonoBehaviour
                 if (grid[x,y].ReturnObject() != null)
                 {
                     grid[x, y].cost = Mathf.Infinity;
+                    grid[x, y].walkable = false;
                 }
 
                 else
                 {
                     grid[x, y].cost = 1;
+                    grid[x, y].walkable = true;
                 }
             }
         }
