@@ -21,6 +21,17 @@ public class VirusAI : BaseAI
     {
         if (health <= 0)
         {
+            if (SceneManager.GetActiveScene().name == "TestLevel")
+            {
+                UnitManager.instance.objectives.GetComponent<TutorialObject>().kill.SetActive(false);
+                UnitManager.instance.objectives.GetComponent<TutorialObject>().killcomp.SetActive(true);
+            }
+
+            else if (SceneManager.GetActiveScene().name == "Level1")
+            {
+                UnitManager.instance.objectives.GetComponent<Level1Object>().Killing();
+            }
+
             manager.unitList.Remove(this);
 
             foreach (GameObject ds in infectedDS)
@@ -36,8 +47,7 @@ public class VirusAI : BaseAI
             aura.SetActive(false);
             if(SceneManager.GetActiveScene().name == "TestLevel")
             {
-                scanobj.SetActive(false);
-                scancomplete.SetActive(true);
+                manager.objectives.GetComponent<TutorialObject>().scancomp.SetActive(true);
             }
             
         }
@@ -60,7 +70,7 @@ public class VirusAI : BaseAI
         {
             transform.LookAt(target.transform);
             anim.SetTrigger("Attack");
-            target.GetComponent<Unit>().health -= 3;
+            target.GetComponent<Unit>().health -= 5;
 
             if (target.GetComponent<Unit>().isCorrupted < 5)
             {

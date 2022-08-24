@@ -19,6 +19,17 @@ public class RansomwareAI : BaseAI
     {
         if (health <= 0)
         {
+            if (SceneManager.GetActiveScene().name == "TestLevel")
+            {
+                UnitManager.instance.objectives.GetComponent<TutorialObject>().kill.SetActive(false);
+                UnitManager.instance.objectives.GetComponent<TutorialObject>().killcomp.SetActive(true);
+            }
+
+            else if (SceneManager.GetActiveScene().name == "Level1")
+            {
+                UnitManager.instance.objectives.GetComponent<Level1Object>().Killing();
+            }
+
             manager.unitList.Remove(this);
 
             foreach (GameObject ds in infectedDS)
@@ -35,8 +46,7 @@ public class RansomwareAI : BaseAI
             aura.SetActive(false);
             if (SceneManager.GetActiveScene().name == "TestLevel")
             {
-                scanobj.SetActive(false);
-                scancomplete.SetActive(true);
+                manager.objectives.GetComponent<TutorialObject>().scancomp.SetActive(true);
             }
         }
 
@@ -58,7 +68,7 @@ public class RansomwareAI : BaseAI
         {
             transform.LookAt(target.transform);
             anim.SetTrigger("Attack");
-            target.GetComponent<Unit>().health -= 5;
+            target.GetComponent<Unit>().health -= 10;
 
             if (target.GetComponent<Unit>().health <= 0)
             {
