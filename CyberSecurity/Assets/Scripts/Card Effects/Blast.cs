@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "Blast", menuName = "Effect/Blast")]
 public class Blast : Effect
 {
@@ -39,9 +39,16 @@ public class Blast : Effect
 
                         if (manager.grid.NodeFromWorldPoint(targetPos).ReturnObject() == null)
                         {
+                            target = character;
+
                             manager.selectedCharacter.transform.LookAt(character.transform.position);
                             manager.selectedCharacter.anim.SetTrigger("Attack");
                             manager.selectedCharacter.GetComponent<Unit>().UseCard();
+                            if (SceneManager.GetActiveScene().name == "Level1")
+                            {
+                                manager.objectives.GetComponent<Level1Object>().push.SetActive(false);
+                                manager.objectives.GetComponent<Level1Object>().pushcomp.SetActive(true);
+                            }
                         }
                     }
 
