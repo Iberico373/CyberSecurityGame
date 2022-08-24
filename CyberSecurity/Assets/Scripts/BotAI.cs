@@ -70,7 +70,7 @@ public class BotAI : BaseAI
         {
             transform.LookAt(target.transform);
             anim.SetTrigger("Attack");
-            target.GetComponent<Unit>().health -= 5;
+            target.GetComponent<Unit>().health -= 10;
 
             if (target.GetComponent<Unit>().health <= 0)
             {

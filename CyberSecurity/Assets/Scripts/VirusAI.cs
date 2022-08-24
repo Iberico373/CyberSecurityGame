@@ -70,7 +70,7 @@ public class VirusAI : BaseAI
         {
             transform.LookAt(target.transform);
             anim.SetTrigger("Attack");
-            target.GetComponent<Unit>().health -= 3;
+            target.GetComponent<Unit>().health -= 5;
 
             if (target.GetComponent<Unit>().isCorrupted < 5)
             {
