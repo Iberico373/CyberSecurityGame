@@ -87,7 +87,7 @@ public class UnitManager : MonoBehaviour
         switch (selectedCharacter.id)
         {
             case 0:
-                if (selectedCharacter.downed)
+                if (selectedCharacter.health <= 0)
                 {
                     EndTurn();
                 }
@@ -103,7 +103,7 @@ public class UnitManager : MonoBehaviour
                 break;
 
             case 1:
-                if (selectedCharacter.downed)
+                if (selectedCharacter.health <= 0)
                 {
                     EndTurn();
                 }
@@ -119,7 +119,7 @@ public class UnitManager : MonoBehaviour
                 break;
 
             case 2:
-                if (selectedCharacter.downed)
+                if (selectedCharacter.health <= 0)
                 {
                     EndTurn();
                 }
@@ -135,7 +135,7 @@ public class UnitManager : MonoBehaviour
                 break;
 
             case 3:
-                if (selectedCharacter.downed)
+                if (selectedCharacter.health <= 0)
                 {
                     EndTurn();
                 }
@@ -228,6 +228,10 @@ public class UnitManager : MonoBehaviour
                 EndTurn();
                 break;
 
+            case 8:
+                EndTurn();
+                break;
+
             default:
                 EndTurn();
                 break;
@@ -242,7 +246,7 @@ public class UnitManager : MonoBehaviour
             selectedCharacter.GetComponent<Deck>().Discard();
         }
 
-        if (selectedCharacter.id != 7)
+        if (selectedCharacter.pointer != null)
         {
             selectedCharacter.pointer.SetActive(false);
         }        

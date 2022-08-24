@@ -12,8 +12,7 @@ public class BotAI : BaseAI
         startTurn = true;
 
         GetAggroList();
-        target = aggrolist[0];
-        targetPos = GetNearestTile(manager.grid.NodeFromWorldPoint(target.transform.position));
+        SortAggroListByUnit();
     }
 
     private void Update()

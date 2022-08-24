@@ -11,7 +11,6 @@ public class Unit : MonoBehaviour
     public int movementSpeed;
     public bool isDetected;
     public bool startTurn;
-    public bool downed;
     public bool isAlive;
     public bool isStunned;
     public int isCorrupted;
@@ -38,8 +37,6 @@ public class Unit : MonoBehaviour
     {
         if (health <= 0)
         {
-            downed = true;
-
             if (gameObject.CompareTag("Objective"))
             {
                 FindObjectOfType<GameManager>().EndGame();
@@ -48,15 +45,12 @@ public class Unit : MonoBehaviour
         
         if (GameObject.FindWithTag("Malware"))
         {
-            isAlive = true;
             return;
         }
         
         else
         {           
-            isAlive = false;
-            FindObjectOfType<GameManager>().WinGame();
-            
+            FindObjectOfType<GameManager>().WinGame();            
         }
     }
 

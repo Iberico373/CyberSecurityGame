@@ -11,8 +11,7 @@ public class RansomwareAI : BaseAI
         startTurn = true;
 
         GetAggroList();
-        target = aggrolist[0];
-        targetPos = GetNearestTile(manager.grid.NodeFromWorldPoint(target.transform.position));
+        SortAggroListByUnit();
     }
 
     private void Update()
@@ -42,8 +41,8 @@ public class RansomwareAI : BaseAI
 
         if (isDetected)
         {
-
             aura.SetActive(false);
+
             if (SceneManager.GetActiveScene().name == "TestLevel")
             {
                 manager.objectives.GetComponent<TutorialObject>().scancomp.SetActive(true);

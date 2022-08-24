@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class VirusAI : BaseAI
 {
     List<GameObject> infectedSC = new List<GameObject>();
@@ -13,8 +14,7 @@ public class VirusAI : BaseAI
         startTurn = true;
 
         GetAggroList();
-        target = aggrolist[0];
-        targetPos = GetNearestTile(manager.grid.NodeFromWorldPoint(target.transform.position));
+        SortAggroListByDistance();
     }
 
     private void Update()
@@ -45,6 +45,7 @@ public class VirusAI : BaseAI
         if (isDetected)
         {
             aura.SetActive(false);
+
             if(SceneManager.GetActiveScene().name == "TestLevel")
             {
                 manager.objectives.GetComponent<TutorialObject>().scancomp.SetActive(true);
@@ -74,12 +75,12 @@ public class VirusAI : BaseAI
 
             if (target.GetComponent<Unit>().isCorrupted < 5)
             {
-                target.GetComponent<Unit>().isCorrupted++;
-
                 if (target.GetComponent<Unit>().isCorrupted == 0)
                 {
                     infectedSC.Add(target);
                 }
+
+                target.GetComponent<Unit>().isCorrupted++;                
             }
 
             if (target.GetComponent<Unit>().health <= 0)

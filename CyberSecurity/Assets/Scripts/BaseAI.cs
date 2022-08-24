@@ -19,31 +19,49 @@ public class BaseAI : Unit
     {
         foreach (Unit unit in manager.unitList)
         {
-            if (unit.gameObject.name.Equals("Data Structure"))
+            if (!unit.CompareTag("Malware"))
             {
-                if (unit.GetComponent<DataStructure>().capturedM)
-                {
-                    continue;
-                }
-
                 aggrolist.Add(unit.gameObject);
             }
         }
 
-        aggrolist.Add(GameObject.Find("Objective"));
+        //foreach (Unit unit in manager.unitList)
+        //{
+        //    if (unit.id == 7)
+        //    {
+        //        aggrolist.Add(unit.gameObject);
+        //    }
+        //}
+
+        //aggrolist.Add(GameObject.Find("Objective"));
+    }
+
+    public void SortAggroListByUnit()
+    {
+        GameObject temp;
+
+        for (int i = 0; i < aggrolist.Count; i++)
+        {
+            if (aggrolist[0].CompareTag("Security Control"))
+            {
+                temp = aggrolist[0];
+                aggrolist.Remove(aggrolist[0]);
+                aggrolist.Add(temp);
+            }
+        }
     }
 
     public void SortAggroListByDistance()
     {
         GameObject temp;
+        Node startNode = manager.grid.NodeFromWorldPoint(transform.position);
+
         for (int j = 0; j <= aggrolist.Count - 2; j++)
         {
             for (int i = 0; i <= aggrolist.Count - 2; i++)
             {
-                if (manager.pathfinding.GetDistance(manager.grid.NodeFromWorldPoint(transform.position), 
-                    manager.grid.NodeFromWorldPoint(aggrolist[i].transform.position)) >
-                    manager.pathfinding.GetDistance(manager.grid.NodeFromWorldPoint(transform.position), 
-                    manager.grid.NodeFromWorldPoint(aggrolist[i + 1].transform.position)))
+                if (manager.pathfinding.GetDistance(startNode, manager.grid.NodeFromWorldPoint(aggrolist[i].transform.position)) >
+                    manager.pathfinding.GetDistance(startNode, manager.grid.NodeFromWorldPoint(aggrolist[i + 1].transform.position)))
                 {
                     temp = aggrolist[i + 1];
                     aggrolist[i + 1] = aggrolist[i];
@@ -53,10 +71,14 @@ public class BaseAI : Unit
         }
     }
 
-
     public void SelectTarget()
     {
         target = aggrolist[0];
+
+        if (target == null)
+        {
+            manager.EndTurn();
+        }
 
         if (InRange())
         {
@@ -161,10 +183,7 @@ public class BaseAI : Unit
     {
         GameObject temp = aggrolist[0];
         aggrolist.Remove(aggrolist[0]);
-        aggrolist.Insert(aggrolist.Count, temp);
-
-        target = aggrolist[0];
-        targetPos = GetNearestTile(manager.grid.NodeFromWorldPoint(target.transform.position));
+        aggrolist.Add(temp);
     }
 
     public virtual void Action()

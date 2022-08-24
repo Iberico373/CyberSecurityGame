@@ -29,7 +29,7 @@ public class Blast : Effect
                 Node node = manager.grid.NodeFromWorldPoint(hit.collider.transform.position);
                 GameObject character = node.ReturnObject();
 
-                if (manager.selectedCharacter != null)
+                if (manager.selectedCharacter != null && character != null)
                 {
 
                     if (blastTiles.Contains(node) && character.CompareTag("Malware"))
@@ -44,6 +44,7 @@ public class Blast : Effect
                             manager.selectedCharacter.transform.LookAt(character.transform.position);
                             manager.selectedCharacter.anim.SetTrigger("Attack");
                             manager.selectedCharacter.GetComponent<Unit>().UseCard();
+
                             if (SceneManager.GetActiveScene().name == "Level1")
                             {
                                 manager.objectives.GetComponent<Level1Object>().push.SetActive(false);

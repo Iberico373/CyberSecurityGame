@@ -29,13 +29,12 @@ public class Revive : Effect
                     if (scanTiles.Contains(node) && character != null)
                     {
 
-                        if (character.CompareTag("Security Control") && character.GetComponent<Unit>().downed == true)
+                        if (character.CompareTag("Security Control") && character.GetComponent<Unit>().health <= 0)
                         {
                             manager.selectedCharacter.transform.LookAt(character.transform);
                             manager.selectedCharacter.anim.SetTrigger("Heal");
                             manager.selectedCharacter.anim.SetTrigger("Revive");
-                            manager.selectedCharacter.downed = false;
-                            character.GetComponent<Unit>().health += 10;
+                            character.GetComponent<Unit>().health += Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.5f);
                             manager.selectedCharacter.GetComponent<Unit>().UseCard();
                         }
                     }
