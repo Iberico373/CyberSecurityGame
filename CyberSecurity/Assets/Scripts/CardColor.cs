@@ -9,14 +9,17 @@ public class CardColor : MonoBehaviour
     public Sprite preventative;
     public Sprite recovery;
     public Sprite deterrent;
+    public Sprite corrective;
     public Sprite dWalk;
     public Sprite pWalk;
     public Sprite rWalk;
     public Sprite dtWalk;
+    public Sprite cWalk;
     public Sprite dDS;
     public Sprite pDS;
     public Sprite rDS;
     public Sprite dtDS;
+    public Sprite cDS;
     public DisplayCard card;
     UnitManager manager;
 
@@ -54,6 +57,18 @@ public class CardColor : MonoBehaviour
                 card.cardArt.sprite = pDS;
             }
         }
+        else if (manager.selectedCharacter.name == "Corrective Control")
+        {
+            img.sprite = corrective;
+            if (card.id == 1)
+            {
+                card.cardArt.sprite = cWalk;
+            }
+            if (card.id == 4)
+            {
+                card.cardArt.sprite = cDS;
+            }
+        }
 
         else if (manager.selectedCharacter.name == "Recovery Control")
         {
@@ -74,10 +89,10 @@ public class CardColor : MonoBehaviour
                 card.cardArt.sprite = dtWalk;
             }
 
-            //else if (card.id == 4)
-            //{
-            //    card.cardArt.sprite = dtDS;
-            //}
+            else if (card.id == 4)
+            {
+                card.cardArt.sprite = dtDS;
+            }
         }
     }
 }

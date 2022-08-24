@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class VirusAI : BaseAI
+public class WormAI : BaseAI
 {
     List<GameObject> infectedSC = new List<GameObject>();
-
+    List<Node> nodesInRange;
+    int pulseCooldown;
     private void Awake()
     {
         manager = UnitManager.instance;
         anim = GetComponent<Animator>();
         startTurn = true;
-
         GetAggroList();
         SortAggroListByDistance();
     }
@@ -46,11 +45,11 @@ public class VirusAI : BaseAI
         {
             aura.SetActive(false);
 
-            if(SceneManager.GetActiveScene().name == "TestLevel")
+            if (SceneManager.GetActiveScene().name == "TestLevel")
             {
                 manager.objectives.GetComponent<TutorialObject>().scancomp.SetActive(true);
             }
-            
+
         }
 
         if (!startTurn && manager.selectedCharacter.name.Equals(transform.name))
@@ -67,21 +66,34 @@ public class VirusAI : BaseAI
 
     public override void Action()
     {
+        nodesInRange = manager.grid.GetNeighbours(manager.grid.NodeFromWorldPoint(transform.position), 1);
+        if(pulseCooldown <= 0)
+        {
+            pulseCooldown = 2;
+            foreach (Node n in nodesInRange)
+            {
+                if (n.ReturnObject() != null)
+                {
+                    if (n.ReturnObject().CompareTag("Security Control"))
+                    {
+                        if (!n.ReturnObject().GetComponent<Unit>().isStunned)
+                        {
+                            n.ReturnObject().GetComponent<Unit>().isStunned = true;
+                        }
+                    }
+                }
+            }
+        }
+        else
+        {
+            pulseCooldown--;
+        }
+        
         if (target.CompareTag("Security Control") || target.name.Equals("Objective"))
         {
             transform.LookAt(target.transform);
             anim.SetTrigger("Attack");
-            target.GetComponent<Unit>().health -= 5;
-
-            if (target.GetComponent<Unit>().isCorrupted < 5)
-            {
-                if (target.GetComponent<Unit>().isCorrupted == 0)
-                {
-                    infectedSC.Add(target);
-                }
-
-                target.GetComponent<Unit>().isCorrupted++;                
-            }
+            target.GetComponent<Unit>().health -= 8;
 
             if (target.GetComponent<Unit>().health <= 0)
             {
@@ -92,11 +104,7 @@ public class VirusAI : BaseAI
 
         else if (target.name.Equals("Data Structure"))
         {
-            if (target.GetComponent<DataStructure>().isCorrupted < 5)
-            {
-                target.GetComponent<DataStructure>().isCorrupted++;
-            }
-            target.GetComponent<DataStructure>()._currentState = State.Virus;
+            target.GetComponent<DataStructure>()._currentState = State.Worm;
             infectedDS.Add(target);
             NextUnit();
         }

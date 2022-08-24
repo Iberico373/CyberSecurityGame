@@ -69,7 +69,7 @@ public class CameraMovement : MonoBehaviour
             {
                 dragCurrentPos = ray.GetPoint(entry);
 
-                newPos = transform.position + (dragOrigin - dragCurrentPos);
+                newPos = ClampCamera(transform.position + (dragOrigin - dragCurrentPos));
             }
         }
     }
