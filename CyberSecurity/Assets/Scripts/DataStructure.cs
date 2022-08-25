@@ -9,7 +9,8 @@ public enum State
     Detective,
     Deterrent,
     Virus,
-    Bot
+    Bot,
+    Worm
 }
 
 public class DataStructure : Unit
@@ -240,7 +241,36 @@ public class DataStructure : Unit
                     }
                 }
                 break;
+            case State.Worm:
+                capturedSC = false;
+                capturedM = true;
 
+                foreach (Node n in adjacentNodes)
+                {
+                    if (n.ReturnObject() == null && botCD == 0)
+                    {
+                        GameObject botClone = Instantiate(bot, manager.unitGroup.transform);
+                        botClone.transform.position = n.worldPos;
+                        botClone.layer = 3;
+                        botClone.GetComponent<BotAI>().GetAggroList();
+                        manager.SortTurnOrder();
+
+                        botCD++;
+                        break;
+                    }
+
+                    else if (botCD > 0)
+                    {
+                        if (botCD == 3)
+                        {
+                            botCD = 0;
+                            break;
+                        }
+
+                        botCD++;
+                    }
+                }
+                break;
             default:
                 break;
         }

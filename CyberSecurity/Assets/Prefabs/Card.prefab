@@ -322,14 +322,17 @@ MonoBehaviour:
   preventative: {fileID: 21300000, guid: f405faa0de95826429316dea0faeaebf, type: 3}
   recovery: {fileID: 21300000, guid: 7a4f6c62032ffc240ae139c86010cfd2, type: 3}
   deterrent: {fileID: 21300000, guid: ea24dd9d5470b4f43b148d51f977d79d, type: 3}
+  corrective: {fileID: 21300000, guid: 6b7f0feb6d3d1964c9bae8584fc346b1, type: 3}
   dWalk: {fileID: 21300000, guid: 8244e02ca512c6d459aa0e091c611a86, type: 3}
   pWalk: {fileID: 21300000, guid: 0f8d02e3fd1e9084bad8f15c51ea98cd, type: 3}
   rWalk: {fileID: 21300000, guid: ca7f2996624acf043b93139e0a9a20a4, type: 3}
   dtWalk: {fileID: 21300000, guid: 6ca6ec6a20c0f974388f0bf3599149c6, type: 3}
+  cWalk: {fileID: 21300000, guid: 2d6019d5169267e4a8d3e93435e0028f, type: 3}
   dDS: {fileID: 21300000, guid: 28e07364dc5a12940bc020762347313d, type: 3}
   pDS: {fileID: 21300000, guid: cffcbafaf396332468dcd7652802bf8b, type: 3}
   rDS: {fileID: 0}
-  dtDS: {fileID: 0}
+  dtDS: {fileID: 21300000, guid: f9de1d5769dfe14478363842011690eb, type: 3}
+  cDS: {fileID: 21300000, guid: dc822b838ad6f04499338d6d4dc0d374, type: 3}
   card: {fileID: 5417410091047494799}
 --- !u!114 &5417410091047494799
 MonoBehaviour:

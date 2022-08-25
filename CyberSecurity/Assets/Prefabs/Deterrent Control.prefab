@@ -3836,11 +3836,6 @@ MonoBehaviour:
   card: {fileID: 4125792743563677905, guid: 44b44016528268643b29cae55cc90c47, type: 3}
   deckParent: {fileID: 0}
   panel: {fileID: 0}
-  manager: {fileID: 0}
-  nameText: {fileID: 0}
-  totalDraw: {fileID: 0}
-  totalDiscard: {fileID: 0}
-  currentRam: {fileID: 0}
   deckSize: 20
   ram: 3
 --- !u!114 &6531620049644081468
@@ -3871,12 +3866,6 @@ MonoBehaviour:
   aura: {fileID: 0}
   turnOrderDisplay: {fileID: 8519129065427216645, guid: f5a851a454a31ee4eb5761de798042b1, type: 3}
   gameManager: {fileID: 0}
-  scanobj: {fileID: 0}
-  scancomplete: {fileID: 0}
-  Takeover: {fileID: 0}
-  Takeovercomplete: {fileID: 0}
-  Killbot: {fileID: 0}
-  Killbotcomplete: {fileID: 0}
 --- !u!114 &3284945974677746411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3891,6 +3880,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 11400000, guid: 32e94c9125bd1564bbb8fa7c8caa2650, type: 2}
   strike: {fileID: 0}
+  waves: {fileID: 5299541203482525432, guid: c891c45025ea5e14bab527ccffa89d78, type: 3}
 --- !u!1 &6393633774418677160
 GameObject:
   m_ObjectHideFlags: 0

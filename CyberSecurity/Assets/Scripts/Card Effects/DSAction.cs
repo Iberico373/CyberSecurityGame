@@ -70,6 +70,12 @@ public class DSAction : Effect
                                 character.GetComponent<DataStructure>()._currentState = State.Deterrent;
                                 manager.selectedCharacter.GetComponent<Unit>().UseCard();
                             }
+                            else if (manager.selectedCharacter.name.Equals("Corrective Control"))
+                            {
+                                character.GetComponent<DataStructure>().isLocked = false;
+                                character.GetComponent<DataStructure>()._currentState = State.None;
+                                manager.selectedCharacter.GetComponent<Unit>().UseCard();
+                            }
                         }                                   
                     }
 

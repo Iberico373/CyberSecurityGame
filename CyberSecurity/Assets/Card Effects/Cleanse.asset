@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79549d820471ca540aed13911f524927, type: 3}
+  m_Name: Cleanse
+  m_EditorClassIdentifier: 
+  cleanseExpansion: {fileID: 8918898975277455407, guid: c9271182c0ed328408a1b8b4522ec734, type: 3}

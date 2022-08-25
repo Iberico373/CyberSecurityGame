@@ -94,6 +94,12 @@ public class UnitManager : MonoBehaviour
 
                 else
                 {
+                    if (selectedCharacter.isStunned)
+                    {
+                        selectedCharacter.CheckStatus();
+                        EndTurn();
+                        break;
+                    }
                     deck.SetActive(true);
                     selectedCharacter.GetComponent<Deck>().Draw();
                     selectedCharacter.pointer.SetActive(true);
@@ -110,6 +116,12 @@ public class UnitManager : MonoBehaviour
 
                 else
                 {
+                    if (selectedCharacter.isStunned)
+                    {
+                        selectedCharacter.CheckStatus();
+                        EndTurn();
+                        break;
+                    }
                     deck.SetActive(true);
                     selectedCharacter.GetComponent<Deck>().Draw();
                     selectedCharacter.pointer.SetActive(true);
@@ -126,6 +138,12 @@ public class UnitManager : MonoBehaviour
 
                 else
                 {
+                    if (selectedCharacter.isStunned)
+                    {
+                        selectedCharacter.CheckStatus();
+                        EndTurn();
+                        break;
+                    }
                     deck.SetActive(true);
                     selectedCharacter.GetComponent<Deck>().Draw();
                     selectedCharacter.pointer.SetActive(true);
@@ -142,6 +160,12 @@ public class UnitManager : MonoBehaviour
 
                 else
                 {
+                    if (selectedCharacter.isStunned)
+                    {
+                        selectedCharacter.CheckStatus();
+                        EndTurn();
+                        break;
+                    }
                     deck.SetActive(true);
                     selectedCharacter.GetComponent<Deck>().Draw();
                     selectedCharacter.pointer.SetActive(true);
@@ -229,9 +253,47 @@ public class UnitManager : MonoBehaviour
                 break;
 
             case 8:
-                EndTurn();
-                break;
+                if (selectedCharacter.health <= 0)
+                {
+                    EndTurn();
+                }
 
+                else
+                {
+                    if (selectedCharacter.isStunned)
+                    {
+                        selectedCharacter.CheckStatus();
+                        EndTurn();
+                        break;
+                    }
+                    deck.SetActive(true);
+                    selectedCharacter.GetComponent<Deck>().Draw();
+                    selectedCharacter.pointer.SetActive(true);
+                    selectedCharacter.CheckStatus();
+                }
+
+                break;
+            case 9:
+                if (selectedCharacter.health <= 0)
+                {
+                    EndTurn();
+                }
+
+                else
+                {
+                    if (selectedCharacter.isStunned)
+                    {
+                        selectedCharacter.CheckStatus();
+                        EndTurn();
+                        break;
+                    }
+                    deck.SetActive(false);
+                    selectedCharacter.pointer.SetActive(true);
+                    selectedCharacter.CheckStatus();
+                    selectedCharacter.GetComponent<WormAI>().SelectTarget();
+                }
+
+                break;
             default:
                 EndTurn();
                 break;
