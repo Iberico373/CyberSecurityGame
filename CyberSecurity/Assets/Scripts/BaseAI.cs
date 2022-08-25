@@ -24,16 +24,6 @@ public class BaseAI : Unit
                 aggrolist.Add(unit.gameObject);
             }
         }
-
-        //foreach (Unit unit in manager.unitList)
-        //{
-        //    if (unit.id == 7)
-        //    {
-        //        aggrolist.Add(unit.gameObject);
-        //    }
-        //}
-
-        //aggrolist.Add(GameObject.Find("Objective"));
     }
 
     public void SortAggroListByUnit()
@@ -71,8 +61,87 @@ public class BaseAI : Unit
         }
     }
 
+    public void UpdateAggroList()
+    {
+        GameObject temp;
+
+        for (int i = 0; i < aggrolist.Count; i++)
+        {
+            if (aggrolist[i].CompareTag("Security Control"))
+            {
+                if (aggrolist[i].GetComponent<Unit>().health <= 0)
+                {
+                    temp = aggrolist[i];
+
+                    aggrolist.Remove(aggrolist[i]);
+                    aggrolist.Add(temp);
+                }
+            }
+
+            else if (aggrolist[i].GetComponent<Unit>().id == 7)
+            {
+                if (aggrolist[i].GetComponent<DataStructure>().capturedSC)
+                {
+                    if (aggrolist[0].CompareTag("Security Control"))
+                    {
+                        Node nodeA = manager.grid.NodeFromWorldPoint(aggrolist[i].transform.position);
+                        Node nodeB = manager.grid.NodeFromWorldPoint(aggrolist[0].transform.position);
+                        temp = aggrolist[i];
+
+                        if (CompareNodeDist(nodeA, nodeB) == nodeA)
+                        {                           
+                            aggrolist.Remove(aggrolist[i]);
+                            aggrolist.Insert(0, temp);
+                        }
+
+                        else
+                        {
+                            aggrolist.Remove(aggrolist[i]);
+                            aggrolist.Insert(1, temp);
+                        }
+                    }
+                    
+                    else if (aggrolist[0].GetComponent<Unit>().id == 7)
+                    {
+                        Node nodeA = manager.grid.NodeFromWorldPoint(aggrolist[i].transform.position);
+                        Node nodeB = manager.grid.NodeFromWorldPoint(aggrolist[0].transform.position);
+                        temp = aggrolist[i];
+
+                        if (CompareNodeDist(nodeA, nodeB) == nodeA)
+                        {
+                            aggrolist.Remove(aggrolist[i]);
+                            aggrolist.Insert(0, temp);
+                        }
+
+                        else
+                        {
+                            aggrolist.Remove(aggrolist[i]);
+                            aggrolist.Insert(1, temp);
+                        }
+                    }
+                }
+
+                else if (aggrolist[i].GetComponent<DataStructure>().capturedM)
+                {
+                    if (!aggrolist[i].GetComponent<DataStructure>().isLocked 
+                        && manager.selectedCharacter.GetComponent<Unit>().id == 4)
+                    {
+                        return;
+                    }
+
+                    temp = aggrolist[i];
+
+                    aggrolist.Remove(aggrolist[i]);
+                    aggrolist.Add(temp);
+                }
+            }
+        }
+    }
+
     public void SelectTarget()
     {
+        UpdateAggroList();
+
         target = aggrolist[0];
 
         if (target == null)
@@ -95,16 +164,23 @@ public class BaseAI : Unit
 
     public Vector3 GetNearestTile(Node targetNode)
     {
+        manager.grid.UpdateGrid();
         Vector3 nearestTile = new Vector3();
 
         while (true)
         {
-            List<Node> AdjacentTiles = manager.grid.GetNeighbours(targetNode, 1);
+            List<Node> adjacentTiles = manager.grid.GetNeighbours(targetNode, 1);
+            List<Node> previousNodes = new List<Node>();
             Node openNode = null;
-            Node nearestNode = AdjacentTiles[0];
+            Node nearestNode = adjacentTiles[0];
 
-            foreach (Node n in AdjacentTiles)
+            foreach (Node n in adjacentTiles)
             {
+                if (previousNodes.Contains(n))
+                {
+                    continue;
+                }
+
                 if (n.walkable)
                 {
                     if (openNode == null)
@@ -118,6 +194,7 @@ public class BaseAI : Unit
                     }
                 }
 
+                previousNodes.Add(n);
                 nearestNode = CompareNodeDist(nearestNode, n);
             }
 
@@ -133,6 +210,11 @@ public class BaseAI : Unit
                 {
                     targetNode = nearestNode;
                     aggrolist.Insert(0, nearestNode.ReturnObject());
+                }
+
+                else if (nearestNode.ReturnObject().CompareTag("Malware"))
+                {
+                    targetNode = nearestNode;
                 }
             }
 

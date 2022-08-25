@@ -48,40 +48,63 @@ public class DataStructure : Unit
             aura.SetActive(true);
             chain.SetActive(true);
         }
+
         else
         {
-            
-            if (_currentState == State.Detective)
-            {
-                chain.SetActive(false);
-                aura.SetActive(false);
-                render.material.color = new Color(0, 20, 255, 100);
-            }
-            if (_currentState == State.Preventative)
-            {
-                chain.SetActive(false);
-                aura.SetActive(false);
-                render.material.color = new Color(255, 0, 0, 100);
-            }
             if (_currentState == State.None)
             {
                 chain.SetActive(false);
                 aura.SetActive(false);
                 render.material.color = new Color(255, 255, 255, 100);
             }
-            if (_currentState == State.Deterrent)
+
+
+            else if (_currentState == State.Detective)
             {
+                capturedM = false;
+                capturedSC = true;
+
+                chain.SetActive(false);
+                aura.SetActive(false);
+                render.material.color = new Color(0, 20, 255, 100);
+            }
+
+            else if (_currentState == State.Preventative)
+            {
+                capturedM = false;
+                capturedSC = true;
+
+                chain.SetActive(false);
+                aura.SetActive(false);
+                render.material.color = new Color(255, 0, 0, 100);
+            }
+
+            
+
+            else if (_currentState == State.Deterrent)
+            {
+                capturedM = false;
+                capturedSC = true;
+
                 chain.SetActive(false);
                 aura.SetActive(false);
                 render.material.color = new Color(0, 0, 50, 100);
             }
-            if (_currentState == State.Bot)
+
+            else if (_currentState == State.Bot)
             {
+                capturedM = true;
+                capturedSC = false;
+
                 aura.SetActive(true);
                 render.material.color = new Color(20, 0, 200);
             }
-            if(_currentState == State.Virus)
+
+            else if(_currentState == State.Virus)
             {
+                capturedM = true;
+                capturedSC = false;
+
                 aura.SetActive(true);
                 render.material.color = new Color(20, 0, 200);
             }
@@ -99,9 +122,6 @@ public class DataStructure : Unit
                 {
                     return;
                 }
-
-                capturedSC = true;
-                capturedM = false;
 
                 GameObject summonedLaser = Instantiate(laser);
                 summonedLaser.transform.position = transform.position;
@@ -127,9 +147,6 @@ public class DataStructure : Unit
                     return;
                 }
 
-                capturedSC = true;
-                capturedM = false;
-
                 GameObject summonedScan = Instantiate(scan);
                 summonedScan.transform.position = transform.position;
                 Destroy(summonedScan, 4);
@@ -150,9 +167,6 @@ public class DataStructure : Unit
                 {
                     return;
                 }
-
-                capturedSC = true;
-                capturedM = false;
 
                 foreach (Node n in nodesInRange)
                 {
@@ -185,9 +199,6 @@ public class DataStructure : Unit
                 break;
 
             case State.Virus:
-                capturedSC = false;
-                capturedM = true;
-
                 foreach (Node n in nodesInRange)
                 {
                     if (n.ReturnObject() != null)
@@ -204,9 +215,6 @@ public class DataStructure : Unit
                 break;
 
             case State.Bot:
-                capturedSC = false;
-                capturedM = true;
-
                 foreach (Node n in adjacentNodes)
                 {
                     if (n.ReturnObject() == null && botCD == 0)
@@ -214,7 +222,6 @@ public class DataStructure : Unit
                         GameObject botClone = Instantiate(bot, manager.unitGroup.transform);
                         botClone.transform.position = n.worldPos;
                         botClone.layer = 3;
-                        botClone.GetComponent<BotAI>().GetAggroList();
                         manager.SortTurnOrder();
 
                         botCD++;

@@ -86,7 +86,6 @@ public class VirusAI : BaseAI
             if (target.GetComponent<Unit>().health <= 0)
             {
                 target.GetComponent<Unit>().anim.SetTrigger("Dead");
-                NextUnit();
             }
         }
 
@@ -98,7 +97,6 @@ public class VirusAI : BaseAI
             }
 
             infectedDS.Add(target);
-            NextUnit();
         }
     }
 }

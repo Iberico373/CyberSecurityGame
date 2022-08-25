@@ -72,7 +72,6 @@ public class RansomwareAI : BaseAI
             if (target.GetComponent<Unit>().health <= 0)
             {
                 target.GetComponent<Unit>().anim.SetTrigger("Dead");
-                NextUnit();
             }
         }
 
@@ -80,7 +79,6 @@ public class RansomwareAI : BaseAI
         {
             target.GetComponent<DataStructure>().isLocked = true;
             infectedDS.Add(target);
-            NextUnit();
         }
     }
 }

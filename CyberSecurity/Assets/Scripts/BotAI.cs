@@ -74,7 +74,6 @@ public class BotAI : BaseAI
             if (target.GetComponent<Unit>().health <= 0)
             {
                 target.GetComponent<Unit>().anim.SetTrigger("Dead");
-                NextUnit();
             }
         }
 
@@ -82,7 +81,6 @@ public class BotAI : BaseAI
         {
             target.GetComponent<DataStructure>()._currentState = State.Bot;
             infectedDS.Add(target);
-            NextUnit();
         }
     }
 }
