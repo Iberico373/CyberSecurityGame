@@ -1913,7 +1913,6 @@ MonoBehaviour:
   movementSpeed: 0
   isDetected: 0
   startTurn: 0
-  downed: 0
   isAlive: 0
   isStunned: 0
   isCorrupted: 0
@@ -3123,7 +3122,6 @@ MonoBehaviour:
   movementSpeed: 0
   isDetected: 0
   startTurn: 0
-  downed: 0
   isAlive: 0
   isStunned: 0
   isCorrupted: 0
@@ -4673,7 +4671,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1447863286851017798, guid: f52fd661b471998449c7ae0239b83428, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1457501802235922511, guid: f52fd661b471998449c7ae0239b83428, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3462085633124205794, guid: f52fd661b471998449c7ae0239b83428, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -4690,6 +4696,10 @@ PrefabInstance:
       value: Obj
       objectReference: {fileID: 0}
     - target: {fileID: 8563031293796572361, guid: f52fd661b471998449c7ae0239b83428, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745083569413140752, guid: f52fd661b471998449c7ae0239b83428, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -6245,7 +6255,6 @@ MonoBehaviour:
   movementSpeed: 0
   isDetected: 0
   startTurn: 0
-  downed: 0
   isAlive: 0
   isStunned: 0
   isCorrupted: 0
