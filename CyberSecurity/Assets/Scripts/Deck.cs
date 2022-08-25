@@ -28,7 +28,7 @@ public class Deck : MonoBehaviour
 
                 if (card.cardType.Equals(gameObject.name) || card.cardType.Equals(""))
                 {
-                    if (!transform.name.Equals("Recovery Control"))
+                    if (!transform.name.Equals("Recovery Control") || !transform.name.Equals("Compensating Control"))
                     {
                         for (int a = 0; a < card.maxAmount; a++)
                         {
@@ -96,7 +96,6 @@ public class Deck : MonoBehaviour
                 deck.Add(discard[0]);
                 discard.Remove(discard[0]);
             }
-
             Draw();
         }
     }

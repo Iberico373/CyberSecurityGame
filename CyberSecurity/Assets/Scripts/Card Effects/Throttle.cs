@@ -33,8 +33,7 @@ public class Throttle : Effect
                     {
 
                         if (character.CompareTag("Security Control") &&
-                            character.GetComponent<Unit>().health > 0 &&
-                            character.GetComponent<Unit>().isCorrupted != 0)
+                            character.GetComponent<Unit>().health > 0)
                         {
                             manager.selectedCharacter.transform.LookAt(character.transform);
                             manager.selectedCharacter.anim.SetTrigger("Action");
@@ -43,7 +42,7 @@ public class Throttle : Effect
                             {
                                 manager.selectedCharacter.isThrottled = 4;
                             }
-                            
+                            Instantiate(throttleEffect, character.transform);
                             if (SceneManager.GetActiveScene().name == "Level2")
                             {
                                 //Put whatever condition here I guess
