@@ -273,6 +273,7 @@ public class UnitManager : MonoBehaviour
                 }
 
                 break;
+
             case 9:
                 if (selectedCharacter.health <= 0)
                 {
@@ -294,6 +295,11 @@ public class UnitManager : MonoBehaviour
                 }
 
                 break;
+
+            case 10:
+                EndTurn();
+                break;
+
             default:
                 EndTurn();
                 break;
