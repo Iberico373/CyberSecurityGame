@@ -39,7 +39,11 @@ public class Throttle : Effect
                             manager.selectedCharacter.transform.LookAt(character.transform);
                             manager.selectedCharacter.anim.SetTrigger("Action");
                             manager.selectedCharacter.GetComponent<Unit>().UseCard();
-
+                            if(manager.selectedCharacter.isThrottled <= 4)
+                            {
+                                manager.selectedCharacter.isThrottled = 4;
+                            }
+                            
                             if (SceneManager.GetActiveScene().name == "Level2")
                             {
                                 //Put whatever condition here I guess

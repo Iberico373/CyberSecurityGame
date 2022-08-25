@@ -18,7 +18,15 @@ public class Walk : Effect
         {
             tutorial = GameObject.Find("Tutorial Canvas 1").GetComponent<CardTutorial>();
         }
-
+        if (manager.selectedCharacter.isThrottled > 0)
+        {
+            manager.pathfinding.radius = 3;
+            manager.selectedCharacter.isThrottled--;
+        }
+        else
+        {
+            manager.pathfinding.radius = 2;
+        }
         manager.grid.ClearGrid();
         manager.effect = this;
         HashSet<Node> movementTiles = manager.selectedCharacter.Select(false);
