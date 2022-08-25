@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2445148980492316543}
   - component: {fileID: 2445148980492316542}
   - component: {fileID: 2445148980492316480}
-  - component: {fileID: 8832305920013816508}
+  - component: {fileID: 1433010369363813304}
   m_Layer: 3
   m_Name: Ransomware
   m_TagString: Malware
@@ -29,7 +29,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -4, y: 0, z: 28}
   m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1508192492666762979}
   - {fileID: 2125142630765985676}
@@ -40,7 +39,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!95 &2445148980492316542
 Animator:
-  serializedVersion: 4
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -53,7 +52,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -71,7 +69,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.400409, y: 1.0562669, z: 1.3}
   m_Center: {x: 0.02429545, y: 0.5006631, z: -0.100000024}
---- !u!114 &8832305920013816508
+--- !u!114 &1433010369363813304
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -80,35 +78,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 2445148980492316541}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 761468d7c58d5854f96b30655ad5e365, type: 3}
+  m_Script: {fileID: 11500000, guid: a3bbc1daec82fae47bb785804fbf9e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   id: 4
   speed: 2
   health: 20
-  maxHealth: 0
+  maxHealth: 20
   movementSpeed: 2
   isDetected: 0
   startTurn: 0
-  downed: 0
   isAlive: 0
   isStunned: 0
   isCorrupted: 0
   anim: {fileID: 0}
   pointer: {fileID: 2280507754271501401}
   aura: {fileID: 5503318957126954379}
-  turnOrderDisplay: {fileID: 5790182629683356187, guid: 1e03e9fe54da0394ea76d8ef1facfd44, type: 3}
+  turnOrderDisplay: {fileID: 0}
   gameManager: {fileID: 0}
-  scanobj: {fileID: 0}
-  scancomplete: {fileID: 0}
-  Takeover: {fileID: 0}
-  Takeovercomplete: {fileID: 0}
-  Killbot: {fileID: 0}
-  Killbotcomplete: {fileID: 0}
   manager: {fileID: 0}
   target: {fileID: 0}
   targetPos: {x: 0, y: 0, z: 0}
   aggrolist: []
+  deathExplosion: {fileID: 0}
   infectedDS: []
 --- !u!1001 &1554956488359420893
 PrefabInstance:
@@ -171,14 +163,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cbdafa6c6d617249b41696e44d15cba, type: 3}
---- !u!4 &1508192492666762979 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 106535688207996222, guid: 2cbdafa6c6d617249b41696e44d15cba, type: 3}
-  m_PrefabInstance: {fileID: 1554956488359420893}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2280507754271501401 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 734558465203785604, guid: 2cbdafa6c6d617249b41696e44d15cba, type: 3}
+  m_PrefabInstance: {fileID: 1554956488359420893}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1508192492666762979 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 106535688207996222, guid: 2cbdafa6c6d617249b41696e44d15cba, type: 3}
   m_PrefabInstance: {fileID: 1554956488359420893}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8832305918808834718
@@ -265,7 +257,7 @@ PrefabInstance:
     - target: {fileID: 6872652419053875583, guid: b1727dd321af3d4448e1faa1ebb00ec1, type: 3}
       propertyPath: unit
       value: 
-      objectReference: {fileID: 8832305920013816508}
+      objectReference: {fileID: 1433010369363813304}
     - target: {fileID: 6872652419239777474, guid: b1727dd321af3d4448e1faa1ebb00ec1, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -430,13 +422,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a529ad7e9597b4a87d324e0471c81b, type: 3}
---- !u!4 &5503318957126954372 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3948830175503609180, guid: 60a529ad7e9597b4a87d324e0471c81b, type: 3}
-  m_PrefabInstance: {fileID: 8832305920651673816}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5503318957126954379 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3948830175503609171, guid: 60a529ad7e9597b4a87d324e0471c81b, type: 3}
+  m_PrefabInstance: {fileID: 8832305920651673816}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5503318957126954372 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3948830175503609180, guid: 60a529ad7e9597b4a87d324e0471c81b, type: 3}
   m_PrefabInstance: {fileID: 8832305920651673816}
   m_PrefabAsset: {fileID: 0}

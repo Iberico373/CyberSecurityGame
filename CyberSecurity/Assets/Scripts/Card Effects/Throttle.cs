@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[CreateAssetMenu(fileName = "Cleanse", menuName = "Effect/Cleanse")]
-public class Cleanse : Effect
+[CreateAssetMenu(fileName = "Throttle", menuName = "Effect/Throttle")]
+public class Throttle : Effect
 {
     UnitManager manager;
-    public GameObject cleanseExpansion;
+    public GameObject throttleEffect;
     public override void UseEffect()
     {
         manager = UnitManager.instance;
         manager.grid.ClearGrid();
         manager.effect = this;
 
-        HashSet<Node> cleanseTiles = manager.selectedCharacter.Select(true);
-        manager.grid.HighlightGrid(cleanseTiles);
+        HashSet<Node> throttleTiles = manager.selectedCharacter.Select(true);
+        manager.grid.HighlightGrid(throttleTiles);
         if (Input.GetButtonDown("Fire1"))
         {
             RaycastHit hit;
@@ -29,7 +29,7 @@ public class Cleanse : Effect
                 if (manager.selectedCharacter != null)
                 {
 
-                    if (cleanseTiles.Contains(node) && character != null)
+                    if (throttleTiles.Contains(node) && character != null)
                     {
 
                         if (character.CompareTag("Security Control") &&
@@ -37,15 +37,14 @@ public class Cleanse : Effect
                             character.GetComponent<Unit>().isCorrupted != 0)
                         {
                             manager.selectedCharacter.transform.LookAt(character.transform);
-                            manager.selectedCharacter.anim.SetTrigger("Cleanse");
+                            manager.selectedCharacter.anim.SetTrigger("Action");
                             manager.selectedCharacter.GetComponent<Unit>().UseCard();
-                            if (SceneManager.GetActiveScene().name == "Level1")
+
+                            if (SceneManager.GetActiveScene().name == "Level2")
                             {
-                                manager.objectives.GetComponent<Level1Object>().heal.SetActive(false);
-                                manager.objectives.GetComponent<Level1Object>().healcomp.SetActive(true);
+                                //Put whatever condition here I guess
                             }
-                            Instantiate(cleanseExpansion, character.transform);
-                            character.GetComponent<Unit>().isCorrupted = 0;
+
                         }
                     }
 
@@ -58,4 +57,3 @@ public class Cleanse : Effect
         }
     }
 }
-
