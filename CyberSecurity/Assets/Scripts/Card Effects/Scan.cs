@@ -30,19 +30,18 @@ public class Scan : Effect
 
                     if (scanTiles.Contains(node) && character != null)
                     {
-
                         if (character.CompareTag("Malware"))
                         {
                             manager.selectedCharacter.transform.LookAt(character.transform);
                             manager.selectedCharacter.anim.SetTrigger("Scan");
                             Instantiate(scanExpansion, character.transform);
-
                             character.GetComponent<Unit>().isDetected = true;
                             character.GetComponent<BaseAI>().aggrolist.Remove(manager.selectedCharacter.gameObject);
                             character.GetComponent<BaseAI>().aggrolist.Insert(0, manager.selectedCharacter.gameObject);
-
-                            manager.selectedCharacter.GetComponent<Unit>().UseCard();
-                            
+                            if (!manager.selectedCharacter.isBuffed)
+                            {
+                                manager.selectedCharacter.GetComponent<Unit>().UseCard();
+                            }
                         }                        
                     }
 
