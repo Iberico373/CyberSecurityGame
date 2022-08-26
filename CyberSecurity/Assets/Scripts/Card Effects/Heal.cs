@@ -50,7 +50,7 @@ public class Heal : Effect
 
                             Instantiate(healExpansion, character.transform);
 
-                            if (character.GetComponent<Unit>().health + heal > character.GetComponent<Unit>().maxHealth)
+                            if (character.GetComponent<Unit>().health + Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.2f) > character.GetComponent<Unit>().maxHealth)
                             {
                                 character.GetComponent<Unit>().health = character.GetComponent<Unit>().maxHealth;
                             }
@@ -59,7 +59,18 @@ public class Heal : Effect
                             {
                                 if(manager.selectedCharacter.isBuffed)
                                 {
-                                    character.GetComponent<Unit>().health += Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.4f);
+                                    if(character.GetComponent<Unit>().health + Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.4f) > character.GetComponent<Unit>().maxHealth)
+                                    {
+                                        character.GetComponent<Unit>().health = character.GetComponent<Unit>().maxHealth;
+                                        manager.selectedCharacter.isBuffed = false;
+                                        Destroy(manager.selectedCharacter.transform.Find("BuffAura(Clone)").gameObject);
+                                    }
+                                    else
+                                    {
+                                        character.GetComponent<Unit>().health += Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.4f);
+                                        manager.selectedCharacter.isBuffed = false;
+                                        Destroy(manager.selectedCharacter.transform.Find("BuffAura(Clone)").gameObject);
+                                    }
                                 }
                                 else
                                 {

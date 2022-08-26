@@ -27,7 +27,6 @@ public class Scan : Effect
 
                 if (manager.selectedCharacter != null)
                 {
-
                     if (scanTiles.Contains(node) && character != null)
                     {
                         if (character.CompareTag("Malware"))
@@ -41,6 +40,8 @@ public class Scan : Effect
                             if (!manager.selectedCharacter.isBuffed)
                             {
                                 manager.selectedCharacter.GetComponent<Unit>().UseCard();
+                                manager.selectedCharacter.isBuffed = false;
+                                Destroy(manager.selectedCharacter.transform.Find("BuffAura(Clone)").gameObject);
                             }
                         }                        
                     }

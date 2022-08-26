@@ -3838,6 +3838,8 @@ MonoBehaviour:
   isDetected: 0
   startTurn: 0
   isAlive: 0
+  isThrottled: 0
+  isBuffed: 0
   isStunned: 0
   isCorrupted: 0
   anim: {fileID: 0}
@@ -5313,16 +5315,28 @@ PrefabInstance:
       value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 3065142356032816061, guid: f0d0f63d987dfbd4fb9c52b21111a907, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3065142356032816061, guid: f0d0f63d987dfbd4fb9c52b21111a907, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3065142356032816061, guid: f0d0f63d987dfbd4fb9c52b21111a907, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3065142356032816061, guid: f0d0f63d987dfbd4fb9c52b21111a907, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.701591
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3065142356032816061, guid: f0d0f63d987dfbd4fb9c52b21111a907, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.3
+      value: 7.42
       objectReference: {fileID: 0}
     - target: {fileID: 3065142356032816061, guid: f0d0f63d987dfbd4fb9c52b21111a907, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -24.806273
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3065142356032816061, guid: f0d0f63d987dfbd4fb9c52b21111a907, type: 3}
       propertyPath: m_LocalRotation.w

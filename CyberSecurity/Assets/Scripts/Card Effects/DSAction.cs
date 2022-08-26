@@ -39,6 +39,7 @@ public class DSAction : Effect
                     {
                         if (character.GetComponent<Unit>().id == 7)
                         {
+                            Instantiate(effect, character.transform);
                             if (manager.selectedCharacter.name.Equals("Preventative Control"))
                             {
                                 character.GetComponent<DataStructure>()._currentState = State.Preventative;

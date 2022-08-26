@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e049aa79faa1194fa593a89ddf8f3dc, type: 3}
   m_Name: Update
   m_EditorClassIdentifier: 
+  buffAura: {fileID: 942690960049656507, guid: 1f7e9f8cad581b9428693a21b4de6e72, type: 3}

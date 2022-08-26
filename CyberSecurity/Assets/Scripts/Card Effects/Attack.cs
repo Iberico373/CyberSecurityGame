@@ -43,6 +43,8 @@ public class Attack : Effect
                             if(manager.selectedCharacter.isBuffed)
                             {
                                 character.GetComponent<Unit>().health -= 20;
+                                manager.selectedCharacter.isBuffed = false;
+                                Destroy(manager.selectedCharacter.transform.Find("BuffAura(Clone)").gameObject);
                             }
                             else
                             {

@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2887035a51545ff40a215a74ce70688d, type: 3}
   m_Name: DSAction
   m_EditorClassIdentifier: 
+  effect: {fileID: 5275402056542611489, guid: 0f7636c2f4567874eb3b34321aeaad3d, type: 3}

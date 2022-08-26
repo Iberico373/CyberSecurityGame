@@ -40,7 +40,12 @@ public class Blast : Effect
                         if (manager.grid.NodeFromWorldPoint(targetPos).ReturnObject() == null)
                         {
                             target = character;
-                            
+                            if (manager.selectedCharacter.isBuffed)
+                            {
+                                character.GetComponent<Unit>().isStunned = true;
+                                manager.selectedCharacter.isBuffed = false;
+                                Destroy(manager.selectedCharacter.transform.Find("BuffAura(Clone)").gameObject);
+                            }
                             manager.selectedCharacter.transform.LookAt(character.transform.position);
                             manager.selectedCharacter.anim.SetTrigger("Attack");
                             manager.selectedCharacter.GetComponent<Unit>().UseCard();

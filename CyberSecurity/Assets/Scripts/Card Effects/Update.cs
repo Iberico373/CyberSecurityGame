@@ -43,7 +43,6 @@ public class Update : Effect
                             {
                                 //Put whatever condition here I guess
                             }
-
                         }
                     }
 
