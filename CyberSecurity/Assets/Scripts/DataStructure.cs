@@ -45,76 +45,86 @@ public class DataStructure : Unit
 
     private void Update()
     {
-        if (isLocked)
+        if (_currentState == State.None)
         {
-            aura.SetActive(true);
-            chain.SetActive(true);
+            chain.SetActive(false);
+            aura.SetActive(false);
+            render.material.color = new Color(255, 255, 255, 100);
         }
 
-        else
+
+        else if (_currentState == State.Detective)
         {
-            if (_currentState == State.None)
+            capturedM = false;
+            capturedSC = true;
+
+            chain.SetActive(false);
+            aura.SetActive(false);
+            render.material.color = new Color(0, 20, 255, 100);
+        }
+
+        else if (_currentState == State.Preventative)
+        {
+            capturedM = false;
+            capturedSC = true;
+
+            chain.SetActive(false);
+            aura.SetActive(false);
+            render.material.color = new Color(255, 0, 0, 100);
+        }
+
+
+
+        else if (_currentState == State.Deterrent)
+        {
+            capturedM = false;
+            capturedSC = true;
+
+            chain.SetActive(false);
+            aura.SetActive(false);
+            render.material.color = new Color(0, 0, 50, 100);
+        }
+
+        else if (_currentState == State.Bot)
+        {
+            capturedM = true;
+            capturedSC = false;
+
+            if (isLocked)
             {
-                chain.SetActive(false);
-                aura.SetActive(false);
-                render.material.color = new Color(255, 255, 255, 100);
+                chain.SetActive(true);
             }
 
+            aura.SetActive(true);
+            render.material.color = new Color(20, 0, 200);
+        }
 
-            else if (_currentState == State.Detective)
+        else if (_currentState == State.Virus)
+        {
+            capturedM = true;
+            capturedSC = false;
+
+            if (isLocked)
             {
-                capturedM = false;
-                capturedSC = true;
-
-                chain.SetActive(false);
-                aura.SetActive(false);
-                render.material.color = new Color(0, 20, 255, 100);
+                chain.SetActive(true);
             }
 
-            else if (_currentState == State.Preventative)
-            {
-                capturedM = false;
-                capturedSC = true;
+            aura.SetActive(true);
+            render.material.color = new Color(20, 0, 200);
+        }
 
-                chain.SetActive(false);
-                aura.SetActive(false);
-                render.material.color = new Color(255, 0, 0, 100);
+        else if (_currentState == State.Worm)
+        {
+            capturedM = true;
+            capturedSC = false;
+
+            if (isLocked)
+            {
+                chain.SetActive(true);
             }
 
-            
-
-            else if (_currentState == State.Deterrent)
-            {
-                capturedM = false;
-                capturedSC = true;
-
-                chain.SetActive(false);
-                aura.SetActive(false);
-                render.material.color = new Color(0, 0, 50, 100);
-            }
-
-            else if (_currentState == State.Bot)
-            {
-                capturedM = true;
-                capturedSC = false;
-
-                aura.SetActive(true);
-                render.material.color = new Color(20, 0, 200);
-            }
-
-            else if(_currentState == State.Virus)
-            {
-                capturedM = true;
-                capturedSC = false;
-
-                aura.SetActive(true);
-                render.material.color = new Color(20, 0, 200);
-            }
-            if (_currentState == State.Worm)
-            {
-                aura.SetActive(true);
-                render.material.color = new Color(20, 0, 200);
-            }
+            aura.SetActive(true);
+            render.material.color = new Color(20, 0, 200);
         }
     }
     public void StateEffect()
@@ -247,6 +257,7 @@ public class DataStructure : Unit
                     }
                 }
                 break;
+
             case State.Worm:
                 capturedSC = false;
                 capturedM = true;
