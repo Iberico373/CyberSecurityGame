@@ -8428,6 +8428,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 72948050}
     m_Modifications:
+    - target: {fileID: 102828683478063193, guid: 4e96914233270c94f865dbefb68da924, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.65
+      objectReference: {fileID: 0}
     - target: {fileID: 2343970330183596902, guid: 4e96914233270c94f865dbefb68da924, type: 3}
       propertyPath: deathExplosion
       value: 
