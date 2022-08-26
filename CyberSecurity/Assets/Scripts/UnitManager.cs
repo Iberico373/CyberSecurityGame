@@ -170,6 +170,7 @@ public class UnitManager : MonoBehaviour
                         EndTurn();
                         break;
                     }
+
                     deck.SetActive(true);
                     selectedCharacter.GetComponent<Deck>().Draw();
                     selectedCharacter.pointer.SetActive(true);
@@ -306,7 +307,6 @@ public class UnitManager : MonoBehaviour
 
                 break;
 
-            //Objective's turn
             case 10:
                 if (selectedCharacter.health <= 0)
                 {
@@ -326,6 +326,10 @@ public class UnitManager : MonoBehaviour
                     selectedCharacter.pointer.SetActive(true);
                     selectedCharacter.CheckStatus();
                 }
+                break;
+
+            case 11:
+                EndTurn();
                 break;
 
             default:

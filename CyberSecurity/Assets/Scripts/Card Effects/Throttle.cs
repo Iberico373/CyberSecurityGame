@@ -8,6 +8,7 @@ public class Throttle : Effect
 {
     UnitManager manager;
     public GameObject throttleEffect;
+    
     public override void UseEffect()
     {
         manager = UnitManager.instance;
@@ -16,6 +17,7 @@ public class Throttle : Effect
 
         HashSet<Node> throttleTiles = manager.selectedCharacter.Select(true);
         manager.grid.HighlightGrid(throttleTiles);
+
         if (Input.GetButtonDown("Fire1"))
         {
             RaycastHit hit;
@@ -38,8 +40,10 @@ public class Throttle : Effect
                             manager.selectedCharacter.transform.LookAt(character.transform);
                             manager.selectedCharacter.anim.SetTrigger("Action");
                             manager.selectedCharacter.GetComponent<Unit>().UseCard();
+
                             character.GetComponent<Unit>().isThrottled = 4;
                             Instantiate(throttleEffect, character.transform);
+
                             if (SceneManager.GetActiveScene().name == "Level2")
                             {
                                 //Put whatever condition here I guess

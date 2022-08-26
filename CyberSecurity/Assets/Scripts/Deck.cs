@@ -28,27 +28,18 @@ public class Deck : MonoBehaviour
 
                 if (card.cardType.Equals(gameObject.name) || card.cardType.Equals(""))
                 {
-                    if (!transform.name.Equals("Recovery Control") || !transform.name.Equals("Compensating Control"))
-                    {
-                        for (int a = 0; a < card.maxAmount; a++)
-                        {
-                            deck.Add(card);
-                        }
-                    }
-
-                    else
+                    if (transform.name.Equals("Recovery Control") || transform.name.Equals("Compensating Control"))
                     {
                         if (card == Database.GetCardId(4))
                         {
                             continue;
-                        }
-
-                        for (int a = 0; a < card.maxAmount; a++)
-                        {
-                            deck.Add(card);
-                        }
+                        }                    
                     }
-                    
+
+                    for (int a = 0; a < card.maxAmount; a++)
+                    {
+                        deck.Add(card);
+                    }
                 }
             }
 
@@ -58,6 +49,14 @@ public class Deck : MonoBehaviour
 
                 if (randomCard.cardType.Equals(gameObject.name) || randomCard.cardType.Equals(""))
                 {
+                    if (transform.name.Equals("Recovery Control") || transform.name.Equals("Compensating Control"))
+                    {
+                        if (card == Database.GetCardId(4))
+                        {
+                            continue;
+                        }
+                    }
+
                     deck.Add(randomCard);
                     break;
                 }
@@ -96,6 +95,7 @@ public class Deck : MonoBehaviour
                 deck.Add(discard[0]);
                 discard.Remove(discard[0]);
             }
+
             Draw();
         }
     }

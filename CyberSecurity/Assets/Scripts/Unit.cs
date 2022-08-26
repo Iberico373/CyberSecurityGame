@@ -134,7 +134,7 @@ public class Unit : MonoBehaviour
 
     public void CheckStatus()
     {
-        if(isCorrupted > 0)
+        if (isCorrupted > 0)
         {
             health -= 5 * isCorrupted;
         }
