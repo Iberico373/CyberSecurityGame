@@ -37,10 +37,7 @@ public class Update : Effect
                             manager.selectedCharacter.transform.LookAt(character.transform);
                             manager.selectedCharacter.anim.SetTrigger("Action");
                             manager.selectedCharacter.GetComponent<Unit>().UseCard();
-                            if (manager.selectedCharacter.isThrottled <= 4)
-                            {
-                                manager.selectedCharacter.isThrottled = 4;
-                            }
+                            character.GetComponent<Unit>().isBuffed = true;
                             Instantiate(buffAura, character.transform);
                             if (SceneManager.GetActiveScene().name == "Level2")
                             {
