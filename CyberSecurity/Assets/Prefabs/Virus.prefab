@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3045044359692725648}
   - component: {fileID: 3045044359692725649}
   - component: {fileID: 3045044359692725679}
-  - component: {fileID: 243895557275734138}
+  - component: {fileID: 729526837318808681}
   m_Layer: 3
   m_Name: Virus
   m_TagString: Malware
@@ -68,7 +68,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.400409, y: 1.0562669, z: 1.3}
   m_Center: {x: 0.02429545, y: 0.5006631, z: -0.100000024}
---- !u!114 &243895557275734138
+--- !u!114 &729526837318808681
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3045044359692725650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1338f83260083f4cbec965c89b8779c, type: 3}
+  m_Script: {fileID: 11500000, guid: 03be2f959a665e24e906e8727312e895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   id: 5
@@ -99,6 +99,7 @@ MonoBehaviour:
   target: {fileID: 0}
   targetPos: {x: 0, y: 0, z: 0}
   aggrolist: []
+  deathExplosion: {fileID: 0}
   infectedDS: []
 --- !u!1001 &2177649903851249970
 PrefabInstance:
@@ -248,7 +249,7 @@ PrefabInstance:
     - target: {fileID: 6872652419053875583, guid: b1727dd321af3d4448e1faa1ebb00ec1, type: 3}
       propertyPath: unit
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 729526837318808681}
     - target: {fileID: 6872652419239777474, guid: b1727dd321af3d4448e1faa1ebb00ec1, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

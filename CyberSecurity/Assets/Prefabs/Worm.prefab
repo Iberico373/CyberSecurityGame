@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3777839741594583493}
   - component: {fileID: 3777839741594583492}
   - component: {fileID: 3777839741594583546}
-  - component: {fileID: 9061367906303419887}
+  - component: {fileID: 2343970330183596902}
   m_Layer: 3
   m_Name: Worm
   m_TagString: Malware
@@ -69,7 +69,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.400409, y: 1.0562669, z: 1.3}
   m_Center: {x: 0.02429545, y: 0.5006631, z: -0.100000024}
---- !u!114 &9061367906303419887
+--- !u!114 &2343970330183596902
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -78,13 +78,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3777839741594583495}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36e3d6b24e2746849ab8ed4d62a8dca2, type: 3}
+  m_Script: {fileID: 11500000, guid: cf00b431a58a78844af95e82ddedebef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 5
+  id: 9
   speed: 2
-  health: 50
-  maxHealth: 50
+  health: 40
+  maxHealth: 40
   movementSpeed: 3
   isDetected: 0
   startTurn: 0
@@ -94,13 +94,15 @@ MonoBehaviour:
   anim: {fileID: 0}
   pointer: {fileID: 731415510488318691}
   aura: {fileID: 6475270676211067629}
-  turnOrderDisplay: {fileID: 0}
+  turnOrderDisplay: {fileID: 901476553067245584, guid: ca2ccd660449c2c4b990085863a62bdb, type: 3}
   gameManager: {fileID: 0}
   manager: {fileID: 0}
   target: {fileID: 0}
   targetPos: {x: 0, y: 0, z: 0}
   aggrolist: []
+  deathExplosion: {fileID: 0}
   infectedDS: []
+  worm: {fileID: 3777839741594583495}
 --- !u!1001 &6526152690912615
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -327,7 +329,7 @@ PrefabInstance:
     - target: {fileID: 6872652419053875583, guid: b1727dd321af3d4448e1faa1ebb00ec1, type: 3}
       propertyPath: unit
       value: 
-      objectReference: {fileID: 9061367906303419887}
+      objectReference: {fileID: 2343970330183596902}
     - target: {fileID: 6872652419239777474, guid: b1727dd321af3d4448e1faa1ebb00ec1, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

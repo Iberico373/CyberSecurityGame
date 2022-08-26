@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-[CreateAssetMenu(fileName = "Update", menuName = "Effect/Update")]
-public class Update : Effect
+
+[CreateAssetMenu(fileName = "Throttle", menuName = "Effect/Throttle")]
+public class Throttle : Effect
 {
     UnitManager manager;
-    public GameObject buffAura;
+    public GameObject throttleEffect;
     public override void UseEffect()
     {
         manager = UnitManager.instance;
@@ -37,11 +38,8 @@ public class Update : Effect
                             manager.selectedCharacter.transform.LookAt(character.transform);
                             manager.selectedCharacter.anim.SetTrigger("Action");
                             manager.selectedCharacter.GetComponent<Unit>().UseCard();
-                            if (manager.selectedCharacter.isThrottled <= 4)
-                            {
-                                manager.selectedCharacter.isThrottled = 4;
-                            }
-                            Instantiate(buffAura, character.transform);
+                            character.GetComponent<Unit>().isThrottled = 4;
+                            Instantiate(throttleEffect, character.transform);
                             if (SceneManager.GetActiveScene().name == "Level2")
                             {
                                 //Put whatever condition here I guess

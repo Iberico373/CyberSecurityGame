@@ -273,6 +273,7 @@ public class UnitManager : MonoBehaviour
                 }
 
                 break;
+
             case 9:
                 if (selectedCharacter.health <= 0)
                 {
@@ -294,6 +295,28 @@ public class UnitManager : MonoBehaviour
                 }
 
                 break;
+
+            case 10:
+                if (selectedCharacter.health <= 0)
+                {
+                    EndTurn();
+                }
+
+                else
+                {
+                    if (selectedCharacter.isStunned)
+                    {
+                        selectedCharacter.CheckStatus();
+                        EndTurn();
+                        break;
+                    }
+                    deck.SetActive(true);
+                    selectedCharacter.GetComponent<Deck>().Draw();
+                    selectedCharacter.pointer.SetActive(true);
+                    selectedCharacter.CheckStatus();
+                }
+                break;
+
             default:
                 EndTurn();
                 break;

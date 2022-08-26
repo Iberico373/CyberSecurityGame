@@ -10,11 +10,13 @@ public class CardColor : MonoBehaviour
     public Sprite recovery;
     public Sprite deterrent;
     public Sprite corrective;
+    public Sprite compensating;
     public Sprite dWalk;
     public Sprite pWalk;
     public Sprite rWalk;
     public Sprite dtWalk;
     public Sprite cWalk;
+    public Sprite comWalk;
     public Sprite dDS;
     public Sprite pDS;
     public Sprite rDS;
@@ -93,6 +95,20 @@ public class CardColor : MonoBehaviour
             {
                 card.cardArt.sprite = dtDS;
             }
+        }
+        else if (manager.selectedCharacter.name == "Compensating Control")
+        {
+            img.sprite = compensating;
+
+            if (card.id == 1)
+            {
+                card.cardArt.sprite = comWalk;
+            }
+
+            //else if (card.id == 4)
+            //{
+            //    card.cardArt.sprite = dtDS;
+            //}
         }
     }
 }

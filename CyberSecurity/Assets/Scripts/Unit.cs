@@ -12,6 +12,7 @@ public class Unit : MonoBehaviour
     public bool isDetected;
     public bool startTurn;
     public bool isAlive;
+    public int isThrottled;
     public bool isStunned;
     public int isCorrupted;
     public Animator anim;
