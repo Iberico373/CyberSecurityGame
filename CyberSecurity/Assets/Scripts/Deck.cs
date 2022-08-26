@@ -51,7 +51,7 @@ public class Deck : MonoBehaviour
                 {
                     if (transform.name.Equals("Recovery Control") || transform.name.Equals("Compensating Control"))
                     {
-                        if (card == Database.GetCardId(4))
+                        if (randomCard == Database.GetCardId(4))
                         {
                             continue;
                         }
