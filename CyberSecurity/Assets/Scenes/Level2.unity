@@ -272,6 +272,7 @@ MonoBehaviour:
   startTurn: 0
   isAlive: 0
   isThrottled: 0
+  isBuffed: 0
   isStunned: 0
   isCorrupted: 0
   anim: {fileID: 0}
@@ -306,10 +307,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3e44d913672c09845aa4ac04d5871533, type: 2}
-    - target: {fileID: 4302213589267663000, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
-      propertyPath: bot
-      value: 
-      objectReference: {fileID: 21346002}
     - target: {fileID: 4302213589267663000, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
       propertyPath: render
       value: 
@@ -470,11 +467,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7558131291974193798, guid: 13521492b3ee9a94ca4b49e40046d71c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 13521492b3ee9a94ca4b49e40046d71c, type: 3}
---- !u!1 &21346002 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3719882200503357948, guid: 13521492b3ee9a94ca4b49e40046d71c, type: 3}
-  m_PrefabInstance: {fileID: 21346001}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &21346003 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3719882200503357950, guid: 13521492b3ee9a94ca4b49e40046d71c, type: 3}
@@ -1175,6 +1167,7 @@ MonoBehaviour:
   startTurn: 0
   isAlive: 0
   isThrottled: 0
+  isBuffed: 0
   isStunned: 0
   isCorrupted: 0
   anim: {fileID: 0}
@@ -4296,6 +4289,7 @@ MonoBehaviour:
   startTurn: 0
   isAlive: 0
   isThrottled: 0
+  isBuffed: 0
   isStunned: 0
   isCorrupted: 0
   anim: {fileID: 0}
@@ -6974,10 +6968,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 3e44d913672c09845aa4ac04d5871533, type: 2}
     - target: {fileID: 4302213589267663000, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
-      propertyPath: bot
-      value: 
-      objectReference: {fileID: 21346002}
-    - target: {fileID: 4302213589267663000, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
       propertyPath: render
       value: 
       objectReference: {fileID: 1665831441}
@@ -7942,10 +7932,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 3e44d913672c09845aa4ac04d5871533, type: 2}
     - target: {fileID: 4302213589267663000, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
-      propertyPath: bot
-      value: 
-      objectReference: {fileID: 21346002}
-    - target: {fileID: 4302213589267663000, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
       propertyPath: render
       value: 
       objectReference: {fileID: 1998062587}
@@ -8536,6 +8522,10 @@ PrefabInstance:
     - target: {fileID: 6052812659538655152, guid: b988de812ade77448b9da01bea332e16, type: 3}
       propertyPath: m_Name
       value: Compensating Control
+      objectReference: {fileID: 0}
+    - target: {fileID: 6052812659538655152, guid: b988de812ade77448b9da01bea332e16, type: 3}
+      propertyPath: m_TagString
+      value: Security Control
       objectReference: {fileID: 0}
     - target: {fileID: 6391797164686290186, guid: b988de812ade77448b9da01bea332e16, type: 3}
       propertyPath: m_RootOrder

@@ -1912,8 +1912,9 @@ MonoBehaviour:
   movementSpeed: 0
   isDetected: 0
   startTurn: 0
-  downed: 0
   isAlive: 0
+  isThrottled: 0
+  isBuffed: 0
   isStunned: 0
   isCorrupted: 0
   anim: {fileID: 0}
@@ -1921,18 +1922,12 @@ MonoBehaviour:
   aura: {fileID: 970974767226694109}
   turnOrderDisplay: {fileID: 0}
   gameManager: {fileID: 0}
-  scanobj: {fileID: 0}
-  scancomplete: {fileID: 0}
-  Takeover: {fileID: 0}
-  Takeovercomplete: {fileID: 0}
-  Killbot: {fileID: 0}
-  Killbotcomplete: {fileID: 0}
   isLocked: 0
   capturedM: 0
   capturedSC: 0
   _currentState: 0
   render: {fileID: 0}
-  bot: {fileID: 0}
+  bot: {fileID: 3719882200503357948, guid: 13521492b3ee9a94ca4b49e40046d71c, type: 3}
   laser: {fileID: 6571710295127633407, guid: e9d208e6db5dc58479819b24b926eb5f, type: 3}
   scan: {fileID: 2448158380078623702, guid: 8f5d790ee36e474469be2b19be9b5776, type: 3}
   stun: {fileID: 2734337170296377296, guid: 5b839a1577e0fcf46bc8ae16584e6106, type: 3}
