@@ -27,6 +27,7 @@ public class DataStructure : Unit
     List<Node> adjacentNodes;
     int deterrentCD = 0;
     int botCD = 0;
+    int wormCD = 0;
 
     //Visual Effects for attacks
     public GameObject laser;
@@ -106,6 +107,11 @@ public class DataStructure : Unit
                 capturedM = true;
                 capturedSC = false;
 
+                aura.SetActive(true);
+                render.material.color = new Color(20, 0, 200);
+            }
+            if (_currentState == State.Worm)
+            {
                 aura.SetActive(true);
                 render.material.color = new Color(20, 0, 200);
             }
@@ -247,27 +253,23 @@ public class DataStructure : Unit
 
                 foreach (Node n in adjacentNodes)
                 {
-                    if (n.ReturnObject() == null && botCD == 0)
+                    if (n.ReturnObject() != null && wormCD == 0)
                     {
-                        GameObject botClone = Instantiate(bot, manager.unitGroup.transform);
-                        botClone.transform.position = n.worldPos;
-                        botClone.layer = 3;
-                        botClone.GetComponent<BotAI>().GetAggroList();
-                        manager.SortTurnOrder();
-
-                        botCD++;
-                        break;
+                        if (n.ReturnObject().CompareTag("Security Control"))
+                        {
+                                n.ReturnObject().GetComponent<Unit>().health -= 10;
+                        }
                     }
 
-                    else if (botCD > 0)
+                    else if (wormCD > 0)
                     {
-                        if (botCD == 3)
+                        if (wormCD == 2)
                         {
-                            botCD = 0;
+                            wormCD = 0;
                             break;
                         }
 
-                        botCD++;
+                        wormCD++;
                     }
                 }
                 break;

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3719882200503357950}
   - component: {fileID: 3719882200503357951}
   - component: {fileID: 3719882200503357889}
-  - component: {fileID: 7558131291974193798}
+  - component: {fileID: 2569639484827144019}
   m_Layer: 3
   m_Name: Bot
   m_TagString: Malware
@@ -29,7 +29,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 12, y: 0, z: 28}
   m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 477216879245133922}
   - {fileID: 1085159544614028573}
@@ -40,7 +39,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!95 &3719882200503357951
 Animator:
-  serializedVersion: 4
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -53,7 +52,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -71,7 +69,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.400409, y: 1.0562669, z: 1.3}
   m_Center: {x: 0.02429545, y: 0.5006631, z: -0.100000024}
---- !u!114 &7558131291974193798
+--- !u!114 &2569639484827144019
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -80,17 +78,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 3719882200503357948}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dae300f17edca64995f595f22c73361, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ef9d1f4ab4338d4fb67c3b63ca3417e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   id: 6
   speed: 2
-  health: 30
-  maxHealth: 0
+  health: 20
+  maxHealth: 20
   movementSpeed: 2
   isDetected: 0
   startTurn: 0
-  downed: 0
   isAlive: 0
   isStunned: 0
   isCorrupted: 0
@@ -99,16 +96,11 @@ MonoBehaviour:
   aura: {fileID: 6786625857518573751}
   turnOrderDisplay: {fileID: 2490381952743259463, guid: c9d3ffbdc0f7d184ca7cc6d26a4e7401, type: 3}
   gameManager: {fileID: 0}
-  scanobj: {fileID: 0}
-  scancomplete: {fileID: 0}
-  Takeover: {fileID: 0}
-  Takeovercomplete: {fileID: 0}
-  Killbot: {fileID: 0}
-  Killbotcomplete: {fileID: 0}
   manager: {fileID: 0}
   target: {fileID: 0}
   targetPos: {x: 0, y: 0, z: 0}
   aggrolist: []
+  deathExplosion: {fileID: 0}
   infectedDS: []
 --- !u!1001 &568886895097945436
 PrefabInstance:
@@ -171,14 +163,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cbdafa6c6d617249b41696e44d15cba, type: 3}
---- !u!4 &477216879245133922 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 106535688207996222, guid: 2cbdafa6c6d617249b41696e44d15cba, type: 3}
-  m_PrefabInstance: {fileID: 568886895097945436}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &996626569664025304 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 734558465203785604, guid: 2cbdafa6c6d617249b41696e44d15cba, type: 3}
+  m_PrefabInstance: {fileID: 568886895097945436}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &477216879245133922 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 106535688207996222, guid: 2cbdafa6c6d617249b41696e44d15cba, type: 3}
   m_PrefabInstance: {fileID: 568886895097945436}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7558131292698696984
@@ -320,7 +312,7 @@ PrefabInstance:
     - target: {fileID: 6872652419053875583, guid: b1727dd321af3d4448e1faa1ebb00ec1, type: 3}
       propertyPath: unit
       value: 
-      objectReference: {fileID: 7558131291974193798}
+      objectReference: {fileID: 2569639484827144019}
     - target: {fileID: 6872652419239777474, guid: b1727dd321af3d4448e1faa1ebb00ec1, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

@@ -323,11 +323,13 @@ MonoBehaviour:
   recovery: {fileID: 21300000, guid: 7a4f6c62032ffc240ae139c86010cfd2, type: 3}
   deterrent: {fileID: 21300000, guid: ea24dd9d5470b4f43b148d51f977d79d, type: 3}
   corrective: {fileID: 21300000, guid: 6b7f0feb6d3d1964c9bae8584fc346b1, type: 3}
+  compensating: {fileID: 21300000, guid: 91279278577e61445a324b5518814236, type: 3}
   dWalk: {fileID: 21300000, guid: 8244e02ca512c6d459aa0e091c611a86, type: 3}
   pWalk: {fileID: 21300000, guid: 0f8d02e3fd1e9084bad8f15c51ea98cd, type: 3}
   rWalk: {fileID: 21300000, guid: ca7f2996624acf043b93139e0a9a20a4, type: 3}
   dtWalk: {fileID: 21300000, guid: 6ca6ec6a20c0f974388f0bf3599149c6, type: 3}
   cWalk: {fileID: 21300000, guid: 2d6019d5169267e4a8d3e93435e0028f, type: 3}
+  comWalk: {fileID: 21300000, guid: 9b4acdf3dc6a2b843add9dab5be5a4b4, type: 3}
   dDS: {fileID: 21300000, guid: 28e07364dc5a12940bc020762347313d, type: 3}
   pDS: {fileID: 21300000, guid: cffcbafaf396332468dcd7652802bf8b, type: 3}
   rDS: {fileID: 0}

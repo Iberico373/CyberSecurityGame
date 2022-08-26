@@ -14,8 +14,8 @@ public class Cleanse : Effect
         manager.grid.ClearGrid();
         manager.effect = this;
 
-        HashSet<Node> scanTiles = manager.selectedCharacter.Select(true);
-        manager.grid.HighlightGrid(scanTiles);
+        HashSet<Node> cleanseTiles = manager.selectedCharacter.Select(true);
+        manager.grid.HighlightGrid(cleanseTiles);
         if (Input.GetButtonDown("Fire1"))
         {
             RaycastHit hit;
@@ -29,7 +29,7 @@ public class Cleanse : Effect
                 if (manager.selectedCharacter != null)
                 {
 
-                    if (scanTiles.Contains(node) && character != null)
+                    if (cleanseTiles.Contains(node) && character != null)
                     {
 
                         if (character.CompareTag("Security Control") &&
@@ -37,7 +37,7 @@ public class Cleanse : Effect
                             character.GetComponent<Unit>().isCorrupted != 0)
                         {
                             manager.selectedCharacter.transform.LookAt(character.transform);
-                            manager.selectedCharacter.anim.SetTrigger("Heal");
+                            manager.selectedCharacter.anim.SetTrigger("Cleanse");
                             manager.selectedCharacter.GetComponent<Unit>().UseCard();
                             if (SceneManager.GetActiveScene().name == "Level1")
                             {

@@ -6,6 +6,7 @@ public class DSAction : Effect
 {
     UnitManager manager;
     CardTutorial tutorial;
+    public GameObject effect;
     public override void UseEffect()
     {
         manager = UnitManager.instance;

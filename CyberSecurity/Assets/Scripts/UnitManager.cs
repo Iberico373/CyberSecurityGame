@@ -308,7 +308,24 @@ public class UnitManager : MonoBehaviour
 
             //Objective's turn
             case 10:
-                EndTurn();
+                if (selectedCharacter.health <= 0)
+                {
+                    EndTurn();
+                }
+
+                else
+                {
+                    if (selectedCharacter.isStunned)
+                    {
+                        selectedCharacter.CheckStatus();
+                        EndTurn();
+                        break;
+                    }
+                    deck.SetActive(true);
+                    selectedCharacter.GetComponent<Deck>().Draw();
+                    selectedCharacter.pointer.SetActive(true);
+                    selectedCharacter.CheckStatus();
+                }
                 break;
 
             default:

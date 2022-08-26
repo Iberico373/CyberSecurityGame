@@ -18,7 +18,17 @@ public class Walk : Effect
         {
             tutorial = GameObject.Find("Tutorial Canvas 1").GetComponent<CardTutorial>();
         }
-
+        
+        if (manager.selectedCharacter.isThrottled > 0)
+        {
+            manager.pathfinding.radius = 3;
+            
+        }
+        
+        else
+        {
+            manager.pathfinding.radius = 2;
+        }
         manager.grid.ClearGrid();
         manager.effect = this;
         HashSet<Node> movementTiles = manager.selectedCharacter.Select(false);
@@ -48,8 +58,12 @@ public class Walk : Effect
                             manager.objectives.GetComponent<TutorialObject>().scancomp.SetActive(true);
                         }
 
+                        manager.selectedCharacter.isThrottled -= 1;
                         manager.selectedCharacter.Move(node.worldPos);
-                        
+                        if (manager.selectedCharacter.isThrottled == 0 && manager.pathfinding.radius == 3)
+                        {
+                            Destroy(manager.selectedCharacter.transform.Find("SpeedUp(Clone)").gameObject);
+                        }
                     }
 
                     manager.selectedCharacter.GetComponent<Unit>().DeselectCard();
