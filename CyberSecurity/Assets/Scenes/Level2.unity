@@ -272,6 +272,7 @@ MonoBehaviour:
   startTurn: 0
   isAlive: 0
   isThrottled: 0
+  isBuffed: 0
   isStunned: 0
   isCorrupted: 0
   anim: {fileID: 0}
@@ -1175,6 +1176,7 @@ MonoBehaviour:
   startTurn: 0
   isAlive: 0
   isThrottled: 0
+  isBuffed: 0
   isStunned: 0
   isCorrupted: 0
   anim: {fileID: 0}
@@ -4296,6 +4298,7 @@ MonoBehaviour:
   startTurn: 0
   isAlive: 0
   isThrottled: 0
+  isBuffed: 0
   isStunned: 0
   isCorrupted: 0
   anim: {fileID: 0}
@@ -8442,6 +8445,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 72948050}
     m_Modifications:
+    - target: {fileID: 102828683478063193, guid: 4e96914233270c94f865dbefb68da924, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.65
+      objectReference: {fileID: 0}
     - target: {fileID: 2343970330183596902, guid: 4e96914233270c94f865dbefb68da924, type: 3}
       propertyPath: deathExplosion
       value: 
@@ -8536,6 +8543,10 @@ PrefabInstance:
     - target: {fileID: 6052812659538655152, guid: b988de812ade77448b9da01bea332e16, type: 3}
       propertyPath: m_Name
       value: Compensating Control
+      objectReference: {fileID: 0}
+    - target: {fileID: 6052812659538655152, guid: b988de812ade77448b9da01bea332e16, type: 3}
+      propertyPath: m_TagString
+      value: Security Control
       objectReference: {fileID: 0}
     - target: {fileID: 6391797164686290186, guid: b988de812ade77448b9da01bea332e16, type: 3}
       propertyPath: m_RootOrder
