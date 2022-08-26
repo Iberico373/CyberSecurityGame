@@ -86,6 +86,7 @@ public class UnitManager : MonoBehaviour
     {
         switch (selectedCharacter.id)
         {
+            //Preventative's Turn
             case 0:
                 if (selectedCharacter.health <= 0)
                 {
@@ -108,6 +109,7 @@ public class UnitManager : MonoBehaviour
 
                 break;
 
+            //Detective's Turn
             case 1:
                 if (selectedCharacter.health <= 0)
                 {
@@ -130,6 +132,7 @@ public class UnitManager : MonoBehaviour
 
                 break;
 
+            //Recovery's Turn
             case 2:
                 if (selectedCharacter.health <= 0)
                 {
@@ -152,6 +155,7 @@ public class UnitManager : MonoBehaviour
 
                 break;
 
+            //Deterrent's Turn
             case 3:
                 if (selectedCharacter.health <= 0)
                 {
@@ -174,6 +178,7 @@ public class UnitManager : MonoBehaviour
 
                 break;
 
+            //Ransomware's turn
             case 4:
                 if (selectedCharacter == null)
                 {
@@ -191,11 +196,12 @@ public class UnitManager : MonoBehaviour
 
                     deck.SetActive(false);
                     selectedCharacter.pointer.SetActive(true);
-                    selectedCharacter.GetComponent<RansomwareAI>().SelectTarget();
+                    selectedCharacter.GetComponent<BaseAI>().SelectTarget();
                 }
 
                 break;
 
+            //Virus' turn
             case 5:
                 if (selectedCharacter == null)
                 {
@@ -218,6 +224,7 @@ public class UnitManager : MonoBehaviour
                 
                 break;
 
+            //Bot's turn
             case 6:
                 if (selectedCharacter == null)
                 {
@@ -240,6 +247,7 @@ public class UnitManager : MonoBehaviour
 
                 break;
 
+            //Data Structure's turn
             case 7:
                 deck.SetActive(false);
                 selectedCharacter.CheckStatus();
@@ -252,6 +260,7 @@ public class UnitManager : MonoBehaviour
                 EndTurn();
                 break;
 
+            //Corrective's Turn
             case 8:
                 if (selectedCharacter.health <= 0)
                 {
@@ -274,6 +283,7 @@ public class UnitManager : MonoBehaviour
 
                 break;
 
+            //Worm's turn 
             case 9:
                 if (selectedCharacter.health <= 0)
                 {
@@ -296,6 +306,7 @@ public class UnitManager : MonoBehaviour
 
                 break;
 
+            //Objective's turn
             case 10:
                 EndTurn();
                 break;
