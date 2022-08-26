@@ -40,7 +40,7 @@ public class Blast : Effect
                         if (manager.grid.NodeFromWorldPoint(targetPos).ReturnObject() == null)
                         {
                             target = character;
-
+                            
                             manager.selectedCharacter.transform.LookAt(character.transform.position);
                             manager.selectedCharacter.anim.SetTrigger("Attack");
                             manager.selectedCharacter.GetComponent<Unit>().UseCard();

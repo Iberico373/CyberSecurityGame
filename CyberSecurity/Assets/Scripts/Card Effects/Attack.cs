@@ -40,7 +40,14 @@ public class Attack : Effect
 
                         if (character.GetComponent<Unit>().isDetected)
                         {
-                            character.GetComponent<Unit>().health -= 10;
+                            if(manager.selectedCharacter.isBuffed)
+                            {
+                                character.GetComponent<Unit>().health -= 20;
+                            }
+                            else
+                            {
+                                character.GetComponent<Unit>().health -= 10;
+                            }
                             character.GetComponent<BaseAI>().aggrolist.Remove(manager.selectedCharacter.gameObject);
                             character.GetComponent<BaseAI>().aggrolist.Insert(0, manager.selectedCharacter.gameObject);
                         }                        

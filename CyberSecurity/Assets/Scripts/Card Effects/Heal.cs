@@ -57,8 +57,14 @@ public class Heal : Effect
 
                             else
                             {
-                                character.GetComponent<Unit>().health += Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.2f);
-                            }
+                                if(manager.selectedCharacter.isBuffed)
+                                {
+                                    character.GetComponent<Unit>().health += Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.4f);
+                                }
+                                else
+                                {
+                                    character.GetComponent<Unit>().health += Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.2f);
+                                }                            }
                            
                         }
                     }

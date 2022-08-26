@@ -4501,7 +4501,7 @@ GameObject:
   - component: {fileID: 6863064558735524090}
   m_Layer: 0
   m_Name: Compensating Control
-  m_TagString: Untagged
+  m_TagString: Security Control
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4618,6 +4618,7 @@ MonoBehaviour:
   startTurn: 0
   isAlive: 0
   isThrottled: 0
+  isBuffed: 0
   isStunned: 0
   isCorrupted: 0
   anim: {fileID: 0}
