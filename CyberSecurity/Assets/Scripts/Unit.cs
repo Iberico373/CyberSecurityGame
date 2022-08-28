@@ -13,6 +13,7 @@ public class Unit : MonoBehaviour
     public bool startTurn;
     public bool isAlive;
     public int isThrottled;
+    public int adEffect;
     public bool isBuffed;
     public bool isStunned;
     public int isCorrupted;
