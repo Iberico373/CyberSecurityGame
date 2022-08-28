@@ -9,6 +9,7 @@ public class Unit : MonoBehaviour
     public int health;
     public int maxHealth;
     public int movementSpeed;
+
     public bool isDetected;
     public bool startTurn;
     public bool isAlive;
@@ -16,6 +17,7 @@ public class Unit : MonoBehaviour
     public bool isBuffed;
     public bool isStunned;
     public int isCorrupted;
+
     public Animator anim;
     public GameObject pointer;
     public GameObject aura;
@@ -23,7 +25,6 @@ public class Unit : MonoBehaviour
     public List<Node> _attackTiles;
     public GameManager gameManager;
     
-
     PathRequestManager request;    
     Vector3[] path;
     int targetIndex;

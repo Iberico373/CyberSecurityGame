@@ -7,7 +7,7 @@ public class DeckUI : MonoBehaviour
     public TMPro.TextMeshProUGUI totalDraw;
     public TMPro.TextMeshProUGUI totalDiscard;
     public TMPro.TextMeshProUGUI healthText;
-    public TMPro.TextMeshProUGUI currentRam;
+    public TMPro.TextMeshProUGUI ramText;
     public Slider healthBar;
     public Slider ramBar;
 
@@ -41,7 +41,7 @@ public class DeckUI : MonoBehaviour
         healthText.text = character.health.ToString();
 
         ramBar.value = currentDeck.ram;
-        currentRam.text = currentDeck.ram.ToString();
+        ramText.text = currentDeck.ram.ToString();
     }
 
     public void UpdateUIValues()
