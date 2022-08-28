@@ -48,11 +48,6 @@ public class Heal : Effect
                                 manager.objectives.GetComponent<Level1Object>().healcomp.SetActive(true);
                             }
 
-                            if(SceneManager.GetActiveScene().name == "Level3")
-                            {
-                                manager.GetComponent<Level3Object>().Healing();
-                            }
-
                             Instantiate(healExpansion, character.transform);
 
                             if (character.GetComponent<Unit>().health + Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.2f) > character.GetComponent<Unit>().maxHealth)

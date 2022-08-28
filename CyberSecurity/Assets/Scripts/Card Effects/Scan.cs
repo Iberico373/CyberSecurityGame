@@ -40,9 +40,9 @@ public class Scan : Effect
                             if (!manager.selectedCharacter.isBuffed)
                             {
                                 manager.selectedCharacter.GetComponent<Unit>().UseCard();
+                                manager.selectedCharacter.isBuffed = false;
                                 Destroy(manager.selectedCharacter.transform.Find("BuffAura(Clone)").gameObject);
                             }
-                            manager.selectedCharacter.isBuffed = false;
                         }                        
                     }
 

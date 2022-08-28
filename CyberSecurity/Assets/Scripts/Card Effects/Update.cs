@@ -41,8 +41,7 @@ public class Update : Effect
                             Instantiate(buffAura, character.transform);
                             if (SceneManager.GetActiveScene().name == "Level2")
                             {
-                                manager.objectives.GetComponent<Level2Object>().upgrade.SetActive(false);
-                                manager.objectives.GetComponent<Level2Object>().upgradecomp.SetActive(true);
+                                //Put whatever condition here I guess
                             }
                         }
                     }
