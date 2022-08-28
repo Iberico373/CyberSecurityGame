@@ -6,6 +6,7 @@ public class Scan : Effect
 {
     UnitManager manager;
     public GameObject scanExpansion;
+
     public override void UseEffect()
     {
         manager = UnitManager.instance;
@@ -15,6 +16,7 @@ public class Scan : Effect
 
         HashSet<Node> scanTiles = manager.selectedCharacter.Select(true);
         manager.grid.HighlightGrid(scanTiles);
+
         if (Input.GetButtonDown("Fire1"))
         {
             RaycastHit hit;
@@ -31,18 +33,29 @@ public class Scan : Effect
                     {
                         if (character.CompareTag("Malware"))
                         {
+                            if (manager.selectedCharacter.isBuffed)
+                            {
+                                Destroy(manager.selectedCharacter.transform.Find("BuffAura(Clone)").gameObject);
+                                manager.selectedCharacter.isBuffed = false;
+                            }
+
+                            else if (!manager.selectedCharacter.isBuffed)
+                            {
+                                if (character.name.Equals("Trojan"))
+                                {
+                                    return;
+                                }
+
+                                manager.selectedCharacter.GetComponent<Unit>().UseCard();
+                            }
+
                             manager.selectedCharacter.transform.LookAt(character.transform);
                             manager.selectedCharacter.anim.SetTrigger("Scan");
                             Instantiate(scanExpansion, character.transform);
+
                             character.GetComponent<Unit>().isDetected = true;
                             character.GetComponent<BaseAI>().aggrolist.Remove(manager.selectedCharacter.gameObject);
-                            character.GetComponent<BaseAI>().aggrolist.Insert(0, manager.selectedCharacter.gameObject);
-                            if (!manager.selectedCharacter.isBuffed)
-                            {
-                                manager.selectedCharacter.GetComponent<Unit>().UseCard();
-                                Destroy(manager.selectedCharacter.transform.Find("BuffAura(Clone)").gameObject);
-                            }
-                            manager.selectedCharacter.isBuffed = false;
+                            character.GetComponent<BaseAI>().aggrolist.Insert(0, manager.selectedCharacter.gameObject);                                                     
                         }                        
                     }
 

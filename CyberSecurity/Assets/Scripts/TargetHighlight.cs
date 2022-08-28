@@ -11,6 +11,7 @@ public class TargetHighlight : MonoBehaviour
     public TMPro.TextMeshProUGUI attackText;
     public GameObject scHealth; 
     public GameObject mHealth;
+    public GameObject targetHighlightBase;
 
     private void Update()
     {
@@ -19,10 +20,14 @@ public class TargetHighlight : MonoBehaviour
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
+            targetHighlightBase.SetActive(false);
+
             if (Physics.Raycast(ray, out hit))
             {
                 if (hit.collider.CompareTag("Security Control"))
                 {
+                    targetHighlightBase.SetActive(true);
+
                     scHealth.SetActive(true);
                     mHealth.SetActive(false);   
 
@@ -35,6 +40,8 @@ public class TargetHighlight : MonoBehaviour
 
                 else if (hit.collider.CompareTag("Malware"))
                 {
+                    targetHighlightBase.SetActive(true);
+
                     scHealth.SetActive(false);
                     mHealth.SetActive(true);
 
