@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Level2Object : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject upgrade;
+    public GameObject upgradecomp;
+    public GameObject cleanse;
+    public GameObject cleansecomp;
     void Start()
     {
-        
-    }
+        upgrade = transform.Find("Upgrade").gameObject;
+        upgradecomp = transform.Find("Upgradecomp").gameObject;
+        cleanse = transform.Find("Cleanse").gameObject;
+        cleansecomp = transform.Find("Cleansecomp").gameObject;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        upgradecomp.SetActive(false);
+        cleansecomp.SetActive(false);
+  
     }
 }
