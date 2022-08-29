@@ -37,7 +37,7 @@ public class DSAction : Effect
                 {
                     if (actionTiles.Contains(node) && character != null)
                     {
-                        if (character.GetComponent<Unit>().id == 7)
+                        if (character.GetComponent<Unit>().id == 1)
                         {
                             Instantiate(effect, character.transform);
                             if (manager.selectedCharacter.name.Equals("Preventative Control"))
@@ -72,6 +72,7 @@ public class DSAction : Effect
                                 character.GetComponent<DataStructure>()._currentState = State.Deterrent;
                                 manager.selectedCharacter.GetComponent<Unit>().UseCard();
                             }
+
                             else if (manager.selectedCharacter.name.Equals("Corrective Control"))
                             {
                                 character.GetComponent<DataStructure>().isLocked = false;

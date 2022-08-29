@@ -3830,7 +3830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d65fb257e4a8604b94a4560aac0679c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 7
+  id: 5
   speed: 2
   health: 100
   maxHealth: 0

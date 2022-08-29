@@ -1932,7 +1932,7 @@ MonoBehaviour:
   laser: {fileID: 6571710295127633407, guid: e9d208e6db5dc58479819b24b926eb5f, type: 3}
   scan: {fileID: 2448158380078623702, guid: 8f5d790ee36e474469be2b19be9b5776, type: 3}
   stun: {fileID: 2734337170296377296, guid: 5b839a1577e0fcf46bc8ae16584e6106, type: 3}
-  chain: {fileID: 0}
+  chain: {fileID: 5056136577481044695, guid: cd7c63dbe4eac564c9b10dcf1dff838d, type: 3}
 --- !u!1 &4117685935940894681
 GameObject:
   m_ObjectHideFlags: 0

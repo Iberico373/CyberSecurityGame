@@ -97,11 +97,11 @@ MonoBehaviour:
   anim: {fileID: 0}
   pointer: {fileID: 2280507754271501401}
   aura: {fileID: 5503318957126954379}
-  turnOrderDisplay: {fileID: 0}
+  turnOrderDisplay: {fileID: 5790182629683356187, guid: 1e03e9fe54da0394ea76d8ef1facfd44, type: 3}
   gameManager: {fileID: 0}
   manager: {fileID: 0}
   target: {fileID: 0}
-  deathExplosion: {fileID: 0}
+  deathExplosion: {fileID: 504887115533849741, guid: e9ab72072b5cf384a89b5db9bea69b2a, type: 3}
   targetPos: {x: 0, y: 0, z: 0}
   aggrolist: []
   infectedDS: []
