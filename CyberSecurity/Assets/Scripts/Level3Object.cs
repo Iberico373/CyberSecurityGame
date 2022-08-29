@@ -6,13 +6,16 @@ public class Level3Object : MonoBehaviour
 {
     public GameObject heal;
     public GameObject cleanse;
+    public GameObject kill;
 
     private int healcount = 0;
     private int cleansecount = 0;
+    private int killcount = 0;
     void Start()
     {
         heal = transform.Find("Heal").gameObject;
         cleanse = transform.Find("Cleanse").gameObject;
+        kill = transform.Find("Kill").gameObject;
     }
 
     public void Healing()
@@ -26,5 +29,10 @@ public class Level3Object : MonoBehaviour
         cleansecount++;
         cleanse.GetComponent<TMPro.TextMeshProUGUI>().text = "Use corrective control to cleanse 2 effects (" + cleansecount.ToString() + "/2)";
     }
-    
+
+    public void Killing()
+    {
+        killcount++;
+        kill.GetComponent<TMPro.TextMeshProUGUI>().text = "Defeat all malwares (" + killcount.ToString() + "/9)";
+    }
 }

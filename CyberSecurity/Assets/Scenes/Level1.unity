@@ -1990,6 +1990,7 @@ MonoBehaviour:
   startTurn: 0
   isAlive: 0
   isThrottled: 0
+  adEffect: 0
   isBuffed: 0
   isStunned: 0
   isCorrupted: 0
@@ -2213,7 +2214,7 @@ MonoBehaviour:
   totalDraw: {fileID: 174106769}
   totalDiscard: {fileID: 537406845}
   healthText: {fileID: 978897881}
-  currentRam: {fileID: 1485897233}
+  ramText: {fileID: 0}
   healthBar: {fileID: 1348737019}
   ramBar: {fileID: 36928373}
   character: {fileID: 0}
@@ -3335,6 +3336,7 @@ MonoBehaviour:
   startTurn: 0
   isAlive: 0
   isThrottled: 0
+  adEffect: 0
   isBuffed: 0
   isStunned: 0
   isCorrupted: 0
@@ -5386,8 +5388,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6844,6 +6846,7 @@ MonoBehaviour:
   startTurn: 0
   isAlive: 0
   isThrottled: 0
+  adEffect: 0
   isBuffed: 0
   isStunned: 0
   isCorrupted: 0
@@ -6932,7 +6935,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

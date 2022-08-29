@@ -8,15 +8,24 @@ public class Level2Object : MonoBehaviour
     public GameObject upgradecomp;
     public GameObject cleanse;
     public GameObject cleansecomp;
+    public GameObject kill;
+    private int killcount = 0;
     void Start()
     {
         upgrade = transform.Find("Upgrade").gameObject;
         upgradecomp = transform.Find("Upgradecomp").gameObject;
         cleanse = transform.Find("Cleanse").gameObject;
         cleansecomp = transform.Find("Cleansecomp").gameObject;
+        kill = transform.Find("kill").gameObject;
 
         upgradecomp.SetActive(false);
         cleansecomp.SetActive(false);
   
+    }
+
+    public void Killing()
+    {
+        killcount++;
+        kill.GetComponent<TMPro.TextMeshProUGUI>().text = "Defeat all malwares (" + killcount.ToString() + "/9)";
     }
 }
