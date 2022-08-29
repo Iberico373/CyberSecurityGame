@@ -45,12 +45,7 @@ public class Pathfinding : MonoBehaviour
         //For every neighbouring node surrounding the starting node...
         foreach (Node neighbour in grid.GetNeighbours(startingNode, 1))
         {
-            if (ignoreObstacle)
-            {
-                ui.Add(neighbour);
-            }
-
-            else if (radius - neighbour.cost >= 0)
+            if (radius - neighbour.cost >= 0 || ignoreObstacle)
             {
                 //Add neighbour to ui
                 ui.Add(neighbour);
