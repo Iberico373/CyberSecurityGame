@@ -34,7 +34,8 @@ public class DataStructure : Unit
     public GameObject scan;
     public GameObject stun;
     public GameObject chain;
-
+    public GameObject worm;
+    public GameObject virus;
     private void Awake()
     {
         manager = UnitManager.instance;
@@ -216,6 +217,9 @@ public class DataStructure : Unit
                 break;
 
             case State.Virus:
+                GameObject summonedVirus = Instantiate(virus);
+                summonedVirus.transform.position = transform.position;
+                Destroy(summonedVirus, 5);
                 foreach (Node n in nodesInRange)
                 {
                     if (n.ReturnObject() != null)
@@ -261,7 +265,9 @@ public class DataStructure : Unit
             case State.Worm:
                 capturedSC = false;
                 capturedM = true;
-
+                GameObject summonedWormLaser = Instantiate(worm);
+                summonedWormLaser.transform.position = transform.position;
+                Destroy(summonedWormLaser, 5);
                 foreach (Node n in adjacentNodes)
                 {
                     if (n.ReturnObject() != null && wormCD == 0)
