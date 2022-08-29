@@ -16,7 +16,7 @@ public class Level2Object : MonoBehaviour
         upgradecomp = transform.Find("Upgradecomp").gameObject;
         cleanse = transform.Find("Cleanse").gameObject;
         cleansecomp = transform.Find("Cleansecomp").gameObject;
-        kill = transform.Find("kill").gameObject;
+        kill = transform.Find("Kill").gameObject;
 
         upgradecomp.SetActive(false);
         cleansecomp.SetActive(false);
