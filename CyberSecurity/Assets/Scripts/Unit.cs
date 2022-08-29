@@ -19,6 +19,7 @@ public class Unit : MonoBehaviour
     public bool isStunned;
     public int isCorrupted;
 
+    public GameObject stunned;
     public GameObject capEffect;
     public Animator anim;
     public GameObject pointer;
@@ -145,6 +146,7 @@ public class Unit : MonoBehaviour
         else if (isStunned)
         {
             isStunned = false;
+            stunned.SetActive(false);
         }
 
     }
