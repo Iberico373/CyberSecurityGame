@@ -40,6 +40,7 @@ public class Cleanse : Effect
                             manager.selectedCharacter.transform.LookAt(character.transform);
                             manager.selectedCharacter.anim.SetTrigger("Cleanse");
                             manager.selectedCharacter.GetComponent<Unit>().UseCard();
+
                             if (SceneManager.GetActiveScene().name == "Level2")
                             {
                                 manager.objectives.GetComponent<Level2Object>().cleanse.SetActive(false);
