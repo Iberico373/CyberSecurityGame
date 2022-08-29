@@ -5,7 +5,7 @@ using UnityEngine;
 public class Attack : Effect
 {
     UnitManager manager;
-    public GameObject target;
+
     public override void UseEffect()
     {
         manager = UnitManager.instance;
@@ -37,22 +37,22 @@ public class Attack : Effect
                         manager.selectedCharacter.transform.LookAt(character.transform);
                         manager.selectedCharacter.anim.SetTrigger("Attack");
                         manager.selectedCharacter.GetComponent<Unit>().UseCard();
-                        target = character;
-                        //if (character.GetComponent<Unit>().isDetected)
-                        //{
-                        //    if(manager.selectedCharacter.isBuffed)
-                        //    {
-                        //        character.GetComponent<Unit>().health -= 20;
-                        //        manager.selectedCharacter.isBuffed = false;
-                        //        Destroy(manager.selectedCharacter.transform.Find("BuffAura(Clone)").gameObject);
-                        //    }
-                        //    else
-                        //    {
-                        //        character.GetComponent<Unit>().health -= 10;
-                        //    }
-                        //    character.GetComponent<BaseAI>().aggrolist.Remove(manager.selectedCharacter.gameObject);
-                        //    character.GetComponent<BaseAI>().aggrolist.Insert(0, manager.selectedCharacter.gameObject);
-                        //}                        
+
+                        if (character.GetComponent<Unit>().isDetected)
+                        {
+                            if(manager.selectedCharacter.isBuffed)
+                            {
+                                character.GetComponent<Unit>().health -= 20;
+                                manager.selectedCharacter.isBuffed = false;
+                                Destroy(manager.selectedCharacter.transform.Find("BuffAura(Clone)").gameObject);
+                            }
+                            else
+                            {
+                                character.GetComponent<Unit>().health -= 10;
+                            }
+                            character.GetComponent<BaseAI>().aggrolist.Remove(manager.selectedCharacter.gameObject);
+                            character.GetComponent<BaseAI>().aggrolist.Insert(0, manager.selectedCharacter.gameObject);
+                        }                        
                     }
 
                     manager.selectedCharacter.GetComponent<Unit>().DeselectCard();
