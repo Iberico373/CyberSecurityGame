@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8d2e31ddbe296134d80e85258986e1b4
+guid: 145fe8e1c9b2c4647b855ec42d57db1a
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: 4781951162920444690
+      74: 1827226128182048838
     second: Idle
   - first:
       74: 2667949614841947897
@@ -13,8 +13,8 @@ ModelImporter:
       74: 6720303635017113406
     second: Attack
   - first:
-      74: -1246731831762816583
-    second: Armature|ArmatureAction
+      74: 8017390324079358001
+    second: Hurt
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -45,7 +45,7 @@ ModelImporter:
     clipAnimations:
     - serializedVersion: 16
       name: Idle
-      takeName: Armature|ArmatureAction
+      takeName: Take 001
       internalID: 0
       firstFrame: 0
       lastFrame: 60
@@ -55,7 +55,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -74,10 +74,10 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Walk
-      takeName: Armature|ArmatureAction
+      takeName: Take 001
       internalID: 0
-      firstFrame: 80
-      lastFrame: 195
+      firstFrame: 90
+      lastFrame: 150
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -103,17 +103,17 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Attack
-      takeName: Armature|ArmatureAction
+      takeName: Take 001
       internalID: 0
-      firstFrame: 195
-      lastFrame: 300
+      firstFrame: 180
+      lastFrame: 240
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -131,11 +131,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|ArmatureAction
-      takeName: Armature|ArmatureAction
+      name: Hurt
+      takeName: Take 001
       internalID: 0
-      firstFrame: 300
-      lastFrame: 360
+      firstFrame: 240
+      lastFrame: 280
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -162,7 +162,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 20
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -213,7 +213,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 20
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
@@ -222,7 +222,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
   userData: 
