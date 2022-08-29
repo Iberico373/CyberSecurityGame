@@ -94,6 +94,7 @@ MonoBehaviour:
   isBuffed: 0
   isStunned: 0
   isCorrupted: 0
+  capEffect: {fileID: 5275402056542611489, guid: 0f7636c2f4567874eb3b34321aeaad3d, type: 3}
   anim: {fileID: 0}
   pointer: {fileID: 2280507754271501401}
   aura: {fileID: 5503318957126954379}

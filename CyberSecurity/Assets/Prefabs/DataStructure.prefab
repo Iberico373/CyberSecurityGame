@@ -1933,6 +1933,8 @@ MonoBehaviour:
   scan: {fileID: 2448158380078623702, guid: 8f5d790ee36e474469be2b19be9b5776, type: 3}
   stun: {fileID: 2734337170296377296, guid: 5b839a1577e0fcf46bc8ae16584e6106, type: 3}
   chain: {fileID: 5056136577481044695, guid: cd7c63dbe4eac564c9b10dcf1dff838d, type: 3}
+  worm: {fileID: 5741666751165301202, guid: 6e865351799de4642a4e2e87a22858bc, type: 3}
+  virus: {fileID: 1740047122475932941, guid: 512d929f7b1149b46a1f5c5b325fac3c, type: 3}
 --- !u!1 &4117685935940894681
 GameObject:
   m_ObjectHideFlags: 0
