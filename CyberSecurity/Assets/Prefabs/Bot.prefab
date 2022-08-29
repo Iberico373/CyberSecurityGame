@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef9d1f4ab4338d4fb67c3b63ca3417e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 6
+  id: 9
   speed: 2
   health: 20
   maxHealth: 20
@@ -89,6 +89,9 @@ MonoBehaviour:
   isDetected: 0
   startTurn: 0
   isAlive: 0
+  isThrottled: 0
+  adEffect: 0
+  isBuffed: 0
   isStunned: 0
   isCorrupted: 0
   anim: {fileID: 0}
@@ -98,9 +101,9 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   manager: {fileID: 0}
   target: {fileID: 0}
+  deathExplosion: {fileID: 0}
   targetPos: {x: 0, y: 0, z: 0}
   aggrolist: []
-  deathExplosion: {fileID: 0}
   infectedDS: []
 --- !u!1001 &568886895097945436
 PrefabInstance:

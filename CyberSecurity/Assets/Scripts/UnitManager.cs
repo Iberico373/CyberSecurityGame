@@ -84,79 +84,27 @@ public class UnitManager : MonoBehaviour
 
     void SwitchState()
     {
-        switch (selectedCharacter.id)
+        string selectedCharacterTag = selectedCharacter.tag;
+
+        switch (selectedCharacterTag)
         {
-            //Preventative's Turn
-            case 0:
-                if (selectedCharacter.health <= 0)
-                {
-                    EndTurn();
-                }
-
-                else
-                {
-                    if (selectedCharacter.isStunned)
-                    {
-                        selectedCharacter.CheckStatus();
-                        EndTurn();
-                        break;
-                    }
-                    deck.SetActive(true);
-                    selectedCharacter.GetComponent<Deck>().Draw();
-                    selectedCharacter.pointer.SetActive(true);
-                    selectedCharacter.CheckStatus();
-                }
-
+            case "Objective":
+                EndTurn();
                 break;
 
-            //Detective's Turn
-            case 1:
-                if (selectedCharacter.health <= 0)
+            case "Data Structure":
+                deck.SetActive(false);
+                selectedCharacter.CheckStatus();
+
+                if (selectedCharacter.GetComponent<DataStructure>()._currentState != State.None)
                 {
-                    EndTurn();
+                    selectedCharacter.GetComponent<DataStructure>().StateEffect();
                 }
 
-                else
-                {
-                    if (selectedCharacter.isStunned)
-                    {
-                        selectedCharacter.CheckStatus();
-                        EndTurn();
-                        break;
-                    }
-                    deck.SetActive(true);
-                    selectedCharacter.GetComponent<Deck>().Draw();
-                    selectedCharacter.pointer.SetActive(true);
-                    selectedCharacter.CheckStatus();
-                }
-
+                EndTurn();
                 break;
 
-            //Recovery's Turn
-            case 2:
-                if (selectedCharacter.health <= 0)
-                {
-                    EndTurn();
-                }
-
-                else
-                {
-                    if (selectedCharacter.isStunned)
-                    {
-                        selectedCharacter.CheckStatus();
-                        EndTurn();
-                        break;
-                    }
-                    deck.SetActive(true);
-                    selectedCharacter.GetComponent<Deck>().Draw();
-                    selectedCharacter.pointer.SetActive(true);
-                    selectedCharacter.CheckStatus();
-                }
-
-                break;
-
-            //Deterrent's Turn
-            case 3:
+            case "Security Control":
                 if (selectedCharacter.health <= 0)
                 {
                     EndTurn();
@@ -179,8 +127,7 @@ public class UnitManager : MonoBehaviour
 
                 break;
 
-            //Ransomware's turn
-            case 4:
+            case "Malware":
                 if (selectedCharacter == null)
                 {
                     EndTurn();
@@ -200,136 +147,6 @@ public class UnitManager : MonoBehaviour
                     selectedCharacter.GetComponent<BaseAI>().SelectTarget();
                 }
 
-                break;
-
-            //Virus' turn
-            case 5:
-                if (selectedCharacter == null)
-                {
-                    EndTurn();
-                }
-
-                else
-                {
-                    if (selectedCharacter.isStunned)
-                    {
-                        selectedCharacter.CheckStatus();
-                        EndTurn();
-                        break;
-                    }
-
-                    deck.SetActive(false);
-                    selectedCharacter.pointer.SetActive(true);
-                    selectedCharacter.GetComponent<VirusAI>().SelectTarget();
-                }
-                
-                break;
-
-            //Bot's turn
-            case 6:
-                if (selectedCharacter == null)
-                {
-                    EndTurn();
-                }
-
-                else
-                {
-                    if (selectedCharacter.isStunned)
-                    {
-                        selectedCharacter.CheckStatus();
-                        EndTurn();
-                        break;
-                    }
-
-                    deck.SetActive(false);
-                    selectedCharacter.pointer.SetActive(true);
-                    selectedCharacter.GetComponent<BotAI>().SelectTarget();
-                }
-
-                break;
-
-            //Data Structure's turn
-            case 7:
-                deck.SetActive(false);
-                selectedCharacter.CheckStatus();
-
-                if (selectedCharacter.GetComponent<DataStructure>()._currentState != State.None)
-                {
-                    selectedCharacter.GetComponent<DataStructure>().StateEffect();
-                }
-
-                EndTurn();
-                break;
-
-            //Corrective's Turn
-            case 8:
-                if (selectedCharacter.health <= 0)
-                {
-                    EndTurn();
-                }
-
-                else
-                {
-                    if (selectedCharacter.isStunned)
-                    {
-                        selectedCharacter.CheckStatus();
-                        EndTurn();
-                        break;
-                    }
-                    deck.SetActive(true);
-                    selectedCharacter.GetComponent<Deck>().Draw();
-                    selectedCharacter.pointer.SetActive(true);
-                    selectedCharacter.CheckStatus();
-                }
-
-                break;
-
-            //Worm's turn 
-            case 9:
-                if (selectedCharacter.health <= 0)
-                {
-                    EndTurn();
-                }
-
-                else
-                {
-                    if (selectedCharacter.isStunned)
-                    {
-                        selectedCharacter.CheckStatus();
-                        EndTurn();
-                        break;
-                    }
-                    deck.SetActive(false);
-                    selectedCharacter.pointer.SetActive(true);
-                    selectedCharacter.CheckStatus();
-                    selectedCharacter.GetComponent<WormAI>().SelectTarget();
-                }
-
-                break;
-
-            case 10:
-                if (selectedCharacter.health <= 0)
-                {
-                    EndTurn();
-                }
-
-                else
-                {
-                    if (selectedCharacter.isStunned)
-                    {
-                        selectedCharacter.CheckStatus();
-                        EndTurn();
-                        break;
-                    }
-                    deck.SetActive(true);
-                    selectedCharacter.GetComponent<Deck>().Draw();
-                    selectedCharacter.pointer.SetActive(true);
-                    selectedCharacter.CheckStatus();
-                }
-                break;
-
-            case 11:
-                EndTurn();
                 break;
 
             default:

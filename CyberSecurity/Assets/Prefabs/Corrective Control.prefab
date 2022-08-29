@@ -548,15 +548,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d65fb257e4a8604b94a4560aac0679c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 8
+  id: 6
   speed: 2
   health: 30
   maxHealth: 30
   movementSpeed: 0
   isDetected: 0
   startTurn: 0
-  downed: 0
   isAlive: 0
+  isThrottled: 0
+  adEffect: 0
+  isBuffed: 0
   isStunned: 0
   isCorrupted: 0
   anim: {fileID: 0}

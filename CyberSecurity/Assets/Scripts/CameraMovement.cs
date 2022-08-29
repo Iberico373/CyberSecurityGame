@@ -78,23 +78,9 @@ public class CameraMovement : MonoBehaviour
     {
         if(targetPosition.x < mapMinX || targetPosition.x > mapMaxX || targetPosition.z > mapMaxZ || targetPosition.z < mapMinZ)
         {
-            Vector3 extraPos;
-
-            //float camHeight = cam.orthographicSize;
-            //float camWidth = cam.orthographicSize * cam.aspect;
-
-            //float minX = mapMinX + camWidth;
-            //float maxX = mapMaxX - camWidth;
-            //float minZ = mapMinZ + camHeight;
-            //float maxZ = mapMaxZ - camHeight;
-
-            float newX = -(transform.position.x + (dragOrigin.x - dragCurrentPos.x) * speed * Time.deltaTime);
-            float newZ = -(transform.position.z + (dragOrigin.z - dragCurrentPos.z) * speed * Time.deltaTime);
-            extraPos = new Vector3(newX,0,newZ).normalized * 0.1f;
-            Vector3 clampedPos = transform.position + extraPos;
-            return clampedPos;
-
+            return transform.position;
         }
+
         else
         {
             return targetPosition;
