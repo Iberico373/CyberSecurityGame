@@ -4609,7 +4609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d65fb257e4a8604b94a4560aac0679c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 10
+  id: 4
   speed: 3
   health: 60
   maxHealth: 60
@@ -4618,6 +4618,7 @@ MonoBehaviour:
   startTurn: 0
   isAlive: 0
   isThrottled: 0
+  adEffect: 0
   isBuffed: 0
   isStunned: 0
   isCorrupted: 0

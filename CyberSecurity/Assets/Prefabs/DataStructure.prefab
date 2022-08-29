@@ -1905,7 +1905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62b4cb42946f6f349b1b8ed513a38fb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 7
+  id: 1
   speed: 0
   health: 100
   maxHealth: 0
@@ -1914,6 +1914,7 @@ MonoBehaviour:
   startTurn: 0
   isAlive: 0
   isThrottled: 0
+  adEffect: 0
   isBuffed: 0
   isStunned: 0
   isCorrupted: 0
