@@ -142,7 +142,7 @@ public class MyGrid : MonoBehaviour
                 Vector3 worldPoint = grid[x, y].worldPos;
                 grid[x, y].walkable = !Physics.CheckSphere(worldPoint, nodeRadius, obstacleMask);
 
-                if (grid[x,y].ReturnObject() != null)
+                if (!grid[x, y].walkable)
                 {
                     grid[x, y].cost = Mathf.Infinity;
                 }
