@@ -198,6 +198,7 @@ public class DataStructure : Unit
                                 summonedStun.transform.position = transform.position;
                                 Destroy(summonedStun, 5);
                                 n.ReturnObject().GetComponent<Unit>().isStunned = true;
+                                n.ReturnObject().GetComponent<Unit>().stunned.SetActive(true);
                                 deterrentCD++;
                             }
 
