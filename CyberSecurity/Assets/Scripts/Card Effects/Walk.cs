@@ -52,6 +52,7 @@ public class Walk : Effect
                     if (movementTiles.Contains(node) && character == null)
                     {
                         manager.selectedCharacter.GetComponent<Unit>().UseCard();
+
                         if(SceneManager.GetActiveScene().name == "TestLevel")
                         {
                             tutorial.SetTutorial(1);
@@ -70,6 +71,7 @@ public class Walk : Effect
 
                     manager.selectedCharacter.GetComponent<Unit>().DeselectCard();
 
+                    manager.pathfinding.radius = 2;
                     manager.grid.ClearGrid();
                     manager.effect = null;
                 }
