@@ -43,6 +43,10 @@ public class Scan : Effect
                             {
                                 if (character.name.Equals("Trojan"))
                                 {
+                                    manager.selectedCharacter.GetComponent<Unit>().DeselectCard();
+
+                                    manager.grid.ClearGrid();
+                                    manager.effect = null;
                                     return;
                                 }
 
