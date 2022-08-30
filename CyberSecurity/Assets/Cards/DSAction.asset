@@ -16,7 +16,7 @@ MonoBehaviour:
   cardName: DS Action
   cardEffect: {fileID: 11400000, guid: 67c79fcb5bd28a94b8fcdb92b13ce0da, type: 2}
   cardDesc: Captures Data structure
-  cost: 1
+  cost: 2
   cardArtwork: {fileID: 21300000, guid: 932c9c91d3898134791305164ec4f046, type: 3}
   cardType: 
   maxAmount: 1
