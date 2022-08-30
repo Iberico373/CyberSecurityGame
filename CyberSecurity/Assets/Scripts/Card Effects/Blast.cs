@@ -43,7 +43,6 @@ public class Blast : Effect
                             if (manager.selectedCharacter.isBuffed)
                             {
                                 character.GetComponent<Unit>().isStunned = true;
-                                character.GetComponent<Unit>().stunned.SetActive(true);
                                 manager.selectedCharacter.isBuffed = false;
                                 Destroy(manager.selectedCharacter.transform.Find("BuffAura(Clone)").gameObject);
                             }
