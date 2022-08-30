@@ -74,7 +74,7 @@ public class DisplayCard : MonoBehaviour
                     UnitManager.instance.selectedCharacter.GetComponent<Unit>().DeselectCard();
                 }
 
-                if (UnitManager.instance.selectedCharacter.GetComponent<Deck>().ram > 0)
+                if ((UnitManager.instance.selectedCharacter.GetComponent<Deck>().ram - cost) >= 0)
                 {
                     HighlightCard();
                     cardSO.cardEffect.UseEffect();
