@@ -41,16 +41,7 @@ public class Cleanse : Effect
                             manager.selectedCharacter.anim.SetTrigger("Cleanse");
                             manager.selectedCharacter.GetComponent<Unit>().UseCard();
 
-                            if (SceneManager.GetActiveScene().name == "Level2")
-                            {
-                                manager.objectives.GetComponent<Level2Object>().cleanse.SetActive(false);
-                                manager.objectives.GetComponent<Level2Object>().cleansecomp.SetActive(true);
-                            }
-
-                            if(SceneManager.GetActiveScene().name == "Level3")
-                            {
-                                manager.GetComponent<Level3Object>().Cleansing();
-                            }
+                            
 
                             Instantiate(cleanseExpansion, character.transform);
                             character.GetComponent<Unit>().isCorrupted = 0;
