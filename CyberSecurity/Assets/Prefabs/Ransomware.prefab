@@ -95,7 +95,7 @@ MonoBehaviour:
   isBuffed: 0
   isStunned: 0
   isCorrupted: 0
-  stunned: {fileID: 0}
+  stunned: {fileID: 6108791302202479554}
   capEffect: {fileID: 5275402056542611489, guid: 0f7636c2f4567874eb3b34321aeaad3d, type: 3}
   anim: {fileID: 0}
   pointer: {fileID: 2280507754271501401}
@@ -118,6 +118,10 @@ PrefabInstance:
     - target: {fileID: 6828884446833784066, guid: 2409454b5fb28f04a8f4bbfb700a0a90, type: 3}
       propertyPath: m_Name
       value: Stun Effect
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828884446833784066, guid: 2409454b5fb28f04a8f4bbfb700a0a90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6828884446833784079, guid: 2409454b5fb28f04a8f4bbfb700a0a90, type: 3}
       propertyPath: m_RootOrder
@@ -165,6 +169,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2409454b5fb28f04a8f4bbfb700a0a90, type: 3}
+--- !u!1 &6108791302202479554 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6828884446833784066, guid: 2409454b5fb28f04a8f4bbfb700a0a90, type: 3}
+  m_PrefabInstance: {fileID: 721661621800396480}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6108791302202479567 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6828884446833784079, guid: 2409454b5fb28f04a8f4bbfb700a0a90, type: 3}
