@@ -31,7 +31,6 @@ public class Attack : Effect
 
                 if (manager.selectedCharacter != null)
                 {
-
                     if (attackTiles.Contains(node) && character.CompareTag("Malware"))
                     {
                         target = character;
