@@ -16,7 +16,7 @@ MonoBehaviour:
   cardName: Throttle
   cardEffect: {fileID: 11400000, guid: e0cb1499897950248a5777327f1cb27c, type: 2}
   cardDesc: Boosts movement range of buffed character
-  cost: 1
+  cost: 2
   cardArtwork: {fileID: 21300000, guid: 0359babe275f2be4fbe3a6417b2ce863, type: 3}
   cardType: Compensating Control
   maxAmount: 1
