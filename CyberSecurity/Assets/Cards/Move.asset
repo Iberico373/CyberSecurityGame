@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 1
   cardName: Move
   cardEffect: {fileID: 11400000, guid: af394d4e12da8df45b614ca196307378, type: 2}
-  cardDesc: Moves selected control 2 tiles in any direction
+  cardDesc: Move 2 tiles
   cost: 1
   cardArtwork: {fileID: 21300000, guid: e8078b5a71f469441853170d33ed9e1c, type: 3}
   cardType: 
