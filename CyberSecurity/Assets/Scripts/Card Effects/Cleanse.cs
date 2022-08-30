@@ -34,7 +34,7 @@ public class Cleanse : Effect
 
                         if (character.CompareTag("Security Control") &&
                             character.GetComponent<Unit>().health > 0 &&
-                            character.GetComponent<Unit>().isCorrupted != 0 &&
+                            character.GetComponent<Unit>().isCorrupted != 0 ||
                             character.GetComponent<Unit>().isStunned)
                         {
                             manager.selectedCharacter.transform.LookAt(character.transform);

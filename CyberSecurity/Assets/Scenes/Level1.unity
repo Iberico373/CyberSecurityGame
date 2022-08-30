@@ -2048,6 +2048,7 @@ MonoBehaviour:
   isBuffed: 0
   isStunned: 0
   isCorrupted: 0
+  isSlowed: 0
   stunned: {fileID: 0}
   capEffect: {fileID: 0}
   anim: {fileID: 0}
@@ -3068,6 +3069,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &691483349 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7004884889674411625, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
+  m_PrefabInstance: {fileID: 4302213589474388539}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &722310951
 GameObject:
   m_ObjectHideFlags: 0
@@ -3961,6 +3967,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 859489754}
   m_CullTransparentMesh: 1
+--- !u!1 &918728345 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7004884889674411625, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
+  m_PrefabInstance: {fileID: 1063763272}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &926284864
 GameObject:
   m_ObjectHideFlags: 0
@@ -4562,6 +4573,10 @@ PrefabInstance:
       propertyPath: bot
       value: 
       objectReference: {fileID: 3719882200503357948, guid: 13521492b3ee9a94ca4b49e40046d71c, type: 3}
+    - target: {fileID: 4302213589267663000, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
+      propertyPath: chain
+      value: 
+      objectReference: {fileID: 918728345}
     - target: {fileID: 4302213589267663000, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
       propertyPath: render
       value: 
@@ -8234,6 +8249,7 @@ MonoBehaviour:
   isBuffed: 0
   isStunned: 0
   isCorrupted: 0
+  isSlowed: 0
   stunned: {fileID: 0}
   capEffect: {fileID: 0}
   anim: {fileID: 0}
@@ -9609,7 +9625,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -10519,6 +10535,10 @@ PrefabInstance:
       propertyPath: bot
       value: 
       objectReference: {fileID: 3719882200503357948, guid: 13521492b3ee9a94ca4b49e40046d71c, type: 3}
+    - target: {fileID: 4302213589267663000, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
+      propertyPath: chain
+      value: 
+      objectReference: {fileID: 691483349}
     - target: {fileID: 4302213589267663000, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
       propertyPath: render
       value: 

@@ -21,13 +21,12 @@ public class Walk : Effect
         
         if (manager.selectedCharacter.isThrottled > 0)
         {
-            manager.pathfinding.radius = 3;
-            
+            manager.pathfinding.radius = 4;
         }
         
         else
         {
-            manager.pathfinding.radius = 2;
+            manager.pathfinding.radius = 3;
         }
 
         manager.grid.ClearGrid();

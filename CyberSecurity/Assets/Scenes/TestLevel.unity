@@ -6876,6 +6876,10 @@ PrefabInstance:
       value: Data Structure
       objectReference: {fileID: 0}
     - target: {fileID: 4302213589267663000, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
+      propertyPath: chain
+      value: 
+      objectReference: {fileID: 1044322902}
+    - target: {fileID: 4302213589267663000, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
       propertyPath: render
       value: 
       objectReference: {fileID: 1044322901}
@@ -6941,6 +6945,11 @@ Transform:
 --- !u!23 &1044322901 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 4302213589125686061, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
+  m_PrefabInstance: {fileID: 1044322899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1044322902 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7004884889674411625, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
   m_PrefabInstance: {fileID: 1044322899}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1063577298
@@ -9719,7 +9728,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -9915,6 +9924,7 @@ MonoBehaviour:
   isBuffed: 0
   isStunned: 0
   isCorrupted: 0
+  isSlowed: 0
   stunned: {fileID: 0}
   capEffect: {fileID: 0}
   anim: {fileID: 0}
@@ -10373,6 +10383,7 @@ MonoBehaviour:
   isBuffed: 0
   isStunned: 0
   isCorrupted: 0
+  isSlowed: 0
   stunned: {fileID: 0}
   capEffect: {fileID: 0}
   anim: {fileID: 0}

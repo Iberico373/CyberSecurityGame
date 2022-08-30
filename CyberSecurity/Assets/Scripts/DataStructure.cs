@@ -46,21 +46,32 @@ public class DataStructure : Unit
 
     private void Update()
     {
-        if (_currentState == State.None)
+        if (isLocked)
+        {
+            chain.SetActive(true);
+        }
+        else
         {
             chain.SetActive(false);
-            aura.SetActive(false);
-            render.material.color = new Color(255, 255, 255, 100);
         }
 
+        if (capturedM)
+        {
+            aura.SetActive(true);
+        }
+        else
+        {
+            aura.SetActive(false);
+        }
+        if (_currentState == State.None)
+        {
+            render.material.color = new Color(255, 255, 255, 100);
+        }
 
         else if (_currentState == State.Detective)
         {
             capturedM = false;
             capturedSC = true;
-
-            chain.SetActive(false);
-            aura.SetActive(false);
             render.material.color = new Color(0, 20, 255, 100);
         }
 
@@ -69,8 +80,6 @@ public class DataStructure : Unit
             capturedM = false;
             capturedSC = true;
 
-            chain.SetActive(false);
-            aura.SetActive(false);
             render.material.color = new Color(255, 0, 0, 100);
         }
 
@@ -81,8 +90,6 @@ public class DataStructure : Unit
             capturedM = false;
             capturedSC = true;
 
-            chain.SetActive(false);
-            aura.SetActive(false);
             render.material.color = new Color(0, 0, 50, 100);
         }
 
@@ -91,12 +98,7 @@ public class DataStructure : Unit
             capturedM = true;
             capturedSC = false;
 
-            if (isLocked)
-            {
-                chain.SetActive(true);
-            }
 
-            aura.SetActive(true);
             render.material.color = new Color(20, 0, 200);
         }
 
@@ -105,12 +107,7 @@ public class DataStructure : Unit
             capturedM = true;
             capturedSC = false;
 
-            if (isLocked)
-            {
-                chain.SetActive(true);
-            }
 
-            aura.SetActive(true);
             render.material.color = new Color(20, 0, 200);
         }
 
@@ -119,14 +116,11 @@ public class DataStructure : Unit
             capturedM = true;
             capturedSC = false;
 
-            if (isLocked)
-            {
-                chain.SetActive(true);
-            }
-
-            aura.SetActive(true);
+            
             render.material.color = new Color(20, 0, 200);
         }
+
+        
     }
     public void StateEffect()
     {

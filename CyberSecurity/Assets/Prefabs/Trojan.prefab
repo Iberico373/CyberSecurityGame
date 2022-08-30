@@ -581,6 +581,7 @@ MonoBehaviour:
   isBuffed: 0
   isStunned: 0
   isCorrupted: 0
+  isSlowed: 0
   stunned: {fileID: 1939512889397035526}
   capEffect: {fileID: 5275402056542611489, guid: 0f7636c2f4567874eb3b34321aeaad3d, type: 3}
   anim: {fileID: 0}
@@ -15294,6 +15295,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stun Effect
       objectReference: {fileID: 0}
+    - target: {fileID: 6828884446833784066, guid: 2409454b5fb28f04a8f4bbfb700a0a90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6828884446833784079, guid: 2409454b5fb28f04a8f4bbfb700a0a90, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -15304,11 +15309,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6828884446833784079, guid: 2409454b5fb28f04a8f4bbfb700a0a90, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.81
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6828884446833784079, guid: 2409454b5fb28f04a8f4bbfb700a0a90, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 36.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6828884446833784079, guid: 2409454b5fb28f04a8f4bbfb700a0a90, type: 3}
       propertyPath: m_LocalRotation.w

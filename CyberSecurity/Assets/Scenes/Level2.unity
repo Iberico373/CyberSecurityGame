@@ -2212,6 +2212,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 72948050}
     m_Modifications:
+    - target: {fileID: 1103038386605550604, guid: 6a0e48dc815fcf742baee87d94413cf5, type: 3}
+      propertyPath: isSlowed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1939512889397035526, guid: 6a0e48dc815fcf742baee87d94413cf5, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -5178,6 +5182,7 @@ MonoBehaviour:
   isBuffed: 0
   isStunned: 0
   isCorrupted: 0
+  isSlowed: 0
   stunned: {fileID: 0}
   capEffect: {fileID: 0}
   anim: {fileID: 0}
