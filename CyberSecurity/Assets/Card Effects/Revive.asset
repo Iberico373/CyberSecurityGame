@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8273ede59085d024c8a0e1130f0fe4b9, type: 3}
   m_Name: Revive
   m_EditorClassIdentifier: 
+  healExpansion: {fileID: 821499469210940013, guid: 7dee77e9bc65a4d43910e5338f44c776, type: 3}
