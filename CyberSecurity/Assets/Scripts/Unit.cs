@@ -143,16 +143,6 @@ public class Unit : MonoBehaviour
         if (isCorrupted > 0)
         {
             health -= 5 * isCorrupted;
-            if(health <= 0)
-            {
-                anim.SetTrigger("Dead");
-                isCorrupted = 0;
-                Destroy(transform.Find("CorruptionEffect(Clone)").gameObject);
-            }
-            if(isCorrupted == 0)
-            {
-                Destroy(transform.Find("CorruptionEffect(Clone)").gameObject);
-            }
         }
         if (isStunned)
         {
@@ -164,6 +154,7 @@ public class Unit : MonoBehaviour
         {
             anim.SetTrigger("Dead");
             isCorrupted = 0;
+            Destroy(transform.Find("CorruptionEffect(Clone)").gameObject);
         }
         else if(isSlowed)
         {
