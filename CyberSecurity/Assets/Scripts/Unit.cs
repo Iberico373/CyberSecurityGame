@@ -31,7 +31,8 @@ public class Unit : MonoBehaviour
     public List<Node> _attackTiles;
     public Animator anim;
     public GameManager gameManager;
-    
+    List<Node> nodesInRange;
+
     PathRequestManager request;    
     Vector3[] path;
     int targetIndex;
@@ -183,7 +184,20 @@ public class Unit : MonoBehaviour
             if (corrupt + 1 == 5)
             {
                 corrupt = 0;
-                //Spawn virusClone
+
+                nodesInRange = UnitManager.instance.grid.GetNeighbours(UnitManager.instance.grid.NodeFromWorldPoint(transform.position), 1);
+                    foreach (Node n in nodesInRange)
+                    {
+                        if (n.ReturnObject() == null)
+                        {
+                            GameObject virusClone = Instantiate(virus, UnitManager.instance.unitGroup.transform);
+                            virusClone.transform.position = n.worldPos;
+                            virusClone.layer = 3;
+                            virusClone.GetComponent<VirusAI>().GetAggroList();
+                            UnitManager.instance.SortTurnOrder();
+                            break;
+                        }
+                    }
             }
         }
 
