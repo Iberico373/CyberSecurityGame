@@ -31,14 +31,15 @@ public class Update : Effect
                     if (throttleTiles.Contains(node) && character != null)
                     {
 
-                        if (character.CompareTag("Security Control") &&
-                            character.GetComponent<Unit>().health > 0)
+                        if (character.CompareTag("Security Control") && character.GetComponent<Unit>().health > 0)
                         {
                             manager.selectedCharacter.transform.LookAt(character.transform);
                             manager.selectedCharacter.anim.SetTrigger("Action");
                             manager.selectedCharacter.GetComponent<Unit>().UseCard();
-                            character.GetComponent<Unit>().isBuffed = true;
+
+                            character.GetComponent<Unit>().buffed += 1;
                             Instantiate(buffAura, character.transform);
+
                             if (SceneManager.GetActiveScene().name == "Level2")
                             {
                                 manager.objectives.GetComponent<Level2Object>().upgrade.SetActive(false);

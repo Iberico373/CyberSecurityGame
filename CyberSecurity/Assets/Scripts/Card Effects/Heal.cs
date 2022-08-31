@@ -62,21 +62,23 @@ public class Heal : Effect
 
                             else
                             {
-                                if(manager.selectedCharacter.isBuffed)
+                                if (manager.selectedCharacter.buffed > 0)
                                 {
-                                    if(character.GetComponent<Unit>().health + Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.5f) > character.GetComponent<Unit>().maxHealth)
+                                    if(character.GetComponent<Unit>().health + Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.5f) 
+                                        > character.GetComponent<Unit>().maxHealth)
                                     {
                                         character.GetComponent<Unit>().health = character.GetComponent<Unit>().maxHealth;
-                                        manager.selectedCharacter.isBuffed = false;
-                                        Destroy(manager.selectedCharacter.transform.Find("BuffAura(Clone)").gameObject);
                                     }
+
                                     else
                                     {
-                                        character.GetComponent<Unit>().health += Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.5f);
-                                        manager.selectedCharacter.isBuffed = false;
-                                        Destroy(manager.selectedCharacter.transform.Find("BuffAura(Clone)").gameObject);
+                                        character.GetComponent<Unit>().health += Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.5f);                                        
                                     }
+
+                                    manager.selectedCharacter.buffed -= 1;
+                                    Destroy(manager.selectedCharacter.transform.Find("BuffAura(Clone)").gameObject);
                                 }
+
                                 else
                                 {
                                     character.GetComponent<Unit>().health += Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.3f);

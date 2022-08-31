@@ -503,6 +503,10 @@ PrefabInstance:
       value: 5.354742
       objectReference: {fileID: 0}
     - target: {fileID: 8969490016514907013, guid: cf687d202d73c5b408bcb65880d9a196, type: 3}
+      propertyPath: throttled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8969490016514907013, guid: cf687d202d73c5b408bcb65880d9a196, type: 3}
       propertyPath: corruption
       value: 
       objectReference: {fileID: 2198381750738403587, guid: 719fbc0b41ae4bc46a2d790275b31762, type: 3}

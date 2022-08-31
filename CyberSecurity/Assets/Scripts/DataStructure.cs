@@ -191,8 +191,8 @@ public class DataStructure : Unit
                                 GameObject summonedStun = Instantiate(stun);
                                 summonedStun.transform.position = transform.position;
                                 Destroy(summonedStun, 5);
-                                n.ReturnObject().GetComponent<Unit>().isStunned = true;
-                                n.ReturnObject().GetComponent<Unit>().stunned.SetActive(true);
+                                n.ReturnObject().GetComponent<Unit>().stun += 2;
+                                n.ReturnObject().GetComponent<Unit>().stunEffect.SetActive(true);
                                 deterrentCD++;
                             }
 
@@ -221,9 +221,9 @@ public class DataStructure : Unit
                     {
                         if (n.ReturnObject().CompareTag("Security Control"))
                         {
-                            if (n.ReturnObject().GetComponent<Unit>().isCorrupted < 5)
+                            if (n.ReturnObject().GetComponent<Unit>().corrupt < 5)
                             {
-                                n.ReturnObject().GetComponent<Unit>().isCorrupted++;
+                                n.ReturnObject().GetComponent<Unit>().corrupt++;
                             }
                         }
                     }

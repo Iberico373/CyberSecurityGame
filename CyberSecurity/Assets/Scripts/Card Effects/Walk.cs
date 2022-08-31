@@ -19,7 +19,7 @@ public class Walk : Effect
             tutorial = GameObject.Find("Tutorial Canvas 1").GetComponent<CardTutorial>();
         }
         
-        if (manager.selectedCharacter.isThrottled > 0)
+        if (manager.selectedCharacter.throttled > 0)
         {
             manager.pathfinding.radius = 3;
         }
@@ -59,10 +59,10 @@ public class Walk : Effect
                             manager.objectives.GetComponent<TutorialObject>().scancomp.SetActive(true);
                         }
 
-                        manager.selectedCharacter.isThrottled -= 1;
+                        manager.selectedCharacter.throttled -= 1;
                         manager.selectedCharacter.Move(node.worldPos);
 
-                        if (manager.selectedCharacter.isThrottled == 0 && manager.pathfinding.radius == 3)
+                        if (manager.selectedCharacter.throttled == 0 && manager.pathfinding.radius == 3)
                         {
                             Destroy(manager.selectedCharacter.transform.Find("SpeedUp(Clone)").gameObject);
                         }

@@ -10,24 +10,26 @@ public class Unit : MonoBehaviour
     public int maxHealth;
     public int movementSpeed;
 
+    public bool isAlive;
     public bool isDetected;
     public bool startTurn;
-    public bool isAlive;
-    public int isThrottled;
-    public int adEffect;
-    public bool isBuffed;
-    public bool isStunned;
-    public int isCorrupted;
-    public bool isSlowed;
 
-    public GameObject stunned;
+    public List<int> statusEffects = new List<int>();
+    public int throttled = 0;
+    public int buffed = 0;
+    public int stun = 0;
+    public int corrupt = 0;
+    public int slow = 0;
+
+    public GameObject stunEffect;
     public GameObject capEffect;
-    public GameObject corruption;
-    public Animator anim;
+    public GameObject corruptEffect;
     public GameObject pointer;
     public GameObject aura;
     public GameObject turnOrderDisplay;
+
     public List<Node> _attackTiles;
+    public Animator anim;
     public GameManager gameManager;
     
     PathRequestManager request;    
@@ -39,6 +41,12 @@ public class Unit : MonoBehaviour
         request = GameObject.Find("Grid").GetComponent<PathRequestManager>();
         anim = GetComponent<Animator>();
         maxHealth = health;
+
+        statusEffects.Add(throttled);
+        statusEffects.Add(buffed);
+        statusEffects.Add(stun);
+        statusEffects.Add(corrupt);
+        statusEffects.Add(slow);
     }
 
     private void Update()
@@ -140,45 +148,68 @@ public class Unit : MonoBehaviour
 
     public void CheckStatus()
     {
-        if (isCorrupted > 0)
+        if (health <= 0)
         {
-            health -= 5 * isCorrupted;
-            foreach(Node n in UnitManager.instance.grid.GetNeighbours(UnitManager.instance.grid.NodeFromWorldPoint(transform.position),1))
+            anim.SetTrigger("Dead");
+
+            for (int i = 0; i < statusEffects.Count; i++)
+            {
+                statusEffects[i] = 0;
+            }
+
+            for (int i = 0; i < corrupt; i++)
+            {
+                Destroy(transform.Find("CorruptionEffect(Clone)").gameObject);
+            }
+        }
+
+
+        if (corrupt > 0)
+        {
+            health -= 5 * corrupt;
+
+            foreach (Node n in UnitManager.instance.grid.GetNeighbours(UnitManager.instance.grid.NodeFromWorldPoint(transform.position),1))
             {
                 if(n.ReturnObject() != null)
                 {
                     if (n.ReturnObject().CompareTag("Security Control"))
                     {
-                        n.ReturnObject().GetComponent<Unit>().isCorrupted += 1;
-                        Instantiate(corruption, n.ReturnObject().transform);
+                        n.ReturnObject().GetComponent<Unit>().corrupt += 1;
+                        Instantiate(corruptEffect, n.ReturnObject().transform);
                     }
                 }
             }
-        }
-        if (isStunned)
-        {
-            isStunned = false;
-            stunned.SetActive(false);
+
+            if (corrupt + 1 == 5)
+            {
+                corrupt = 0;
+                //Spawn virusClone
+            }
         }
 
-        if (health <= 0)
+        if (stun > 0)
         {
-            anim.SetTrigger("Dead");
-            for(int i = 0; i < isCorrupted; i++)
+            if (stun - 1 == 0)
             {
-                Destroy(transform.Find("CorruptionEffect(Clone)").gameObject);
+                stun--;
+                stunEffect.SetActive(false);
+                return;
             }
-            isCorrupted = 0;
+
+            stun--;
+            UnitManager.instance.EndTurn();
         }
-        else if(isSlowed)
+
+        if (slow > 0)
         {
-            UnitManager.instance.selectedCharacter.movementSpeed = 1;
-            isSlowed = false;
-        }
-        else
-        {
-            UnitManager.instance.selectedCharacter.movementSpeed = 2;
-        }
-        
+            if (slow - 1 == 0)
+            {
+                slow--;
+                movementSpeed = 2;
+            }
+
+            movementSpeed = 1;
+            slow--;
+        }        
     }
 }

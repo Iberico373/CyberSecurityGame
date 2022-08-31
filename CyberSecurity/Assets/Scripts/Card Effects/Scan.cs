@@ -33,13 +33,13 @@ public class Scan : Effect
                     {
                         if (character.CompareTag("Malware"))
                         {
-                            if (manager.selectedCharacter.isBuffed)
+                            if (manager.selectedCharacter.buffed > 0)
                             {
                                 Destroy(manager.selectedCharacter.transform.Find("BuffAura(Clone)").gameObject);
-                                manager.selectedCharacter.isBuffed = false;
+                                manager.selectedCharacter.buffed -= 1;
                             }
 
-                            else if (!manager.selectedCharacter.isBuffed)
+                            else if (manager.selectedCharacter.buffed == 0)
                             {
                                 if (character.name.Equals("Trojan"))
                                 {

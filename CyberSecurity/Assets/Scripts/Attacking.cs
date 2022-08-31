@@ -14,10 +14,10 @@ public class Attacking : MonoBehaviour
 
         if (strike.GetComponent<Unit>().isDetected)
         {
-            if (manager.selectedCharacter.isBuffed)
+            if (manager.selectedCharacter.buffed > 0)
             {
+                manager.selectedCharacter.buffed -= 1;
                 strike.GetComponent<Unit>().health -= 20;
-                manager.selectedCharacter.isBuffed = false;
                 Destroy(manager.selectedCharacter.transform.Find("BuffAura(Clone)").gameObject);
             }
 

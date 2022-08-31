@@ -106,25 +106,9 @@ public class UnitManager : MonoBehaviour
 
             case "Security Control":
                 selectedCharacter.CheckStatus();
-                if (selectedCharacter.health <= 0)
-                {
-                    EndTurn();
-                }
-
-                else
-                {
-                    if (selectedCharacter.isStunned)
-                    {
-                        selectedCharacter.CheckStatus();
-                        EndTurn();
-                        break;
-                    }
-
-                    deck.SetActive(true);
-                    selectedCharacter.GetComponent<Deck>().Draw();
-                    selectedCharacter.pointer.SetActive(true);
-                    
-                }
+                deck.SetActive(true);
+                selectedCharacter.GetComponent<Deck>().Draw();
+                selectedCharacter.pointer.SetActive(true);
 
                 break;
 
@@ -136,13 +120,7 @@ public class UnitManager : MonoBehaviour
 
                 else
                 {
-                    if (selectedCharacter.isStunned)
-                    {
-                        selectedCharacter.CheckStatus();
-                        EndTurn();
-                        break;
-                    }
-
+                    selectedCharacter.CheckStatus();
                     deck.SetActive(false);
                     selectedCharacter.pointer.SetActive(true);
                     selectedCharacter.GetComponent<BaseAI>().SelectTarget();
