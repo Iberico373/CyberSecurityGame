@@ -26,6 +26,7 @@ public class Unit : MonoBehaviour
     public GameObject corruptEffect;
     public GameObject pointer;
     public GameObject aura;
+    public GameObject virus;
     public GameObject turnOrderDisplay;
 
     public List<Node> _attackTiles;
@@ -167,7 +168,7 @@ public class Unit : MonoBehaviour
 
         if (corrupt > 0)
         {
-            health -= 5 * corrupt;
+            health -= 3 * corrupt;
 
             foreach (Node n in UnitManager.instance.grid.GetNeighbours(UnitManager.instance.grid.NodeFromWorldPoint(transform.position),1))
             {
@@ -186,18 +187,18 @@ public class Unit : MonoBehaviour
                 corrupt = 0;
 
                 nodesInRange = UnitManager.instance.grid.GetNeighbours(UnitManager.instance.grid.NodeFromWorldPoint(transform.position), 1);
-                    foreach (Node n in nodesInRange)
+
+                foreach (Node n in nodesInRange)
+                {
+                    if (n.ReturnObject() == null)
                     {
-                        if (n.ReturnObject() == null)
-                        {
-                            GameObject virusClone = Instantiate(virus, UnitManager.instance.unitGroup.transform);
-                            virusClone.transform.position = n.worldPos;
-                            virusClone.layer = 3;
-                            virusClone.GetComponent<VirusAI>().GetAggroList();
-                            UnitManager.instance.SortTurnOrder();
-                            break;
-                        }
+                        GameObject virusClone = Instantiate(virus, UnitManager.instance.unitGroup.transform);
+                        virusClone.transform.position = n.worldPos;
+                        virusClone.layer = 3;
+                        UnitManager.instance.SortTurnOrder();
+                        break;
                     }
+                }
             }
         }
 
