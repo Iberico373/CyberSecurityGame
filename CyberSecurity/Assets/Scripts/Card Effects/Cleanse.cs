@@ -46,7 +46,7 @@ public class Cleanse : Effect
                             character.GetComponent<Unit>().isStunned = false;
                             if (manager.selectedCharacter.isBuffed)
                             {
-                                character.GetComponent<Unit>().health += Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.1f);
+                                character.GetComponent<Unit>().health += Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.15f);
                                 manager.selectedCharacter.isBuffed = false;
                                 Destroy(manager.selectedCharacter.transform.Find("BuffAura(Clone)").gameObject);
                             }

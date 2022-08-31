@@ -105,6 +105,7 @@ public class UnitManager : MonoBehaviour
                 break;
 
             case "Security Control":
+                selectedCharacter.CheckStatus();
                 if (selectedCharacter.health <= 0)
                 {
                     EndTurn();
@@ -122,7 +123,7 @@ public class UnitManager : MonoBehaviour
                     deck.SetActive(true);
                     selectedCharacter.GetComponent<Deck>().Draw();
                     selectedCharacter.pointer.SetActive(true);
-                    selectedCharacter.CheckStatus();
+                    
                 }
 
                 break;

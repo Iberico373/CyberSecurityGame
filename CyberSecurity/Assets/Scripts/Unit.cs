@@ -143,6 +143,17 @@ public class Unit : MonoBehaviour
         if (isCorrupted > 0)
         {
             health -= 5 * isCorrupted;
+            foreach(Node n in UnitManager.instance.grid.GetNeighbours(UnitManager.instance.grid.NodeFromWorldPoint(transform.position),1))
+            {
+                if(n.ReturnObject() != null)
+                {
+                    if (n.ReturnObject().CompareTag("Security Control"))
+                    {
+                        n.ReturnObject().GetComponent<Unit>().isCorrupted += 1;
+                        Instantiate(corruption, n.ReturnObject().transform);
+                    }
+                }
+            }
         }
         if (isStunned)
         {
@@ -153,8 +164,11 @@ public class Unit : MonoBehaviour
         if (health <= 0)
         {
             anim.SetTrigger("Dead");
+            for(int i = 0; i < isCorrupted; i++)
+            {
+                Destroy(transform.Find("CorruptionEffect(Clone)").gameObject);
+            }
             isCorrupted = 0;
-            Destroy(transform.Find("CorruptionEffect(Clone)").gameObject);
         }
         else if(isSlowed)
         {
