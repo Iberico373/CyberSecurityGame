@@ -32,10 +32,11 @@ public class DataStructure : Unit
     //Visual Effects for attacks
     public GameObject laser;
     public GameObject scan;
-    public GameObject stun;
+    public GameObject stunParticle;
     public GameObject chain;
     public GameObject worm;
-    public GameObject virus;
+    public GameObject virusParticle;
+
     private void Awake()
     {
         manager = UnitManager.instance;
@@ -188,7 +189,7 @@ public class DataStructure : Unit
                         {
                             if (deterrentCD == 0)
                             {
-                                GameObject summonedStun = Instantiate(stun);
+                                GameObject summonedStun = Instantiate(stunParticle);
                                 summonedStun.transform.position = transform.position;
                                 Destroy(summonedStun, 5);
                                 n.ReturnObject().GetComponent<Unit>().stun += 2;
@@ -212,9 +213,10 @@ public class DataStructure : Unit
                 break;
 
             case State.Virus:
-                GameObject summonedVirus = Instantiate(virus);
+                GameObject summonedVirus = Instantiate(virusParticle);
                 summonedVirus.transform.position = transform.position;
                 Destroy(summonedVirus, 5);
+
                 foreach (Node n in nodesInRange)
                 {
                     if (n.ReturnObject() != null)
@@ -285,6 +287,7 @@ public class DataStructure : Unit
                     }
                 }
                 break;
+
             default:
                 break;
         }
