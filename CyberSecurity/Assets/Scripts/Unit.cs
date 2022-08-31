@@ -18,6 +18,7 @@ public class Unit : MonoBehaviour
     public bool isBuffed;
     public bool isStunned;
     public int isCorrupted;
+    public bool isSlowed;
 
     public GameObject stunned;
     public GameObject capEffect;
@@ -141,6 +142,11 @@ public class Unit : MonoBehaviour
         if (isCorrupted > 0)
         {
             health -= 5 * isCorrupted;
+            if(health <= 0)
+            {
+                anim.SetTrigger("Dead");
+                isCorrupted = 0;
+            }
         }
 
         if (isStunned)
@@ -154,5 +160,15 @@ public class Unit : MonoBehaviour
             anim.SetTrigger("Dead");
             isCorrupted = 0;
         }
+        else if(isSlowed)
+        {
+            UnitManager.instance.selectedCharacter.movementSpeed = 1;
+            isSlowed = false;
+        }
+        else
+        {
+            UnitManager.instance.selectedCharacter.movementSpeed = 2;
+        }
+        
     }
 }

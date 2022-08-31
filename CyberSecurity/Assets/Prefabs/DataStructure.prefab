@@ -1918,6 +1918,9 @@ MonoBehaviour:
   isBuffed: 0
   isStunned: 0
   isCorrupted: 0
+  isSlowed: 0
+  stunned: {fileID: 0}
+  capEffect: {fileID: 0}
   anim: {fileID: 0}
   pointer: {fileID: 3568299508293239244}
   aura: {fileID: 970974767226694109}
@@ -1932,7 +1935,7 @@ MonoBehaviour:
   laser: {fileID: 6571710295127633407, guid: e9d208e6db5dc58479819b24b926eb5f, type: 3}
   scan: {fileID: 2448158380078623702, guid: 8f5d790ee36e474469be2b19be9b5776, type: 3}
   stun: {fileID: 2734337170296377296, guid: 5b839a1577e0fcf46bc8ae16584e6106, type: 3}
-  chain: {fileID: 5056136577481044695, guid: cd7c63dbe4eac564c9b10dcf1dff838d, type: 3}
+  chain: {fileID: 7004884889674411625}
   worm: {fileID: 5741666751165301202, guid: 6e865351799de4642a4e2e87a22858bc, type: 3}
   virus: {fileID: 1740047122475932941, guid: 512d929f7b1149b46a1f5c5b325fac3c, type: 3}
 --- !u!1 &4117685935940894681
@@ -3962,6 +3965,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd7c63dbe4eac564c9b10dcf1dff838d, type: 3}
+--- !u!1 &7004884889674411625 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5056136577481044695, guid: cd7c63dbe4eac564c9b10dcf1dff838d, type: 3}
+  m_PrefabInstance: {fileID: 2818506644409195710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7673440098011788499 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5575686966184093805, guid: cd7c63dbe4eac564c9b10dcf1dff838d, type: 3}

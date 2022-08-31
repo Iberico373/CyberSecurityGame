@@ -41,7 +41,7 @@ public class Throttle : Effect
                             manager.selectedCharacter.anim.SetTrigger("Action");
                             manager.selectedCharacter.GetComponent<Unit>().UseCard();
 
-                            character.GetComponent<Unit>().isThrottled = 4;
+                            character.GetComponent<Unit>().isThrottled = 3;
                             Instantiate(throttleEffect, character.transform);
 
                             if (SceneManager.GetActiveScene().name == "Level2")

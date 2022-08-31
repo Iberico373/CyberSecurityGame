@@ -13,7 +13,7 @@ public class Scan : Effect
 
         manager.grid.ClearGrid();
         manager.effect = this;
-
+        manager.pathfinding.radius = 2;
         HashSet<Node> scanTiles = manager.selectedCharacter.Select(true);
         manager.grid.HighlightGrid(scanTiles);
 

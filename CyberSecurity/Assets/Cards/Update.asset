@@ -17,6 +17,6 @@ MonoBehaviour:
   cardEffect: {fileID: 11400000, guid: 2383eea79a3222740bab1ba0d2a8f9e7, type: 2}
   cardDesc: Powers Up a security control's main action card
   cost: 2
-  cardArtwork: {fileID: 21300000, guid: dab79c678ba1adb48b0c0e7aeeb5afe8, type: 3}
+  cardArtwork: {fileID: 21300000, guid: 42ad0b3b0e90b164fa92cbeb42490229, type: 3}
   cardType: Compensating Control
   maxAmount: 1
