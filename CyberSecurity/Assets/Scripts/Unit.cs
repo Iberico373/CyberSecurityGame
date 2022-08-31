@@ -20,6 +20,7 @@ public class Unit : MonoBehaviour
     public int isCorrupted;
     public bool isSlowed;
 
+    public GameObject virus;
     public GameObject stunned;
     public GameObject capEffect;
     public GameObject corruption;
@@ -29,7 +30,8 @@ public class Unit : MonoBehaviour
     public GameObject turnOrderDisplay;
     public List<Node> _attackTiles;
     public GameManager gameManager;
-    
+    List<Node> nodesInRange;
+
     PathRequestManager request;    
     Vector3[] path;
     int targetIndex;
@@ -142,7 +144,8 @@ public class Unit : MonoBehaviour
     {
         if (isCorrupted > 0)
         {
-            health -= 5 * isCorrupted;
+            health -= 3 * isCorrupted;
+            isCorrupted += 1;
             foreach(Node n in UnitManager.instance.grid.GetNeighbours(UnitManager.instance.grid.NodeFromWorldPoint(transform.position),1))
             {
                 if(n.ReturnObject() != null)
@@ -153,6 +156,23 @@ public class Unit : MonoBehaviour
                         Instantiate(corruption, n.ReturnObject().transform);
                     }
                 }
+            }
+            if(isCorrupted == 5)
+            {
+                isCorrupted = 0;
+                nodesInRange = UnitManager.instance.grid.GetNeighbours(UnitManager.instance.grid.NodeFromWorldPoint(transform.position), 1);
+                    foreach (Node n in nodesInRange)
+                    {
+                        if (n.ReturnObject() == null)
+                        {
+                            GameObject virusClone = Instantiate(virus, UnitManager.instance.unitGroup.transform);
+                            virusClone.transform.position = n.worldPos;
+                            virusClone.layer = 3;
+                            virusClone.GetComponent<VirusAI>().GetAggroList();
+                            UnitManager.instance.SortTurnOrder();
+                            break;
+                        }
+                    }
             }
         }
         if (isStunned)
