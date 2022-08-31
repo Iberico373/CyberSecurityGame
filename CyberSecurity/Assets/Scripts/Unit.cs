@@ -154,13 +154,18 @@ public class Unit : MonoBehaviour
                 Destroy(transform.Find("CorruptionEffect(Clone)").gameObject);
             }
         }
-        
         if (isStunned)
         {
             isStunned = false;
             stunned.SetActive(false);
         }
-        if(isSlowed)
+
+        if (health <= 0)
+        {
+            anim.SetTrigger("Dead");
+            isCorrupted = 0;
+        }
+        else if(isSlowed)
         {
             UnitManager.instance.selectedCharacter.movementSpeed = 1;
             isSlowed = false;
