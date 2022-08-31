@@ -22,6 +22,7 @@ public class Unit : MonoBehaviour
 
     public GameObject stunned;
     public GameObject capEffect;
+    public GameObject corruption;
     public Animator anim;
     public GameObject pointer;
     public GameObject aura;
@@ -142,13 +143,18 @@ public class Unit : MonoBehaviour
         if (isCorrupted > 0)
         {
             health -= 5 * isCorrupted;
-            if(health <= 0)
+            foreach(Node n in UnitManager.instance.grid.GetNeighbours(UnitManager.instance.grid.NodeFromWorldPoint(transform.position),1))
             {
-                anim.SetTrigger("Dead");
-                isCorrupted = 0;
+                if(n.ReturnObject() != null)
+                {
+                    if (n.ReturnObject().CompareTag("Security Control"))
+                    {
+                        n.ReturnObject().GetComponent<Unit>().isCorrupted += 1;
+                        Instantiate(corruption, n.ReturnObject().transform);
+                    }
+                }
             }
         }
-
         if (isStunned)
         {
             isStunned = false;
@@ -158,6 +164,10 @@ public class Unit : MonoBehaviour
         if (health <= 0)
         {
             anim.SetTrigger("Dead");
+            for(int i = 0; i < isCorrupted; i++)
+            {
+                Destroy(transform.Find("CorruptionEffect(Clone)").gameObject);
+            }
             isCorrupted = 0;
         }
         else if(isSlowed)

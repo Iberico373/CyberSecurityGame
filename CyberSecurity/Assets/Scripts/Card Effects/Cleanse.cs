@@ -40,15 +40,13 @@ public class Cleanse : Effect
                             manager.selectedCharacter.transform.LookAt(character.transform);
                             manager.selectedCharacter.anim.SetTrigger("Cleanse");
                             manager.selectedCharacter.GetComponent<Unit>().UseCard();
-
-                            
-
+                            Destroy(character.transform.Find("CorruptionEffect(Clone)").gameObject);
                             Instantiate(cleanseExpansion, character.transform);
                             character.GetComponent<Unit>().isCorrupted = 0;
                             character.GetComponent<Unit>().isStunned = false;
                             if (manager.selectedCharacter.isBuffed)
                             {
-                                character.GetComponent<Unit>().health += Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.1f);
+                                character.GetComponent<Unit>().health += Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.15f);
                                 manager.selectedCharacter.isBuffed = false;
                                 Destroy(manager.selectedCharacter.transform.Find("BuffAura(Clone)").gameObject);
                             }
