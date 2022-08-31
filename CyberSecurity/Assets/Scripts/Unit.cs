@@ -143,11 +143,16 @@ public class Unit : MonoBehaviour
             health -= 5 * isCorrupted;
         }
 
-        else if (isStunned)
+        if (isStunned)
         {
             isStunned = false;
             stunned.SetActive(false);
         }
 
+        if (health <= 0)
+        {
+            anim.SetTrigger("Dead");
+            isCorrupted = 0;
+        }
     }
 }
