@@ -17,7 +17,7 @@ public class Pathfinding : MonoBehaviour
     bool pathSuccess;
 
     //Amount of tiles the unit can move
-    public int radius = 3;
+    public int radius = 2;
 
     private void Awake()
     {

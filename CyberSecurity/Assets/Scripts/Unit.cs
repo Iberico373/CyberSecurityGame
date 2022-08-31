@@ -22,6 +22,7 @@ public class Unit : MonoBehaviour
 
     public GameObject stunned;
     public GameObject capEffect;
+    public GameObject corruption;
     public Animator anim;
     public GameObject pointer;
     public GameObject aura;
@@ -146,14 +147,20 @@ public class Unit : MonoBehaviour
             {
                 anim.SetTrigger("Dead");
                 isCorrupted = 0;
+                Destroy(transform.Find("CorruptionEffect(Clone)").gameObject);
+            }
+            if(isCorrupted == 0)
+            {
+                Destroy(transform.Find("CorruptionEffect(Clone)").gameObject);
             }
         }
-        else if (isStunned)
+        
+        if (isStunned)
         {
             isStunned = false;
             stunned.SetActive(false);
         }
-        else if(isSlowed)
+        if(isSlowed)
         {
             UnitManager.instance.selectedCharacter.movementSpeed = 1;
             isSlowed = false;

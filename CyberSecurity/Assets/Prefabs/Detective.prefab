@@ -7864,6 +7864,7 @@ GameObject:
   - component: {fileID: 9042044958588274270}
   - component: {fileID: 3142359354653137956}
   - component: {fileID: 7240595739958534405}
+  - component: {fileID: -601404291957976380}
   m_Layer: 3
   m_Name: Detective
   m_TagString: Security Control
@@ -7942,6 +7943,40 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 3, z: 1}
   m_Center: {x: 0, y: 1.5, z: 0}
+--- !u!114 &-601404291957976380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8516336956864748772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d65fb257e4a8604b94a4560aac0679c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 3
+  speed: 3
+  health: 50
+  maxHealth: 0
+  movementSpeed: 0
+  isDetected: 0
+  startTurn: 0
+  isAlive: 0
+  isThrottled: 0
+  adEffect: 0
+  isBuffed: 0
+  isStunned: 0
+  isCorrupted: 0
+  isSlowed: 0
+  stunned: {fileID: 0}
+  capEffect: {fileID: 0}
+  corruption: {fileID: 0}
+  anim: {fileID: 0}
+  pointer: {fileID: 5003878738904147280}
+  aura: {fileID: 942690960049656507, guid: 1f7e9f8cad581b9428693a21b4de6e72, type: 3}
+  turnOrderDisplay: {fileID: 3210644842802450728, guid: 9564803e49c19c7478e4b4688c26d30e, type: 3}
+  gameManager: {fileID: 0}
 --- !u!1 &8558102696542008427
 GameObject:
   m_ObjectHideFlags: 0
@@ -8615,6 +8650,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0d0f63d987dfbd4fb9c52b21111a907, type: 3}
+--- !u!1 &5003878738904147280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2432579416357296391, guid: f0d0f63d987dfbd4fb9c52b21111a907, type: 3}
+  m_PrefabInstance: {fileID: 7256173269083339863}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5636969199888941034 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3065142356032816061, guid: f0d0f63d987dfbd4fb9c52b21111a907, type: 3}
