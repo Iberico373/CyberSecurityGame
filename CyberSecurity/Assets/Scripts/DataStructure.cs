@@ -23,6 +23,7 @@ public class DataStructure : Unit
     public GameObject bot;
 
     UnitManager manager;
+    GameObject objective;
     HashSet<Node> nodesInRange;
     List<Node> adjacentNodes;
     int deterrentCD = 0;
@@ -36,6 +37,7 @@ public class DataStructure : Unit
     public GameObject chain;
     public GameObject worm;
     public GameObject virusParticle;
+    public GameObject ransomwareShot;
 
     private void Awake()
     {
@@ -43,6 +45,14 @@ public class DataStructure : Unit
         nodesInRange = manager.pathfinding.MovementRadius(transform.position, true);
         adjacentNodes = manager.grid.GetNeighbours(manager.grid.NodeFromWorldPoint(transform.position), 1);
 
+        foreach(Unit character in manager.unitList)
+        {
+            if(character.id == 0)
+            {
+                objective = character.gameObject;
+                break;
+            }
+        }
     }
 
     private void Update()
@@ -125,6 +135,11 @@ public class DataStructure : Unit
     }
     public void StateEffect()
     {
+        if (isLocked)
+        {
+            objective.GetComponent<Unit>().health -= 5;
+            Instantiate(ransomwareShot);
+        }
         switch (_currentState)
         {
             case State.None:              
@@ -178,6 +193,7 @@ public class DataStructure : Unit
             case State.Deterrent:
                 if (isLocked)
                 {
+                    
                     return;
                 }
 
