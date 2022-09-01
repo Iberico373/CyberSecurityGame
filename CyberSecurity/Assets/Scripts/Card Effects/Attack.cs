@@ -5,6 +5,7 @@ using UnityEngine;
 public class Attack : Effect
 {
     UnitManager manager;
+    List<Node> attackTiles = new List<Node>();
     public GameObject target;
     public override void UseEffect()
     {
@@ -12,8 +13,16 @@ public class Attack : Effect
         manager.grid.ClearGrid();
         manager.effect = this;
 
-        List<Node> attackTiles = manager.grid.GetNeighbours(manager.grid.NodeFromWorldPoint(manager.selectedCharacter.transform.position), 1);
-
+        foreach (Unit u in manager.unitList)
+        {
+            if (u.gameObject.CompareTag("Security Control"))
+            {
+                attackTiles.AddRange(manager.grid.GetNeighbours(manager.grid.NodeFromWorldPoint
+                (u.gameObject.transform.position), 1));
+            }
+        }
+        //List<Node> attackTiles = manager.grid.GetNeighbours(manager.grid.NodeFromWorldPoint(manager.selectedCharacter.transform.position), 1);
+        
         foreach (Node n in attackTiles)
         {
             n.tile.GetComponent<MeshRenderer>().material = manager.grid.attackHighlight;
@@ -34,7 +43,6 @@ public class Attack : Effect
                     if (attackTiles.Contains(node) && character.CompareTag("Malware"))
                     {
                         target = character;
-
                         manager.selectedCharacter.transform.LookAt(character.transform);
                         manager.selectedCharacter.anim.SetTrigger("Attack");
                         manager.selectedCharacter.GetComponent<Unit>().UseCard();                       

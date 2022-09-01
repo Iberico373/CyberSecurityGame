@@ -1910,21 +1910,23 @@ MonoBehaviour:
   health: 100
   maxHealth: 0
   movementSpeed: 0
+  isAlive: 0
   isDetected: 0
   startTurn: 0
-  isAlive: 0
-  isThrottled: 0
-  adEffect: 0
-  isBuffed: 0
-  isStunned: 0
-  isCorrupted: 0
-  isSlowed: 0
-  stunned: {fileID: 0}
+  statusEffects: 
+  throttled: 0
+  buffed: 0
+  stun: 0
+  corrupt: 0
+  slow: 0
+  stunEffect: {fileID: 0}
   capEffect: {fileID: 0}
-  anim: {fileID: 0}
+  corruptEffect: {fileID: 0}
   pointer: {fileID: 3568299508293239244}
   aura: {fileID: 970974767226694109}
+  virus: {fileID: 1740047122475932941, guid: 512d929f7b1149b46a1f5c5b325fac3c, type: 3}
   turnOrderDisplay: {fileID: 0}
+  anim: {fileID: 0}
   gameManager: {fileID: 0}
   isLocked: 0
   capturedM: 0
@@ -1934,10 +1936,11 @@ MonoBehaviour:
   bot: {fileID: 3719882200503357948, guid: 13521492b3ee9a94ca4b49e40046d71c, type: 3}
   laser: {fileID: 6571710295127633407, guid: e9d208e6db5dc58479819b24b926eb5f, type: 3}
   scan: {fileID: 2448158380078623702, guid: 8f5d790ee36e474469be2b19be9b5776, type: 3}
-  stun: {fileID: 2734337170296377296, guid: 5b839a1577e0fcf46bc8ae16584e6106, type: 3}
+  stunParticle: {fileID: 0}
   chain: {fileID: 7004884889674411625}
   worm: {fileID: 5741666751165301202, guid: 6e865351799de4642a4e2e87a22858bc, type: 3}
-  virus: {fileID: 1740047122475932941, guid: 512d929f7b1149b46a1f5c5b325fac3c, type: 3}
+  virusParticle: {fileID: 2842787519919195607, guid: 235f82269b4881d41bcf49ae22b3ef70, type: 3}
+  ransomwareShot: {fileID: 2842787519919195607, guid: 235f82269b4881d41bcf49ae22b3ef70, type: 3}
 --- !u!1 &4117685935940894681
 GameObject:
   m_ObjectHideFlags: 0
