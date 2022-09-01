@@ -14004,7 +14004,7 @@ GameObject:
   - component: {fileID: 2084137860}
   - component: {fileID: 2084137859}
   m_Layer: 5
-  m_Name: Normal Button
+  m_Name: Time Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
