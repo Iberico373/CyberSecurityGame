@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class Throttle : Effect
 {
     UnitManager manager;
+    int throttleRadius = 2;
+
     public GameObject throttleEffect;
     
     public override void UseEffect()
@@ -15,7 +17,7 @@ public class Throttle : Effect
         manager.grid.ClearGrid();
         manager.effect = this;
 
-        HashSet<Node> throttleTiles = manager.selectedCharacter.Select(true);
+        HashSet<Node> throttleTiles = manager.selectedCharacter.Select(true, throttleRadius);
         manager.grid.HighlightGrid(throttleTiles);
 
         if (Input.GetButtonDown("Fire1"))
@@ -41,7 +43,7 @@ public class Throttle : Effect
                             manager.selectedCharacter.anim.SetTrigger("Action");
                             manager.selectedCharacter.GetComponent<Unit>().UseCard();
 
-                            character.GetComponent<Unit>().throttled = 3;
+                            character.GetComponent<Unit>().throttled = 1;
                             Instantiate(throttleEffect, character.transform);
 
                             if (SceneManager.GetActiveScene().name == "Level2")

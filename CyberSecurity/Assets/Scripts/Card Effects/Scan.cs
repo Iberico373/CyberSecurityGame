@@ -5,16 +5,27 @@ using UnityEngine;
 public class Scan : Effect
 {
     UnitManager manager;
+    int scanRadius = 2;
+
     public GameObject scanExpansion;
 
     public override void UseEffect()
     {
         manager = UnitManager.instance;
-
         manager.grid.ClearGrid();
         manager.effect = this;
-        manager.pathfinding.radius = 2;
-        HashSet<Node> scanTiles = manager.selectedCharacter.Select(true);
+
+        if (manager.selectedCharacter.isThrottled)
+        {
+            scanRadius = 3;
+        }
+
+        else
+        {
+            scanRadius = 2;
+        }
+
+        HashSet<Node> scanTiles = manager.selectedCharacter.Select(true, scanRadius);
         manager.grid.HighlightGrid(scanTiles);
 
         if (Input.GetButtonDown("Fire1"))

@@ -6,6 +6,8 @@ public class DSAction : Effect
 {
     UnitManager manager;
     CardTutorial tutorial;
+    int dsActionRadius = 2;
+
     public GameObject effect;
     public override void UseEffect()
     {
@@ -19,7 +21,7 @@ public class DSAction : Effect
         manager.grid.ClearGrid();
         manager.effect = this;
 
-        HashSet<Node> actionTiles = manager.selectedCharacter.Select(true);
+        HashSet<Node> actionTiles = manager.selectedCharacter.Select(true, dsActionRadius);
         manager.grid.HighlightGrid(actionTiles);
 
         if (Input.GetButtonDown("Fire1"))

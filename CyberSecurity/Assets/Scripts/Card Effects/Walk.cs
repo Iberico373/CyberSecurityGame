@@ -7,31 +7,19 @@ public class Walk : Effect
 {
     UnitManager manager;
     CardTutorial tutorial;
-    GameObject tutorialPanel;
-    bool firstTime;
 
     public override void UseEffect()
     {
         manager = UnitManager.instance;
+        manager.grid.ClearGrid();
+        manager.effect = this;
 
         if (GameObject.Find("Tutorial Canvas 1") != null)
         {
             tutorial = GameObject.Find("Tutorial Canvas 1").GetComponent<CardTutorial>();
         }
         
-        if (manager.selectedCharacter.throttled > 0)
-        {
-            manager.pathfinding.radius = 3;
-        }
-        
-        else
-        {
-            manager.pathfinding.radius = 2;
-        }
-
-        manager.grid.ClearGrid();
-        manager.effect = this;
-        HashSet<Node> movementTiles = manager.selectedCharacter.Select(false);
+        HashSet<Node> movementTiles = manager.selectedCharacter.Select(false, manager.selectedCharacter.movementSpeed);
         manager.grid.HighlightGrid(movementTiles);
 
         if (Input.GetButtonDown("Fire1"))
@@ -59,18 +47,11 @@ public class Walk : Effect
                             manager.objectives.GetComponent<TutorialObject>().scancomp.SetActive(true);
                         }
 
-                        manager.selectedCharacter.throttled -= 1;
                         manager.selectedCharacter.Move(node.worldPos);
-
-                        if (manager.selectedCharacter.throttled == 0 && manager.pathfinding.radius == 3)
-                        {
-                            Destroy(manager.selectedCharacter.transform.Find("SpeedUp(Clone)").gameObject);
-                        }
                     }
 
                     manager.selectedCharacter.GetComponent<Unit>().DeselectCard();
 
-                    manager.pathfinding.radius = 2;
                     manager.grid.ClearGrid();
                     manager.effect = null;
                 }

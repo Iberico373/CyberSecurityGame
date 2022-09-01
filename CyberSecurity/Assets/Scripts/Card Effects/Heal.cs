@@ -6,19 +6,21 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "Heal", menuName = "Effect/Heal")]
 public class Heal : Effect
 {
+    UnitManager manager;
+    int healRadius = 2;
+
     public int heal;
     public GameObject healExpansion;
-
-    UnitManager manager;
 
     public override void UseEffect()
     {
         manager = UnitManager.instance;
         manager.grid.ClearGrid();
         manager.effect = this;
-        manager.pathfinding.radius = 2;
-        HashSet<Node> scanTiles = manager.selectedCharacter.Select(true);
+
+        HashSet<Node> scanTiles = manager.selectedCharacter.Select(true, healRadius);
         manager.grid.HighlightGrid(scanTiles);
+
         if (Input.GetButtonDown("Fire1"))
         {
             RaycastHit hit;
@@ -38,24 +40,24 @@ public class Heal : Effect
                         if (character.CompareTag("Security Control") && character.GetComponent<Unit>().health > 0 
                             && character.GetComponent<Unit>().health != character.GetComponent<Unit>().maxHealth)
                         {
-                            manager.selectedCharacter.transform.LookAt(character.transform);
-                            manager.selectedCharacter.anim.SetTrigger("Heal");
-                            manager.selectedCharacter.GetComponent<Unit>().UseCard();
-
                             if (SceneManager.GetActiveScene().name == "Level1")
                             {
                                 manager.objectives.GetComponent<Level1Object>().heal.SetActive(false);
                                 manager.objectives.GetComponent<Level1Object>().healcomp.SetActive(true);
                             }
 
-                            if(SceneManager.GetActiveScene().name == "Level3")
+                            else if (SceneManager.GetActiveScene().name == "Level3")
                             {
                                 manager.GetComponent<Level3Object>().Healing();
                             }
 
+                            manager.selectedCharacter.transform.LookAt(character.transform);
+                            manager.selectedCharacter.anim.SetTrigger("Heal");
+                            manager.selectedCharacter.GetComponent<Unit>().UseCard();
                             Instantiate(healExpansion, character.transform);
 
-                            if (character.GetComponent<Unit>().health + Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.2f) > character.GetComponent<Unit>().maxHealth)
+                            if (character.GetComponent<Unit>().health + Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.2f)
+                                > character.GetComponent<Unit>().maxHealth)
                             {
                                 character.GetComponent<Unit>().health = character.GetComponent<Unit>().maxHealth;
                             }
@@ -64,7 +66,7 @@ public class Heal : Effect
                             {
                                 if (manager.selectedCharacter.buffed > 0)
                                 {
-                                    if(character.GetComponent<Unit>().health + Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.5f) 
+                                    if (character.GetComponent<Unit>().health + Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.5f)
                                         > character.GetComponent<Unit>().maxHealth)
                                     {
                                         character.GetComponent<Unit>().health = character.GetComponent<Unit>().maxHealth;
@@ -72,7 +74,7 @@ public class Heal : Effect
 
                                     else
                                     {
-                                        character.GetComponent<Unit>().health += Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.5f);                                        
+                                        character.GetComponent<Unit>().health += Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.5f);
                                     }
 
                                     manager.selectedCharacter.buffed -= 1;
@@ -82,7 +84,8 @@ public class Heal : Effect
                                 else
                                 {
                                     character.GetComponent<Unit>().health += Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.3f);
-                                }                            }
+                                }
+                            }
                            
                         }
                     }

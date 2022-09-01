@@ -4610,22 +4610,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 4
-  speed: 3
+  speed: 2
   health: 60
-  maxHealth: 60
-  movementSpeed: 0
+  maxHealth: 0
+  baseMovementSpeed: 4
+  isAlive: 0
   isDetected: 0
   startTurn: 0
-  isAlive: 0
+  statusEffects: 
   isThrottled: 0
-  adEffect: 0
   isBuffed: 0
   isStunned: 0
   isCorrupted: 0
-  anim: {fileID: 0}
+  isSlowed: 0
+  statusEffectDurations: 
+  throttled: 0
+  buffed: 0
+  stun: 0
+  corrupt: 0
+  slow: 0
+  stunEffect: {fileID: 0}
+  capEffect: {fileID: 0}
+  corruptEffect: {fileID: 0}
   pointer: {fileID: 9150402731268190023}
   aura: {fileID: 0}
+  virus: {fileID: 0}
   turnOrderDisplay: {fileID: 0}
+  anim: {fileID: 0}
   gameManager: {fileID: 0}
 --- !u!114 &6863064558735524090
 MonoBehaviour:

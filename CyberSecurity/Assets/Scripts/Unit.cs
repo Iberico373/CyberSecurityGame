@@ -9,13 +9,21 @@ public class Unit : MonoBehaviour
     public int speed;
     public int health;
     public int maxHealth;
+    public int baseMovementSpeed;
     public int movementSpeed;
 
     public bool isAlive;
     public bool isDetected;
     public bool startTurn;
 
-    public List<int> statusEffects = new List<int>();
+    public List<bool> statusEffects = new List<bool>();
+    public bool isThrottled = false;
+    public bool isBuffed = false;
+    public bool isStunned = false;
+    public bool isCorrupted = false;
+    public bool isSlowed = false;
+
+    public List<int> statusEffectDurations = new List<int>();
     public int throttled = 0;
     public int buffed = 0;
     public int stun = 0;
@@ -33,7 +41,6 @@ public class Unit : MonoBehaviour
     public List<Node> _attackTiles;
     public Animator anim;
     public GameManager gameManager;
-    List<Node> nodesInRange;
 
     PathRequestManager request;    
     Vector3[] path;
@@ -44,12 +51,19 @@ public class Unit : MonoBehaviour
         request = GameObject.Find("Grid").GetComponent<PathRequestManager>();
         anim = GetComponent<Animator>();
         maxHealth = health;
+        movementSpeed = baseMovementSpeed;
 
-        statusEffects.Add(throttled);
-        statusEffects.Add(buffed);
-        statusEffects.Add(stun);
-        statusEffects.Add(corrupt);
-        statusEffects.Add(slow);
+        statusEffects.Add(isThrottled);
+        statusEffects.Add(isBuffed);
+        statusEffects.Add(isStunned);
+        statusEffects.Add(isCorrupted);
+        statusEffects.Add(isSlowed);
+
+        statusEffectDurations.Add(throttled);
+        statusEffectDurations.Add(buffed);
+        statusEffectDurations.Add(stun);
+        statusEffectDurations.Add(corrupt);
+        statusEffectDurations.Add(slow);
     }
 
     private void Update()
@@ -73,9 +87,9 @@ public class Unit : MonoBehaviour
         }
     }
 
-    public HashSet<Node> Select(bool ignoreObstacle)
+    public HashSet<Node> Select(bool ignoreObstacle, int radius)
     {
-        return request.HighlightMovement(transform.position, ignoreObstacle);
+        return request.HighlightMovement(transform.position, ignoreObstacle, radius);
     }
 
     public void Move(Vector3 targetPos)
@@ -117,9 +131,6 @@ public class Unit : MonoBehaviour
                     if (targetIndex >= movementSpeed)
                     {
                         anim.SetBool("Walk", false);
-                        _attackTiles = UnitManager.instance.grid.
-                            GetNeighbours(UnitManager.instance.grid.
-                            NodeFromWorldPoint(UnitManager.instance.selectedCharacter.transform.position), 1);
                         startTurn = false;
                         yield break;
                     }
@@ -155,25 +166,24 @@ public class Unit : MonoBehaviour
         {
             anim.SetTrigger("Dead");
 
-            for (int i = 0; i < statusEffects.Count; i++)
-            {
-                statusEffects[i] = 0;
-            }
-
             for (int i = 0; i < corrupt; i++)
             {
                 Destroy(transform.Find("CorruptionEffect(Clone)").gameObject);
             }
+
+            for (int i = 0; i < statusEffects.Count; i++)
+            {
+                statusEffects[i] = false;
+                statusEffectDurations[i] = 0;
+            }            
         }
 
 
         if (corrupt > 0)
         {
-            health -= 3 * corrupt;
-
-            foreach (Node n in UnitManager.instance.grid.GetNeighbours(UnitManager.instance.grid.NodeFromWorldPoint(transform.position),1))
+            foreach (Node n in UnitManager.instance.grid.GetNeighbours(UnitManager.instance.grid.NodeFromWorldPoint(transform.position), 1))
             {
-                if(n.ReturnObject() != null)
+                if (n.ReturnObject() != null)
                 {
                     if (n.ReturnObject().CompareTag("Security Control"))
                     {
@@ -183,11 +193,17 @@ public class Unit : MonoBehaviour
                 }
             }
 
-            if (corrupt + 1 == 5)
+            if (corrupt < 7)
             {
-                corrupt = 0;
+                isCorrupted = true;
+                corrupt++;
+                health -= 3 * corrupt;
+            }
 
-                nodesInRange = UnitManager.instance.grid.GetNeighbours(UnitManager.instance.grid.NodeFromWorldPoint(transform.position), 1);
+            else if (corrupt == 7)
+            {
+                List<Node> nodesInRange = UnitManager.instance.grid.
+                GetNeighbours(UnitManager.instance.grid.NodeFromWorldPoint(transform.position), 1);
 
                 foreach (Node n in nodesInRange)
                 {
@@ -197,35 +213,65 @@ public class Unit : MonoBehaviour
                         virusClone.transform.position = n.worldPos;
                         virusClone.layer = 3;
                         UnitManager.instance.SortTurnOrder();
+
+                        corrupt = 0;
+                        isCorrupted = false;
                         break;
                     }
                 }
             }
         }
 
-        if (stun > 0)
+        if (transform.CompareTag("Malware"))
         {
-            if (stun - 1 == 0)
+            if (stun > 0)
             {
+                isStunned = true;
                 stun--;
-                stunEffect.SetActive(false);
-                return;
+                UnitManager.instance.EndTurn();
             }
 
-            stun--;
-            UnitManager.instance.EndTurn();
-        }
+            else
+            {
+                isStunned = false;
+                stunEffect.SetActive(false);
+            }
+        }        
 
         if (slow > 0)
         {
-            if (slow - 1 == 0)
+            if (!isSlowed)
             {
-                slow--;
-                movementSpeed = 2;
+                movementSpeed = baseMovementSpeed / 2;
+                isSlowed = true;
             }
+            
+            slow--;                       
+        }
 
-            movementSpeed = 1;
-            slow--;
-        }        
+        else
+        {
+            isSlowed = false;
+            movementSpeed = baseMovementSpeed;
+        }
+
+        if (throttled > 0)
+        {
+            if (!isThrottled)
+            {
+                movementSpeed++;
+                isThrottled = true;
+            }
+            
+            throttled--;
+        }
+
+        else
+        {
+            isThrottled = false;
+            movementSpeed = baseMovementSpeed;
+
+            Destroy(transform.Find("SpeedUp(Clone)"));
+        }
     }
 }

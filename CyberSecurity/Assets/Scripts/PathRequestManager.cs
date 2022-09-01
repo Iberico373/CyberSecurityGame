@@ -52,9 +52,9 @@ public class PathRequestManager : MonoBehaviour
         TryProcessNext();
     }
 
-    public HashSet<Node> HighlightMovement(Vector3 currentPos, bool ignoreObstacle)
+    public HashSet<Node> HighlightMovement(Vector3 currentPos, bool ignoreObstacle, int radius)
     {
-        return pathfinding.MovementRadius(currentPos, ignoreObstacle);
+        return pathfinding.MovementRadius(currentPos, ignoreObstacle, radius);
     }
 
     //A structure that stores the starting position of the object, the target position of the object

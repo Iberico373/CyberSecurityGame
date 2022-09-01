@@ -572,22 +572,31 @@ MonoBehaviour:
   speed: 2
   health: 10
   maxHealth: 10
-  movementSpeed: 3
+  baseMovementSpeed: 3
+  movementSpeed: 0
+  isAlive: 0
   isDetected: 0
   startTurn: 0
-  isAlive: 0
+  statusEffects: 
   isThrottled: 0
-  adEffect: 0
   isBuffed: 0
   isStunned: 0
   isCorrupted: 0
   isSlowed: 0
-  stunned: {fileID: 1939512889397035526}
+  statusEffectDurations: 
+  throttled: 0
+  buffed: 0
+  stun: 0
+  corrupt: 0
+  slow: 0
+  stunEffect: {fileID: 1939512889397035526}
   capEffect: {fileID: 5275402056542611489, guid: 0f7636c2f4567874eb3b34321aeaad3d, type: 3}
-  anim: {fileID: 0}
+  corruptEffect: {fileID: 0}
   pointer: {fileID: 1965816381630620182}
   aura: {fileID: 5241540438446492184}
+  virus: {fileID: 0}
   turnOrderDisplay: {fileID: 5193530823943403635, guid: 7907bd3f231ea07439bdf74b81f632ca, type: 3}
+  anim: {fileID: 0}
   gameManager: {fileID: 0}
   manager: {fileID: 0}
   target: {fileID: 0}

@@ -7,15 +7,19 @@ using UnityEngine.SceneManagement;
 public class Cleanse : Effect
 {
     UnitManager manager;
+    int cleanseRadius = 2;
+
     public GameObject cleanseExpansion;
+
     public override void UseEffect()
     {
         manager = UnitManager.instance;
         manager.grid.ClearGrid();
         manager.effect = this;
 
-        HashSet<Node> cleanseTiles = manager.selectedCharacter.Select(true);
+        HashSet<Node> cleanseTiles = manager.selectedCharacter.Select(true, cleanseRadius);
         manager.grid.HighlightGrid(cleanseTiles);
+
         if (Input.GetButtonDown("Fire1"))
         {
             RaycastHit hit;

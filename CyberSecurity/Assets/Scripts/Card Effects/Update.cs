@@ -6,14 +6,17 @@ using UnityEngine.SceneManagement;
 public class Update : Effect
 {
     UnitManager manager;
+    int updateRadius = 2;
+
     public GameObject buffAura;
+
     public override void UseEffect()
     {
         manager = UnitManager.instance;
         manager.grid.ClearGrid();
         manager.effect = this;
 
-        HashSet<Node> throttleTiles = manager.selectedCharacter.Select(true);
+        HashSet<Node> throttleTiles = manager.selectedCharacter.Select(true, updateRadius);
         manager.grid.HighlightGrid(throttleTiles);
         if (Input.GetButtonDown("Fire1"))
         {

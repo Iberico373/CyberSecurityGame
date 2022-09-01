@@ -4,8 +4,6 @@ using UnityEngine.UI;
 public class DeckUI : MonoBehaviour
 {
     public TMPro.TextMeshProUGUI nameText;
-    public TMPro.TextMeshProUGUI totalDraw;
-    public TMPro.TextMeshProUGUI totalDiscard;
     public TMPro.TextMeshProUGUI healthText;
     public TMPro.TextMeshProUGUI ramText;
     public Slider healthBar;
@@ -33,9 +31,6 @@ public class DeckUI : MonoBehaviour
 
         healthBar.maxValue = character.maxHealth;
         ramBar.maxValue = 3;
-
-        totalDraw.text = currentDeck.deck.Count.ToString();
-        totalDiscard.text = currentDeck.discard.Count.ToString();
 
         healthBar.value = character.health;
         healthText.text = character.health.ToString();

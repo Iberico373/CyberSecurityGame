@@ -5,15 +5,19 @@ using UnityEngine;
 public class Revive : Effect
 {
     UnitManager manager;
+    int reviveRadius = 1;
+
     public GameObject healExpansion;
+
     public override void UseEffect()
     {
         manager = UnitManager.instance;
         manager.grid.ClearGrid();
         manager.effect = this;
 
-        HashSet<Node> scanTiles = manager.selectedCharacter.Select(true);
+        HashSet<Node> scanTiles = manager.selectedCharacter.Select(true, reviveRadius);
         manager.grid.HighlightGrid(scanTiles);
+
         if (Input.GetButtonDown("Fire1"))
         {
             RaycastHit hit;
@@ -26,7 +30,6 @@ public class Revive : Effect
 
                 if (manager.selectedCharacter != null)
                 {
-
                     if (scanTiles.Contains(node) && character != null)
                     {
 
@@ -36,7 +39,7 @@ public class Revive : Effect
                             manager.selectedCharacter.anim.SetTrigger("Heal");
                             character.GetComponent<Unit>().anim.SetTrigger("Revive");
                             Instantiate(healExpansion, character.transform);
-                            character.GetComponent<Unit>().corrupt = 0;
+
                             character.GetComponent<Unit>().health = Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.5f);
                             manager.selectedCharacter.GetComponent<Unit>().UseCard();
                         }

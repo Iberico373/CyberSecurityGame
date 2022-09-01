@@ -40,7 +40,7 @@ public class DataStructure : Unit
     private void Awake()
     {
         manager = UnitManager.instance;
-        nodesInRange = manager.pathfinding.MovementRadius(transform.position, true);
+        nodesInRange = manager.pathfinding.MovementRadius(transform.position, true, 2);
         adjacentNodes = manager.grid.GetNeighbours(manager.grid.NodeFromWorldPoint(transform.position), 1);
 
     }

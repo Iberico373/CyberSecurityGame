@@ -16,9 +16,6 @@ public class Pathfinding : MonoBehaviour
     //Determines if a path is successful or not
     bool pathSuccess;
 
-    //Amount of tiles the unit can move
-    public int radius = 2;
-
     private void Awake()
     {
         request = GetComponent<PathRequestManager>();
@@ -26,7 +23,7 @@ public class Pathfinding : MonoBehaviour
     }
 
     //Displays movement radius of a selected unit
-    public HashSet<Node> MovementRadius(Vector3 startPos, bool ignoreObstacle)
+    public HashSet<Node> MovementRadius(Vector3 startPos, bool ignoreObstacle, int radius)
     {
         grid.ClearGrid();
         grid.UpdateGrid();
@@ -50,7 +47,6 @@ public class Pathfinding : MonoBehaviour
                 if (radius - neighbour.cost >= 0)
                 {
                     neighbour.cost = 1;
-                    //Add neighbour to ui
                     ui.Add(neighbour);
                 }
             }
