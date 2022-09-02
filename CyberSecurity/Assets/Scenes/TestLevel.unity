@@ -1603,6 +1603,19 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1311412944258689935, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_text
+      value: 'Click on the characters to see the health, name, and information. It
+        will appear on the right hand side of the screen.  '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1311412944258689935, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_margin.w
+      value: -78.63945
+      objectReference: {fileID: 0}
+    - target: {fileID: 1311412944258689935, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_margin.z
+      value: -219.80246
+      objectReference: {fileID: 0}
     - target: {fileID: 1406920437333064414, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -110.00004
@@ -1642,6 +1655,12 @@ PrefabInstance:
     - target: {fileID: 2035702674741825553, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049017731536210762, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_text
+      value: This is Preventitive Control, it attacks malwares only when they have
+        been detected. When this takes over a data structure, the data structure
+        attacks in a range.
       objectReference: {fileID: 0}
     - target: {fileID: 2080957628718029323, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
       propertyPath: m_Color.a
@@ -1791,6 +1810,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 88
       objectReference: {fileID: 0}
+    - target: {fileID: 3040108486452764678, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.9057963
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040108486452764678, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.0683126
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040108486452764678, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4.0683126
+      objectReference: {fileID: 0}
+    - target: {fileID: 3040108486452764678, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -418
+      objectReference: {fileID: 0}
     - target: {fileID: 3259976213685663977, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.0490158
@@ -1874,6 +1909,26 @@ PrefabInstance:
     - target: {fileID: 3518163464139358961, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3526396099124336879, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.5304909
+      objectReference: {fileID: 0}
+    - target: {fileID: 3526396099124336879, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.4916725
+      objectReference: {fileID: 0}
+    - target: {fileID: 3526396099124336879, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.6773913
+      objectReference: {fileID: 0}
+    - target: {fileID: 3526396099124336879, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -556
+      objectReference: {fileID: 0}
+    - target: {fileID: 3526396099124336879, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 190
       objectReference: {fileID: 0}
     - target: {fileID: 3538976981861707915, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
       propertyPath: m_IsActive
@@ -2107,6 +2162,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4623065950467825168, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_text
+      value: This is Ransomware, it is a malware. When ransomware takes over a data
+        structure, you can no longer access that data structure.
+      objectReference: {fileID: 0}
     - target: {fileID: 4775055358140930140, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -509
@@ -2313,12 +2373,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6016991219519509072, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.7392228
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016991219519509072, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.7392228
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016991219519509072, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.7392228
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016991219519509072, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 113
+      value: 122
       objectReference: {fileID: 0}
     - target: {fileID: 6016991219519509072, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 128
+      value: 167
       objectReference: {fileID: 0}
     - target: {fileID: 6087070075609488778, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2528,6 +2600,19 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7696001255669939083, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_text
+      value: 'You will be playing as different security controls. Plan out and strategies
+        how to kill the evil purple aura malwares. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7696001255669939083, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_margin.w
+      value: -55.992455
+      objectReference: {fileID: 0}
+    - target: {fileID: 7696001255669939083, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_margin.z
+      value: -313.28384
+      objectReference: {fileID: 0}
     - target: {fileID: 7736524983394236096, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
       propertyPath: m_fontSize
       value: 20
@@ -2653,6 +2738,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8186823390600543908, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_text
+      value: "Controls: \nDrag and Drop cards to play it.\nTips: \nRAM is the currecncy
+        to buy cards.\nTo damage malwares you need to detect them first \nProtect
+        your objective/home at all cost!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186823390600543908, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
       propertyPath: m_margin.w
       value: -149.34024
       objectReference: {fileID: 0}
@@ -2707,6 +2798,30 @@ PrefabInstance:
     - target: {fileID: 8186823390792574367, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186823390958479326, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_margin.w
+      value: 80.86759
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186823390958479327, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6510718
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186823390958479327, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.6510718
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186823390958479327, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.6510718
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186823390958479327, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186823390958479327, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -117
       objectReference: {fileID: 0}
     - target: {fileID: 8186823391081014093, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -3523,6 +3638,11 @@ PrefabInstance:
     - target: {fileID: 8536637538910537435, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 77
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680504844697823971, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_text
+      value: This is Detective Control, it detects malwares. When this security control
+        takes over a data structure, the data structure detetcs in a range.
       objectReference: {fileID: 0}
     - target: {fileID: 8681237537772123747, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
       propertyPath: m_VerticalAlignment
