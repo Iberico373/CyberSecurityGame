@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 210105226}
   - component: {fileID: 210105225}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 380876529}
   - component: {fileID: 380876528}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1354,7 +1354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8371259578042393950, guid: 4e1ac49de1cca1a4391fc4cc383be5bf, type: 3}
       propertyPath: m_Name
-      value: Panel
+      value: LevelSelect
       objectReference: {fileID: 0}
     - target: {fileID: 8371259578042393950, guid: 4e1ac49de1cca1a4391fc4cc383be5bf, type: 3}
       propertyPath: m_IsActive
@@ -1510,7 +1510,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9008804097220112809, guid: 458ce7402f1b6d54796f62ae4a41e758, type: 3}
       propertyPath: m_Name
-      value: Panel
+      value: PlayMenu
       objectReference: {fileID: 0}
     - target: {fileID: 9008804097220112809, guid: 458ce7402f1b6d54796f62ae4a41e758, type: 3}
       propertyPath: m_IsActive
