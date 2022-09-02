@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 210105226}
   - component: {fileID: 210105225}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 380876529}
   - component: {fileID: 380876528}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -931,6 +931,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4783252449574532928, guid: c690723132f3b2d418e53cc1f9f7b02d, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4783252449574532930, guid: c690723132f3b2d418e53cc1f9f7b02d, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1234,7 +1238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1168203169284345682, guid: 4e1ac49de1cca1a4391fc4cc383be5bf, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 34
+      value: 67
       objectReference: {fileID: 0}
     - target: {fileID: 1168203169284345682, guid: 4e1ac49de1cca1a4391fc4cc383be5bf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1322,7 +1326,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5054601564261351963, guid: 4e1ac49de1cca1a4391fc4cc383be5bf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5054601564261351963, guid: 4e1ac49de1cca1a4391fc4cc383be5bf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
@@ -1336,9 +1340,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5246544238606239541, guid: 4e1ac49de1cca1a4391fc4cc383be5bf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1452527992}
+    - target: {fileID: 5246544238606239541, guid: 4e1ac49de1cca1a4391fc4cc383be5bf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5246544238606239541, guid: 4e1ac49de1cca1a4391fc4cc383be5bf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8371259578042393950, guid: 4e1ac49de1cca1a4391fc4cc383be5bf, type: 3}
       propertyPath: m_Name
-      value: Panel
+      value: LevelSelect
       objectReference: {fileID: 0}
     - target: {fileID: 8371259578042393950, guid: 4e1ac49de1cca1a4391fc4cc383be5bf, type: 3}
       propertyPath: m_IsActive
@@ -1370,7 +1386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8391504942435070639, guid: 4e1ac49de1cca1a4391fc4cc383be5bf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8391504942435070639, guid: 4e1ac49de1cca1a4391fc4cc383be5bf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1434,15 +1450,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9008804097220112808, guid: 458ce7402f1b6d54796f62ae4a41e758, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.40955767
+      value: 0.4685749
       objectReference: {fileID: 0}
     - target: {fileID: 9008804097220112808, guid: 458ce7402f1b6d54796f62ae4a41e758, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.3119562
+      value: 1.5787612
       objectReference: {fileID: 0}
     - target: {fileID: 9008804097220112808, guid: 458ce7402f1b6d54796f62ae4a41e758, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.22726835
+      value: 0.26001772
       objectReference: {fileID: 0}
     - target: {fileID: 9008804097220112808, guid: 458ce7402f1b6d54796f62ae4a41e758, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1474,11 +1490,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9008804097220112808, guid: 458ce7402f1b6d54796f62ae4a41e758, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 223
+      value: 230
       objectReference: {fileID: 0}
     - target: {fileID: 9008804097220112808, guid: 458ce7402f1b6d54796f62ae4a41e758, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.060701
+      value: -14.006
       objectReference: {fileID: 0}
     - target: {fileID: 9008804097220112808, guid: 458ce7402f1b6d54796f62ae4a41e758, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1494,7 +1510,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9008804097220112809, guid: 458ce7402f1b6d54796f62ae4a41e758, type: 3}
       propertyPath: m_Name
-      value: Panel
+      value: PlayMenu
       objectReference: {fileID: 0}
     - target: {fileID: 9008804097220112809, guid: 458ce7402f1b6d54796f62ae4a41e758, type: 3}
       propertyPath: m_IsActive
@@ -1543,6 +1559,10 @@ PrefabInstance:
     - target: {fileID: 9008804098362938948, guid: 458ce7402f1b6d54796f62ae4a41e758, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008804098843185501, guid: 458ce7402f1b6d54796f62ae4a41e758, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 88
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 458ce7402f1b6d54796f62ae4a41e758, type: 3}
