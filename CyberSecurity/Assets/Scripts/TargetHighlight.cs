@@ -24,7 +24,7 @@ public class TargetHighlight : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.CompareTag("Security Control"))
+                if (hit.collider.CompareTag("Security Control") || hit.collider.CompareTag("Objective"))
                 {
                     targetHighlightBase.SetActive(true);
 

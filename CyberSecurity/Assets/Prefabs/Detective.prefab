@@ -7865,6 +7865,7 @@ GameObject:
   - component: {fileID: 3142359354653137956}
   - component: {fileID: 7240595739958534405}
   - component: {fileID: -601404291957976380}
+  - component: {fileID: 3844758982538630595}
   m_Layer: 3
   m_Name: Detective
   m_TagString: Security Control
@@ -7960,6 +7961,7 @@ MonoBehaviour:
   health: 50
   maxHealth: 0
   baseMovementSpeed: 4
+  movementSpeed: 0
   isAlive: 0
   isDetected: 0
   startTurn: 0
@@ -7984,6 +7986,26 @@ MonoBehaviour:
   turnOrderDisplay: {fileID: 3210644842802450728, guid: 9564803e49c19c7478e4b4688c26d30e, type: 3}
   anim: {fileID: 0}
   gameManager: {fileID: 0}
+--- !u!114 &3844758982538630595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8516336956864748772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fddd4ebfc96f7a54e85312eea764d18d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deck: []
+  hand: []
+  discard: []
+  card: {fileID: 4125792743563677905, guid: 44b44016528268643b29cae55cc90c47, type: 3}
+  deckParent: {fileID: 0}
+  panel: {fileID: 0}
+  deckSize: 20
+  ram: 3
 --- !u!1 &8558102696542008427
 GameObject:
   m_ObjectHideFlags: 0

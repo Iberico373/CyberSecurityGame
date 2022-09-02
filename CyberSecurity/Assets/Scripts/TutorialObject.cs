@@ -24,6 +24,5 @@ public class TutorialObject : MonoBehaviour
         scancomp.SetActive(false);
         takeovercomp.SetActive(false);
         killcomp.SetActive(false);
-
     }
 }

@@ -10189,6 +10189,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3844758982538630595, guid: 104f71d6908cecf47bea3373a0201709, type: 3}
+      propertyPath: panel
+      value: 
+      objectReference: {fileID: 714124020}
+    - target: {fileID: 3844758982538630595, guid: 104f71d6908cecf47bea3373a0201709, type: 3}
+      propertyPath: deckParent
+      value: 
+      objectReference: {fileID: 358239117}
     - target: {fileID: 5003878738904147280, guid: 104f71d6908cecf47bea3373a0201709, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -10272,31 +10280,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9042044958588274270, guid: 104f71d6908cecf47bea3373a0201709, type: 3}
   m_PrefabInstance: {fileID: 1015550247}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1015550250 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8516336956864748772, guid: 104f71d6908cecf47bea3373a0201709, type: 3}
-  m_PrefabInstance: {fileID: 1015550247}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1015550251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1015550250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fddd4ebfc96f7a54e85312eea764d18d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deck: []
-  hand: []
-  discard: []
-  card: {fileID: 4125792743563677905, guid: 44b44016528268643b29cae55cc90c47, type: 3}
-  deckParent: {fileID: 358239117}
-  panel: {fileID: 714124020}
-  deckSize: 20
-  ram: 3
 --- !u!1 &1057460307
 GameObject:
   m_ObjectHideFlags: 0
