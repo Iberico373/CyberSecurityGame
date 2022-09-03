@@ -2308,6 +2308,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 85
       objectReference: {fileID: 0}
+    - target: {fileID: 5497360667452587766, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5583869545336877306, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5937794
@@ -3049,7 +3053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8186823391520415601, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8186823391603062234, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
       propertyPath: m_IsActive
@@ -3494,7 +3498,7 @@ PrefabInstance:
     - target: {fileID: 8186823392274924824, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1885469599}
+      objectReference: {fileID: 0}
     - target: {fileID: 8186823392274924824, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -10462,7 +10466,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &728415232
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16574,11 +16578,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879204644}
   m_CullTransparentMesh: 1
---- !u!1 &1885469599 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2035702674741825553, guid: c04af6bffb58f4d4782a8076ce81a823, type: 3}
-  m_PrefabInstance: {fileID: 376972169}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1957488060 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8891748531949093289, guid: f52fd661b471998449c7ae0239b83428, type: 3}
