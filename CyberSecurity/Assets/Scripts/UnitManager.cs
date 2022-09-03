@@ -16,7 +16,11 @@ public class UnitManager : MonoBehaviour
     public GameObject unitGroup;
     public GameObject deck;
     public GameObject objectives;
-    public List<Unit> unitList;    
+    public List<Unit> unitList;
+
+    //objective variables for triggering win
+    public bool objective1;
+    public bool objective2;
 
     DeckUI deckUI;
 

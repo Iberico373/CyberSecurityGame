@@ -1703,6 +1703,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3844758982538630595, guid: 104f71d6908cecf47bea3373a0201709, type: 3}
+      propertyPath: panel
+      value: 
+      objectReference: {fileID: 1390744217}
+    - target: {fileID: 3844758982538630595, guid: 104f71d6908cecf47bea3373a0201709, type: 3}
+      propertyPath: deckParent
+      value: 
+      objectReference: {fileID: 523618089}
     - target: {fileID: 5003878738904147280, guid: 104f71d6908cecf47bea3373a0201709, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -8859,6 +8867,14 @@ PrefabInstance:
       propertyPath: pointer
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4302213589267663000, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
+      propertyPath: stunParticle
+      value: 
+      objectReference: {fileID: 2019633792}
+    - target: {fileID: 4302213589267663000, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
+      propertyPath: virusParticle
+      value: 
+      objectReference: {fileID: 1740047122475932941, guid: 512d929f7b1149b46a1f5c5b325fac3c, type: 3}
     - target: {fileID: 4340961011917607580, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -14643,6 +14659,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1988400290}
   m_CullTransparentMesh: 1
+--- !u!1 &2019633792 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6108791302202479554, guid: 1d4389c2b469b374a868afd98d4f0aeb, type: 3}
+  m_PrefabInstance: {fileID: 8832305919023780434}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2055233249
 GameObject:
   m_ObjectHideFlags: 0
@@ -15388,6 +15409,14 @@ PrefabInstance:
       propertyPath: pointer
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4302213589267663000, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
+      propertyPath: stunParticle
+      value: 
+      objectReference: {fileID: 2019633792}
+    - target: {fileID: 4302213589267663000, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
+      propertyPath: virusParticle
+      value: 
+      objectReference: {fileID: 1740047122475932941, guid: 512d929f7b1149b46a1f5c5b325fac3c, type: 3}
     - target: {fileID: 4340961011917607580, guid: 4787581b2ad97db4aa492cba4c35ebab, type: 3}
       propertyPath: m_RootOrder
       value: 1

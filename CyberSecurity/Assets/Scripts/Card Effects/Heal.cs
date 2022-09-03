@@ -44,12 +44,9 @@ public class Heal : Effect
                             {
                                 manager.objectives.GetComponent<Level1Object>().heal.SetActive(false);
                                 manager.objectives.GetComponent<Level1Object>().healcomp.SetActive(true);
+                                manager.objective1 = true;
                             }
 
-                            else if (SceneManager.GetActiveScene().name == "Level3")
-                            {
-                                manager.GetComponent<Level3Object>().Healing();
-                            }
 
                             manager.selectedCharacter.transform.LookAt(character.transform);
                             manager.selectedCharacter.anim.SetTrigger("Heal");

@@ -11,6 +11,7 @@ public class Level1Object : MonoBehaviour
     public GameObject kill;
     private int killcount = 0;
 
+
     void Start()
     {
         heal = transform.Find("Heal").gameObject;

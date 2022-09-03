@@ -47,6 +47,7 @@ public class Update : Effect
                             {
                                 manager.objectives.GetComponent<Level2Object>().upgrade.SetActive(false);
                                 manager.objectives.GetComponent<Level2Object>().upgradecomp.SetActive(true);
+                                manager.objective1 = true;
                             }
                         }
                     }

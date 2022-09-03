@@ -54,6 +54,7 @@ public class Blast : Effect
                             {
                                 manager.objectives.GetComponent<Level1Object>().push.SetActive(false);
                                 manager.objectives.GetComponent<Level1Object>().pushcomp.SetActive(true);
+                                manager.objective2 = true;
                             }
                         }
                     }
