@@ -12,7 +12,7 @@ public class Unit : MonoBehaviour
     public int baseMovementSpeed;
     public int movementSpeed;
 
-    public bool isAlive;
+    public bool isAlive = true;
     public bool isDetected;
     public bool startTurn;
 
@@ -177,7 +177,14 @@ public class Unit : MonoBehaviour
             {
                 statusEffects[i] = false;
                 statusEffectDurations[i] = 0;
-            }            
+            }
+
+            isAlive = false;
+        }
+
+        else
+        {
+            isAlive = true;
         }
 
 

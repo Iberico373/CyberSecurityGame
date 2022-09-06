@@ -110,6 +110,11 @@ public class UnitManager : MonoBehaviour
                 break;
 
             case "Security Control":
+                if (!selectedCard.GetComponent<Unit>().isAlive)
+                {
+                    EndTurn();
+                }
+
                 selectedCharacter.CheckStatus();
                 deck.SetActive(true);
                 selectedCharacter.GetComponent<Deck>().Draw();
