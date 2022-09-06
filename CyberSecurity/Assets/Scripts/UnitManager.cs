@@ -110,7 +110,7 @@ public class UnitManager : MonoBehaviour
                 break;
 
             case "Security Control":
-                if (!selectedCard.GetComponent<Unit>().isAlive)
+                if (!selectedCharacter.GetComponent<Unit>().isAlive)
                 {
                     EndTurn();
                 }
