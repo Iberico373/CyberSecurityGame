@@ -16,6 +16,8 @@ public class Unit : MonoBehaviour
     public bool isDetected;
     public bool startTurn;
 
+    
+
     public List<bool> statusEffects = new List<bool>();
     public bool isThrottled = false;
     public bool isBuffed = false;
@@ -76,7 +78,7 @@ public class Unit : MonoBehaviour
             }
         }
         
-        if (GameObject.FindWithTag("Malware"))
+        if (GameObject.FindWithTag("Malware") || !UnitManager.instance.objective1 || !UnitManager.instance.objective2)
         {
             return;
         }

@@ -8,11 +8,13 @@ public class GameManager : MonoBehaviour
     bool gameHasEnded = false;
     public WinLose lose;
     public WinLose win;
+    public AudioSource winSound;
     public void EndGame()
     {
         if(gameHasEnded == false)
         {
             gameHasEnded = true;
+            StartCoroutine("Delay");
             lose.Setup();
         }
         
@@ -23,8 +25,15 @@ public class GameManager : MonoBehaviour
         if(gameHasEnded == false)
         {
             gameHasEnded = true;
-            win.Setup();
+            StartCoroutine(Delay());
         }
+    }
+
+    IEnumerator Delay()
+    {
+        winSound.Play();
+        yield return new WaitForSecondsRealtime(3);
+        win.Setup();
     }
 
 }

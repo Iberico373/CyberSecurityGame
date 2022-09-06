@@ -42,11 +42,13 @@ public class Update : Effect
 
                             character.GetComponent<Unit>().buffed += 1;
                             Instantiate(buffAura, character.transform);
+                            manager.battleLog.UpdateBattleLog(manager.selectedCharacter.name, " updated ", character.name);
 
                             if (SceneManager.GetActiveScene().name == "Level2")
                             {
                                 manager.objectives.GetComponent<Level2Object>().upgrade.SetActive(false);
                                 manager.objectives.GetComponent<Level2Object>().upgradecomp.SetActive(true);
+                                manager.objective1 = true;
                             }
                         }
                     }

@@ -39,6 +39,7 @@ public class Revive : Effect
                             manager.selectedCharacter.anim.SetTrigger("Heal");
                             character.GetComponent<Unit>().anim.SetTrigger("Revive");
                             Instantiate(healExpansion, character.transform);
+                            manager.battleLog.UpdateBattleLog(manager.selectedCharacter.name, " revived ", character.name);
 
                             character.GetComponent<Unit>().health = Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.5f);
                             manager.selectedCharacter.GetComponent<Unit>().UseCard();

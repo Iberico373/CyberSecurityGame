@@ -12,11 +12,16 @@ public class UnitManager : MonoBehaviour
     public Unit selectedCharacter;
     public Effect effect;
     public DisplayTurnOrder displayTurnOrder;
+    public BattleLog battleLog;
     public GameObject selectedCard;
     public GameObject unitGroup;
     public GameObject deck;
     public GameObject objectives;
-    public List<Unit> unitList;    
+    public List<Unit> unitList;
+
+    //objective variables for triggering win
+    public bool objective1;
+    public bool objective2;
 
     DeckUI deckUI;
 

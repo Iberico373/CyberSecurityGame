@@ -57,6 +57,8 @@ public class Cleanse : Effect
                                 manager.selectedCharacter.buffed = 0;
                                 Destroy(manager.selectedCharacter.transform.Find("BuffAura(Clone)").gameObject);
                             }
+
+                            manager.battleLog.UpdateBattleLog(manager.selectedCharacter.name, " cleansed ", character.name + " of all debuffs");
                         }
                     }
 

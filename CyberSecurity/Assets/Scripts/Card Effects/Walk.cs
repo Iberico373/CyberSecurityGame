@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class Walk : Effect
 {
     UnitManager manager;
-    CardTutorial tutorial;
 
     public override void UseEffect()
     {
@@ -14,10 +13,7 @@ public class Walk : Effect
         manager.grid.ClearGrid();
         manager.effect = this;
 
-        if (GameObject.Find("Tutorial Canvas 1") != null)
-        {
-            tutorial = GameObject.Find("Tutorial Canvas 1").GetComponent<CardTutorial>();
-        }
+        
         
         HashSet<Node> movementTiles = manager.selectedCharacter.Select(false, manager.selectedCharacter.movementSpeed);
         manager.grid.HighlightGrid(movementTiles);
@@ -40,12 +36,7 @@ public class Walk : Effect
                     {
                         manager.selectedCharacter.GetComponent<Unit>().UseCard();
 
-                        if(SceneManager.GetActiveScene().name == "TestLevel")
-                        {
-                            tutorial.SetTutorial(1);
-                            manager.objectives.GetComponent<TutorialObject>().scan.SetActive(false);
-                            manager.objectives.GetComponent<TutorialObject>().scancomp.SetActive(true);
-                        }
+                        
 
                         manager.selectedCharacter.Move(node.worldPos);
                     }

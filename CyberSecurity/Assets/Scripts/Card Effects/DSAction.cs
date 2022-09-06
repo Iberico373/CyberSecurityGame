@@ -52,6 +52,7 @@ public class DSAction : Effect
                                     tutorial.SetTutorial(2);
                                     manager.objectives.GetComponent<TutorialObject>().takeover.SetActive(false);
                                     manager.objectives.GetComponent<TutorialObject>().takeovercomp.SetActive(true);
+                                    manager.objective1 = true;
                                 }
                                 
                             }
@@ -85,6 +86,7 @@ public class DSAction : Effect
                                 {
                                     manager.objectives.GetComponent<Level2Object>().cleanse.SetActive(false);
                                     manager.objectives.GetComponent<Level2Object>().cleansecomp.SetActive(true);
+                                    manager.objective2 = true;
                                 }
 
                                 if (SceneManager.GetActiveScene().name == "Level3")
@@ -92,6 +94,8 @@ public class DSAction : Effect
                                     manager.GetComponent<Level3Object>().Cleansing();
                                 }
                             }
+
+                            manager.battleLog.UpdateBattleLog(manager.selectedCharacter.name, " captured a ", character.name);
                         }                                   
                     }
 
