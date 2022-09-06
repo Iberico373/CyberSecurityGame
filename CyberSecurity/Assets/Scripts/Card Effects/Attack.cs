@@ -45,7 +45,7 @@ public class Attack : Effect
                         target = character;
                         manager.selectedCharacter.transform.LookAt(character.transform);
                         manager.selectedCharacter.anim.SetTrigger("Attack");
-                        manager.selectedCharacter.GetComponent<Unit>().UseCard();                       
+                        manager.selectedCharacter.GetComponent<Unit>().UseCard();
                     }
 
                     manager.selectedCharacter.GetComponent<Unit>().DeselectCard();

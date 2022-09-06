@@ -12,6 +12,7 @@ public class UnitManager : MonoBehaviour
     public Unit selectedCharacter;
     public Effect effect;
     public DisplayTurnOrder displayTurnOrder;
+    public BattleLog battleLog;
     public GameObject selectedCard;
     public GameObject unitGroup;
     public GameObject deck;
