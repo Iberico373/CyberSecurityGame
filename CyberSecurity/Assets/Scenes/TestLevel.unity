@@ -13921,6 +13921,7 @@ GameObject:
   - component: {fileID: 1820659850}
   - component: {fileID: 1820659854}
   - component: {fileID: 1820659855}
+  - component: {fileID: 1820659856}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -14005,7 +14006,7 @@ MonoBehaviour:
   selectedCharacter: {fileID: 0}
   effect: {fileID: 0}
   displayTurnOrder: {fileID: 114253857}
-  battleLog: {fileID: 0}
+  battleLog: {fileID: 1820659856}
   selectedCard: {fileID: 0}
   unitGroup: {fileID: 1172970258}
   deck: {fileID: 1637253407}
@@ -14026,6 +14027,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cards: {fileID: 11400000, guid: 0008b60fe007a494bbe75f14d5a25d29, type: 2}
+--- !u!114 &1820659856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820659849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4329291bd50d7d4caa6e34327cf97d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battleText: {fileID: 354010625}
 --- !u!1 &1844775103
 GameObject:
   m_ObjectHideFlags: 0
