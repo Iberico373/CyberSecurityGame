@@ -94,6 +94,8 @@ public class DSAction : Effect
                                     manager.GetComponent<Level3Object>().Cleansing();
                                 }
                             }
+
+                            manager.battleLog.UpdateBattleLog(manager.selectedCharacter.name, " captured a ", character.name);
                         }                                   
                     }
 

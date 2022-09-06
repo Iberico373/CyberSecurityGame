@@ -78,6 +78,7 @@ public class Scan : Effect
                             manager.selectedCharacter.anim.SetTrigger("Scan");
                             Instantiate(scanExpansion, character.transform);
 
+                            manager.battleLog.UpdateBattleLog(manager.selectedCharacter.name, " detected ", character.name);
                             character.GetComponent<Unit>().isDetected = true;
                             character.GetComponent<BaseAI>().aggrolist.Remove(manager.selectedCharacter.gameObject);
                             character.GetComponent<BaseAI>().aggrolist.Insert(0, manager.selectedCharacter.gameObject);                                                     

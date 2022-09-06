@@ -42,6 +42,7 @@ public class Update : Effect
 
                             character.GetComponent<Unit>().buffed += 1;
                             Instantiate(buffAura, character.transform);
+                            manager.battleLog.UpdateBattleLog(manager.selectedCharacter.name, " updated ", character.name);
 
                             if (SceneManager.GetActiveScene().name == "Level2")
                             {

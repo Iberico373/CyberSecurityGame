@@ -45,6 +45,7 @@ public class Throttle : Effect
 
                             character.GetComponent<Unit>().throttled = 1;
                             Instantiate(throttleEffect, character.transform);
+                            manager.battleLog.UpdateBattleLog(manager.selectedCharacter.name, " throttled ", character.name);
 
                             if (SceneManager.GetActiveScene().name == "Level2")
                             {
