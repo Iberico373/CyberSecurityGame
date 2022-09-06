@@ -12,7 +12,7 @@ public class Unit : MonoBehaviour
     public int baseMovementSpeed;
     public int movementSpeed;
 
-    public bool isAlive = true;
+    public bool isAlive;
     public bool isDetected;
     public bool startTurn;
 
@@ -52,6 +52,7 @@ public class Unit : MonoBehaviour
     {
         request = GameObject.Find("Grid").GetComponent<PathRequestManager>();
         anim = GetComponent<Animator>();
+        isAlive = true;
         maxHealth = health;
         movementSpeed = baseMovementSpeed;
 
@@ -166,6 +167,12 @@ public class Unit : MonoBehaviour
     {
         if (health <= 0)
         {
+            if (!isAlive)
+            {
+                UnitManager.instance.EndTurn();
+                return;
+            }
+
             anim.SetTrigger("Dead");
 
             for (int i = 0; i < corrupt; i++)
