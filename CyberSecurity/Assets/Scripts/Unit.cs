@@ -54,7 +54,7 @@ public class Unit : MonoBehaviour
         anim = GetComponent<Animator>();
         maxHealth = health;
         movementSpeed = baseMovementSpeed;
-
+        isAlive = true;
         statusEffects.Add(isThrottled);
         statusEffects.Add(isBuffed);
         statusEffects.Add(isStunned);
@@ -177,7 +177,14 @@ public class Unit : MonoBehaviour
             {
                 statusEffects[i] = false;
                 statusEffectDurations[i] = 0;
-            }            
+            }
+
+            isAlive = false;
+        }
+
+        else
+        {
+            isAlive = true;
         }
 
 
@@ -272,8 +279,10 @@ public class Unit : MonoBehaviour
         {
             isThrottled = false;
             movementSpeed = baseMovementSpeed;
-
-            Destroy(transform.Find("SpeedUp(Clone)"));
+            if(transform.Find("SpeedUp(Clone)") != null)
+            {
+                Destroy(transform.Find("SpeedUp(Clone)").gameObject);
+            }
         }
     }
 }

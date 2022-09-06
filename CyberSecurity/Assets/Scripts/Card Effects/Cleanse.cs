@@ -45,7 +45,7 @@ public class Cleanse : Effect
                             manager.selectedCharacter.anim.SetTrigger("Cleanse");
                             manager.selectedCharacter.GetComponent<Unit>().UseCard();
 
-                            for (int i = 0; i < character.GetComponent<Unit>().corrupt; i++)
+                            for (int i = 0; i < character.GetComponent<Unit>().corrupt + 1; i++)
                             {
                                 Destroy(character.transform.Find("CorruptionEffect(Clone)").gameObject);
                             }
