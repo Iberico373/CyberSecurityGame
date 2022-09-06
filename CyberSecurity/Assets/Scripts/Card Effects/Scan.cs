@@ -53,6 +53,7 @@ public class Scan : Effect
                                 Destroy(manager.selectedCharacter.transform.Find("BuffAura(Clone)").gameObject);
                                 manager.selectedCharacter.buffed -= 1;
                             }
+
                             if (SceneManager.GetActiveScene().name == "TestLevel")
                             {
                                 
@@ -60,7 +61,8 @@ public class Scan : Effect
                                 manager.objectives.GetComponent<TutorialObject>().scancomp.SetActive(true);
                                 manager.objective2 = true;
                             }
-                            else if (manager.selectedCharacter.buffed == 0)
+
+                            if (manager.selectedCharacter.buffed == 0)
                             {
                                 if (character.name.Equals("Trojan"))
                                 {
