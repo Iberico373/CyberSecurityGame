@@ -19,13 +19,13 @@ public class Attacking : MonoBehaviour
                 manager.selectedCharacter.buffed -= 1;
                 strike.GetComponent<Unit>().health -= 20;
                 Destroy(manager.selectedCharacter.transform.Find("BuffAura(Clone)").gameObject);
-                manager.battleLog.UpdateBattleLog(manager.selectedCharacter.name, " did 20 damage to ", target.name);
+                manager.battleLog.UpdateBattleLog(manager.selectedCharacter.name, " did 20 damage to ", strike.name);
             }
 
             else
             {
                 strike.GetComponent<Unit>().health -= 10;
-                manager.battleLog.UpdateBattleLog(manager.selectedCharacter.name, " did 10 damage to ", target.name);
+                manager.battleLog.UpdateBattleLog(manager.selectedCharacter.name, " did 10 damage to ", strike.name);
             }
 
             strike.GetComponent<BaseAI>().aggrolist.Remove(manager.selectedCharacter.gameObject);
