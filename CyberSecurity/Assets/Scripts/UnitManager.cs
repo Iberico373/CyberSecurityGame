@@ -22,6 +22,8 @@ public class UnitManager : MonoBehaviour
     //objective variables for triggering win
     public bool objective1;
     public bool objective2;
+    public int slaughtered;
+    public int murderGoals;
 
     DeckUI deckUI;
 

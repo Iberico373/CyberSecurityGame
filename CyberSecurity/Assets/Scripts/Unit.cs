@@ -67,6 +67,14 @@ public class Unit : MonoBehaviour
         statusEffectDurations.Add(stun);
         statusEffectDurations.Add(corrupt);
         statusEffectDurations.Add(slow);
+        if (SceneManager.GetActiveScene().name == "Level1")
+        {
+            UnitManager.instance.murderGoals = 3;
+        }
+        if (SceneManager.GetActiveScene().name == "Level2")
+        {
+            UnitManager.instance.murderGoals = 5;
+        }
     }
 
     private void Update()
@@ -79,7 +87,7 @@ public class Unit : MonoBehaviour
             }
         }
         
-        if (GameObject.FindWithTag("Malware") || !UnitManager.instance.objective1 || !UnitManager.instance.objective2)
+        if (GameObject.FindWithTag("Malware") && UnitManager.instance.slaughtered <= UnitManager.instance.murderGoals || !UnitManager.instance.objective1 || !UnitManager.instance.objective2)
         {
             return;
         }
