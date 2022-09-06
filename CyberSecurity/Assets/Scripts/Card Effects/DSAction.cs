@@ -67,6 +67,7 @@ public class DSAction : Effect
                                     manager.objectives.GetComponent<TutorialObject>().takeover.SetActive(false);
                                     manager.objectives.GetComponent<TutorialObject>().takeovercomp.SetActive(true);
                                     tutorial.SetTutorial(2);
+                                    manager.objective1 = true;
                                 }
                             }
 

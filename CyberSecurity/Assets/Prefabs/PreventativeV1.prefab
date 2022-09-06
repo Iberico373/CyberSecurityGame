@@ -659,6 +659,7 @@ MonoBehaviour:
   health: 100
   maxHealth: 0
   baseMovementSpeed: 4
+  movementSpeed: 0
   isAlive: 0
   isDetected: 0
   startTurn: 0
@@ -676,7 +677,7 @@ MonoBehaviour:
   slow: 0
   stunEffect: {fileID: 0}
   capEffect: {fileID: 0}
-  corruptEffect: {fileID: 0}
+  corruptEffect: {fileID: 2198381750738403587, guid: 719fbc0b41ae4bc46a2d790275b31762, type: 3}
   pointer: {fileID: 6647566094994598253}
   aura: {fileID: 942690960049656507, guid: 1f7e9f8cad581b9428693a21b4de6e72, type: 3}
   virus: {fileID: 0}
