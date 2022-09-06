@@ -19609,6 +19609,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 729526837318808681, guid: b2991b2306228d84a9b102caecf19ff8, type: 3}
+      propertyPath: corruptEffect
+      value: 
+      objectReference: {fileID: 2198381750738403587, guid: 719fbc0b41ae4bc46a2d790275b31762, type: 3}
     - target: {fileID: 1736490586534557911, guid: b2991b2306228d84a9b102caecf19ff8, type: 3}
       propertyPath: m_RootOrder
       value: 3

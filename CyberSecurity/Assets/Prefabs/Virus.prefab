@@ -105,7 +105,7 @@ MonoBehaviour:
   slow: 0
   stunEffect: {fileID: 1736490586534557914}
   capEffect: {fileID: 5275402056542611489, guid: 0f7636c2f4567874eb3b34321aeaad3d, type: 3}
-  corruptEffect: {fileID: 0}
+  corruptEffect: {fileID: 2198381750738403587, guid: 719fbc0b41ae4bc46a2d790275b31762, type: 3}
   pointer: {fileID: 1443751145658773174}
   aura: {fileID: 5184618248683095736}
   virus: {fileID: 0}
@@ -396,6 +396,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3045044359692725648}
     m_Modifications:
+    - target: {fileID: 6872652418186103903, guid: b1727dd321af3d4448e1faa1ebb00ec1, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6872652419053875583, guid: b1727dd321af3d4448e1faa1ebb00ec1, type: 3}
       propertyPath: unit
       value: 
