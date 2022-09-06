@@ -47,7 +47,7 @@ public class DataStructure : Unit
 
         foreach(Unit character in manager.unitList)
         {
-            if(character.id == 0)
+            if (character.id == 0)
             {
                 objective = character.gameObject;
                 break;
@@ -143,6 +143,7 @@ public class DataStructure : Unit
             GameObject bullet = Instantiate(ransomwareShot);
             bullet.transform.position = transform.position;
         }
+
         switch (_currentState)
         {
             case State.None:              
@@ -259,7 +260,8 @@ public class DataStructure : Unit
                         GameObject botClone = Instantiate(bot, manager.unitGroup.transform);
                         botClone.transform.position = n.worldPos;
                         botClone.layer = 3;
-                        manager.SortTurnOrder();
+
+                        manager.AddCloneUnitToTurnOrder(botClone);
 
                         botCD++;
                         break;
@@ -281,9 +283,11 @@ public class DataStructure : Unit
             case State.Worm:
                 capturedSC = false;
                 capturedM = true;
+
                 GameObject summonedWormLaser = Instantiate(worm);
                 summonedWormLaser.transform.position = transform.position;
                 Destroy(summonedWormLaser, 5);
+
                 foreach (Node n in adjacentNodes)
                 {
                     if (n.ReturnObject() != null && wormCD == 0)

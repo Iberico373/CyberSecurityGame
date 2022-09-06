@@ -3817,6 +3817,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3211481916069311235, guid: 33e6af7d31dd93e41af3705ceed38d32, type: 3}
+      propertyPath: battleLog
+      value: 
+      objectReference: {fileID: 1004614221}
+    - target: {fileID: 3211481916069311235, guid: 33e6af7d31dd93e41af3705ceed38d32, type: 3}
       propertyPath: battleText
       value: 
       objectReference: {fileID: 2110851924}
@@ -10805,7 +10809,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1004614222
 RectTransform:
   m_ObjectHideFlags: 0

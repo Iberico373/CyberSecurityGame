@@ -251,7 +251,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 2450.9077, y: -445.01123}
+  m_AnchoredPosition: {x: 2450.9077, y: -445.0127}
   m_SizeDelta: {x: 4000, y: 10000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &114253857
@@ -1008,7 +1008,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &291961556
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14025,6 +14025,8 @@ MonoBehaviour:
   unitList: []
   objective1: 0
   objective2: 0
+  slaughtered: 0
+  murderGoals: 0
 --- !u!114 &1820659855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14050,6 +14052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4329291bd50d7d4caa6e34327cf97d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleLog: {fileID: 291961555}
   battleText: {fileID: 354010625}
 --- !u!1 &1844775103
 GameObject:

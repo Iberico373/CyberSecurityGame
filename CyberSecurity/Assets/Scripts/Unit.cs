@@ -55,7 +55,7 @@ public class Unit : MonoBehaviour
         isAlive = true;
         maxHealth = health;
         movementSpeed = baseMovementSpeed;
-        isAlive = true;
+
         statusEffects.Add(isThrottled);
         statusEffects.Add(isBuffed);
         statusEffects.Add(isStunned);
@@ -67,11 +67,13 @@ public class Unit : MonoBehaviour
         statusEffectDurations.Add(stun);
         statusEffectDurations.Add(corrupt);
         statusEffectDurations.Add(slow);
+
         if (SceneManager.GetActiveScene().name == "Level1")
         {
             UnitManager.instance.murderGoals = 3;
         }
-        if (SceneManager.GetActiveScene().name == "Level2")
+
+        else if (SceneManager.GetActiveScene().name == "Level2")
         {
             UnitManager.instance.murderGoals = 5;
         }

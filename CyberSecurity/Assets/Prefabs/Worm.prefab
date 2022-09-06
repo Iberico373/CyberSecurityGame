@@ -118,7 +118,7 @@ MonoBehaviour:
   targetPos: {x: 0, y: 0, z: 0}
   aggrolist: []
   infectedDS: []
-  cloneCooldown: 0
+  cloneCooldown: 4
   worm: {fileID: 3777839741594583495}
 --- !u!1001 &6526152690912615
 PrefabInstance:

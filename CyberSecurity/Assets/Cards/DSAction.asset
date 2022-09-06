@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DSAction
   m_EditorClassIdentifier: Assembly-CSharp::CardSO
   id: 4
-  cardName: DS Action
+  cardName: DSA
   cardEffect: {fileID: 11400000, guid: 67c79fcb5bd28a94b8fcdb92b13ce0da, type: 2}
   cardDesc: Captures Data structure
   cost: 2

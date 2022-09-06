@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 8
   cardName: Cleanse
   cardEffect: {fileID: 11400000, guid: 953c77a4dbe93824a9b3014c2504c993, type: 2}
-  cardDesc: Remove Debuffs from allies and Data Structures
+  cardDesc: Removes all debuffs
   cost: 1
   cardArtwork: {fileID: 21300000, guid: 7160d87c910dd054b89684b368f42931, type: 3}
   cardType: Corrective Control

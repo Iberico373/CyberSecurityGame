@@ -8441,6 +8441,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3211481916069311235, guid: 33e6af7d31dd93e41af3705ceed38d32, type: 3}
+      propertyPath: battleLog
+      value: 
+      objectReference: {fileID: 677691115}
+    - target: {fileID: 3211481916069311235, guid: 33e6af7d31dd93e41af3705ceed38d32, type: 3}
       propertyPath: battleText
       value: 
       objectReference: {fileID: 718831836}
@@ -8669,7 +8673,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &677691116
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16971,9 +16975,9 @@ PrefabInstance:
       value: 6.65
       objectReference: {fileID: 0}
     - target: {fileID: 2343970330183596902, guid: 4e96914233270c94f865dbefb68da924, type: 3}
-      propertyPath: cloneCooldown
-      value: 4
-      objectReference: {fileID: 0}
+      propertyPath: worm
+      value: 
+      objectReference: {fileID: 3777839741594583495, guid: 4e96914233270c94f865dbefb68da924, type: 3}
     - target: {fileID: 2934208190599090332, guid: 4e96914233270c94f865dbefb68da924, type: 3}
       propertyPath: m_IsActive
       value: 0

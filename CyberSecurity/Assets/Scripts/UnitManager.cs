@@ -81,6 +81,18 @@ public class UnitManager : MonoBehaviour
         selectedCharacter = unitList[0];
     }
 
+    public void AddCloneUnitToTurnOrder(GameObject clone)
+    {
+        for (int i = 0; i < unitList.Count; i++)
+        {
+            if (unitList[i].id == clone.GetComponent<Unit>().id)
+            {
+                unitList.Insert(i + 1, clone.GetComponent<Unit>());
+                break;
+            }
+        }
+    }
+
     void NextUnit()
     {
         Unit temp = unitList[0];

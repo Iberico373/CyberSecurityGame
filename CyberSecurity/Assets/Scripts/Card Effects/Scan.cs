@@ -48,20 +48,6 @@ public class Scan : Effect
                     {
                         if (character.CompareTag("Malware"))
                         {
-                            if (manager.selectedCharacter.buffed > 0)
-                            {
-                                Destroy(manager.selectedCharacter.transform.Find("BuffAura(Clone)").gameObject);
-                                manager.selectedCharacter.buffed -= 1;
-                            }
-
-                            if (SceneManager.GetActiveScene().name == "TestLevel")
-                            {
-                                
-                                manager.objectives.GetComponent<TutorialObject>().scan.SetActive(false);
-                                manager.objectives.GetComponent<TutorialObject>().scancomp.SetActive(true);
-                                manager.objective2 = true;
-                            }
-
                             if (manager.selectedCharacter.buffed == 0)
                             {
                                 if (character.name.Equals("Trojan"))
@@ -75,6 +61,20 @@ public class Scan : Effect
 
                                 manager.selectedCharacter.GetComponent<Unit>().UseCard();
                             }
+
+                            else if (manager.selectedCharacter.buffed > 0)
+                            {
+                                Destroy(manager.selectedCharacter.transform.Find("BuffAura(Clone)").gameObject);
+                                manager.selectedCharacter.buffed -= 1;
+                            }
+
+                            if (SceneManager.GetActiveScene().name == "TestLevel")
+                            {
+                                
+                                manager.objectives.GetComponent<TutorialObject>().scan.SetActive(false);
+                                manager.objectives.GetComponent<TutorialObject>().scancomp.SetActive(true);
+                                manager.objective2 = true;
+                            }     
 
                             manager.selectedCharacter.transform.LookAt(character.transform);
                             manager.selectedCharacter.anim.SetTrigger("Scan");
