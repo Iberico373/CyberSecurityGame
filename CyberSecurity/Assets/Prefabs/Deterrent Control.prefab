@@ -3856,7 +3856,7 @@ MonoBehaviour:
   corruptEffect: {fileID: 2198381750738403587, guid: 719fbc0b41ae4bc46a2d790275b31762, type: 3}
   pointer: {fileID: 8892000962486822567}
   aura: {fileID: 0}
-  virus: {fileID: 0}
+  virus: {fileID: 3045044359692725650, guid: b2991b2306228d84a9b102caecf19ff8, type: 3}
   turnOrderDisplay: {fileID: 8519129065427216645, guid: f5a851a454a31ee4eb5761de798042b1, type: 3}
   anim: {fileID: 0}
   gameManager: {fileID: 0}

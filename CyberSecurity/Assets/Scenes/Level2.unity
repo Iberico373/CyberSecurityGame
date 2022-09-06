@@ -16167,6 +16167,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 6.65
       objectReference: {fileID: 0}
+    - target: {fileID: 2343970330183596902, guid: 4e96914233270c94f865dbefb68da924, type: 3}
+      propertyPath: cloneCooldown
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2934208190599090332, guid: 4e96914233270c94f865dbefb68da924, type: 3}
       propertyPath: m_IsActive
       value: 0

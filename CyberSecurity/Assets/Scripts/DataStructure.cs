@@ -76,6 +76,8 @@ public class DataStructure : Unit
         }
         if (_currentState == State.None)
         {
+            capturedM = false;
+            capturedSC = false;
             render.material.color = new Color(255, 255, 255, 100);
         }
 
@@ -138,7 +140,8 @@ public class DataStructure : Unit
         if (isLocked)
         {
             objective.GetComponent<Unit>().health -= 5;
-            Instantiate(ransomwareShot);
+            GameObject bullet = Instantiate(ransomwareShot);
+            bullet.transform.position = transform.position;
         }
         switch (_currentState)
         {
