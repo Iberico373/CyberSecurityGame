@@ -279,8 +279,10 @@ public class Unit : MonoBehaviour
         {
             isThrottled = false;
             movementSpeed = baseMovementSpeed;
-
-            Destroy(transform.Find("SpeedUp(Clone)"));
+            if(transform.Find("SpeedUp(Clone)") != null)
+            {
+                Destroy(transform.Find("SpeedUp(Clone)").gameObject);
+            }
         }
     }
 }
