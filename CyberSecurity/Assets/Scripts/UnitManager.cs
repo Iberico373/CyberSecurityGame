@@ -110,16 +110,15 @@ public class UnitManager : MonoBehaviour
                 break;
 
             case "Security Control":
-                if (selectedCharacter.GetComponent<Unit>().isAlive = false)
-                {
-                    EndTurn();
-                }
 
                 selectedCharacter.CheckStatus();
                 deck.SetActive(true);
                 selectedCharacter.GetComponent<Deck>().Draw();
                 selectedCharacter.pointer.SetActive(true);
-
+                if (selectedCharacter.GetComponent<Unit>().isAlive == false)
+                {
+                    EndTurn();
+                }
                 break;
 
             case "Malware":

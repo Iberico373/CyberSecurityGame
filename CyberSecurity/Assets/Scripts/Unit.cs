@@ -12,7 +12,7 @@ public class Unit : MonoBehaviour
     public int baseMovementSpeed;
     public int movementSpeed;
 
-    public bool isAlive = true;
+    public bool isAlive;
     public bool isDetected;
     public bool startTurn;
 
@@ -54,7 +54,7 @@ public class Unit : MonoBehaviour
         anim = GetComponent<Animator>();
         maxHealth = health;
         movementSpeed = baseMovementSpeed;
-
+        isAlive = true;
         statusEffects.Add(isThrottled);
         statusEffects.Add(isBuffed);
         statusEffects.Add(isStunned);
