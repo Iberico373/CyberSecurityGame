@@ -5,13 +5,15 @@ using UnityEngine;
 public class Attack : Effect
 {
     UnitManager manager;
-    List<Node> attackTiles = new List<Node>();
     public GameObject target;
+
     public override void UseEffect()
     {
         manager = UnitManager.instance;
         manager.grid.ClearGrid();
         manager.effect = this;
+
+        List<Node> attackTiles = new List<Node>();
 
         foreach (Unit u in manager.unitList)
         {
