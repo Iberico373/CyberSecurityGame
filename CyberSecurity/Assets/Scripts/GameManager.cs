@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
         if(gameHasEnded == false)
         {
             gameHasEnded = true;
-            StartCoroutine(Delay());
+            StartCoroutine("Delay");
         }
     }
 
