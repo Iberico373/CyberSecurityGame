@@ -55,7 +55,7 @@ public class Unit : MonoBehaviour
         isAlive = true;
         maxHealth = health;
         movementSpeed = baseMovementSpeed;
-
+        isAlive = true;
         statusEffects.Add(isThrottled);
         statusEffects.Add(isBuffed);
         statusEffects.Add(isStunned);
