@@ -1909,11 +1909,18 @@ MonoBehaviour:
   speed: 0
   health: 100
   maxHealth: 0
+  baseMovementSpeed: 0
   movementSpeed: 0
   isAlive: 0
   isDetected: 0
   startTurn: 0
   statusEffects: 
+  isThrottled: 0
+  isBuffed: 0
+  isStunned: 0
+  isCorrupted: 0
+  isSlowed: 0
+  statusEffectDurations: 
   throttled: 0
   buffed: 0
   stun: 0
@@ -1921,7 +1928,7 @@ MonoBehaviour:
   slow: 0
   stunEffect: {fileID: 0}
   capEffect: {fileID: 0}
-  corruptEffect: {fileID: 0}
+  corruptEffect: {fileID: 2198381750738403587, guid: 719fbc0b41ae4bc46a2d790275b31762, type: 3}
   pointer: {fileID: 3568299508293239244}
   aura: {fileID: 970974767226694109}
   virus: {fileID: 1740047122475932941, guid: 512d929f7b1149b46a1f5c5b325fac3c, type: 3}
