@@ -11939,19 +11939,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 697334462145537554, guid: f52fd661b471998449c7ae0239b83428, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 697334462145537554, guid: f52fd661b471998449c7ae0239b83428, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 697334462145537554, guid: f52fd661b471998449c7ae0239b83428, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 697334462145537554, guid: f52fd661b471998449c7ae0239b83428, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 697334462145537554, guid: f52fd661b471998449c7ae0239b83428, type: 3}
       propertyPath: m_SizeDelta.x
@@ -11991,11 +11991,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 697334462145537554, guid: f52fd661b471998449c7ae0239b83428, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 729
+      value: -217
       objectReference: {fileID: 0}
     - target: {fileID: 697334462145537554, guid: f52fd661b471998449c7ae0239b83428, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 261
+      value: -175
       objectReference: {fileID: 0}
     - target: {fileID: 697334462145537554, guid: f52fd661b471998449c7ae0239b83428, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -14091,6 +14091,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battleLog: {fileID: 291961555}
   battleText: {fileID: 354010625}
+  time: 0
 --- !u!1 &1844775103
 GameObject:
   m_ObjectHideFlags: 0
