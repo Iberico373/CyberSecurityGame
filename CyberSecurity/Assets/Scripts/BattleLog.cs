@@ -42,4 +42,11 @@ public class BattleLog : MonoBehaviour
             countdown = false;
         }
     }
+
+    IEnumerator DelayedDeactivate()
+    {
+        yield return new WaitForSeconds(2);
+        battleLog.SetActive(false);
+        isActive = false;
+    }
 }
