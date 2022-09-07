@@ -8441,6 +8441,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3211481916069311235, guid: 33e6af7d31dd93e41af3705ceed38d32, type: 3}
+      propertyPath: time
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211481916069311235, guid: 33e6af7d31dd93e41af3705ceed38d32, type: 3}
       propertyPath: battleLog
       value: 
       objectReference: {fileID: 677691115}

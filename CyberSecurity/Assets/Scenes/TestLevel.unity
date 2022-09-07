@@ -14054,6 +14054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battleLog: {fileID: 291961555}
   battleText: {fileID: 354010625}
+  time: 600
 --- !u!1 &1844775103
 GameObject:
   m_ObjectHideFlags: 0
