@@ -37,5 +37,6 @@ public class BattleLog : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(6);
         battleLog.SetActive(false);
+        isActive = false;
     }
 }
