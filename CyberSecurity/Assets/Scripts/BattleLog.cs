@@ -35,7 +35,7 @@ public class BattleLog : MonoBehaviour
 
     IEnumerator DelayedDeactivate()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSecondsRealtime(6);
         battleLog.SetActive(false);
     }
 }
