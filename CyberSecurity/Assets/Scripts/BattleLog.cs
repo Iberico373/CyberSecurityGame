@@ -8,10 +8,13 @@ public class BattleLog : MonoBehaviour
     public TMPro.TextMeshProUGUI battleText;
 
     bool isActive;
-
+    float delay;
+    public float time;
+    bool countdown;
     private void Start()
     {
         isActive = false;
+        delay = time;
     }
 
     public void UpdateBattleLog(string characterName, string action, string targetName = "")
@@ -21,7 +24,7 @@ public class BattleLog : MonoBehaviour
             battleLog.SetActive(true);
             isActive = true;
         }
-
+        delay = time;
         battleText.text = characterName + action + targetName;
     }
 
@@ -29,13 +32,20 @@ public class BattleLog : MonoBehaviour
     {
         if(isActive)
         {
-            StartCoroutine("DelayedDeactivate");
+            delay -= 1;
+            countdown = true;
+        }
+        if(delay <= 0 && countdown)
+        {
+            isActive = false;
+            battleLog.SetActive(false);
+            countdown = false;
         }
     }
 
     IEnumerator DelayedDeactivate()
     {
-        yield return new WaitForSecondsRealtime(6);
+        yield return new WaitForSeconds(2);
         battleLog.SetActive(false);
         isActive = false;
     }
