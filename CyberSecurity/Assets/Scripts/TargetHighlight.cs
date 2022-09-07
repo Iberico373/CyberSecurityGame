@@ -5,53 +5,56 @@ using UnityEngine.UI;
 
 public class TargetHighlight : MonoBehaviour
 {
-    public TMPro.TextMeshProUGUI characterText;
+    public TMPro.TextMeshProUGUI scCharacterText;
+    public TMPro.TextMeshProUGUI mCharacterText;
     public TMPro.TextMeshProUGUI scHealthText;
     public TMPro.TextMeshProUGUI mHealthText;
-    public TMPro.TextMeshProUGUI attackText;
     public GameObject scHealth; 
     public GameObject mHealth;
-    public GameObject targetHighlightBase;
+    public GameObject scTargetHighlightBase;
+    public GameObject mTargetHighlightBase;
 
     private void Update()
+    {
+        HighlightTarget();
+    }
+
+    void HighlightTarget()
     {
         if (Input.GetButtonDown("Fire1"))
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            targetHighlightBase.SetActive(false);
+            mTargetHighlightBase.SetActive(false);
+            scTargetHighlightBase.SetActive(false);
 
             if (Physics.Raycast(ray, out hit))
             {
                 if (hit.collider.CompareTag("Security Control") || hit.collider.CompareTag("Objective"))
                 {
-                    targetHighlightBase.SetActive(true);
+                    mTargetHighlightBase.SetActive(false);
+                    scTargetHighlightBase.SetActive(true);
 
-                    scHealth.SetActive(true);
-                    mHealth.SetActive(false);   
-
-                    characterText.text = hit.collider.name;
-                    scHealthText.text = hit.collider.GetComponent<Unit>().health.ToString();
-                    attackText.text = "N/A";
-                    scHealth.GetComponent<Slider>().maxValue = hit.collider.GetComponent<Unit>().maxHealth;
-                    scHealth.GetComponent<Slider>().value = hit.collider.GetComponent<Unit>().health;
+                    UpdateTargetValues(hit.collider.gameObject, scHealth.GetComponent<Slider>(), scHealthText, scCharacterText);
                 }
 
                 else if (hit.collider.CompareTag("Malware"))
                 {
-                    targetHighlightBase.SetActive(true);
+                    mTargetHighlightBase.SetActive(true);
+                    scTargetHighlightBase.SetActive(false);
 
-                    scHealth.SetActive(false);
-                    mHealth.SetActive(true);
-
-                    characterText.text = hit.collider.name;
-                    mHealthText.text = hit.collider.GetComponent<Unit>().health.ToString();
-                    attackText.text = "N/A";
-                    mHealth.GetComponent<Slider>().maxValue = hit.collider.GetComponent<Unit>().maxHealth;
-                    mHealth.GetComponent<Slider>().value = hit.collider.GetComponent<Unit>().health;
+                    UpdateTargetValues(hit.collider.gameObject, mHealth.GetComponent<Slider>(), mHealthText, mCharacterText);
                 }
             }
         }
+    }
+
+    void UpdateTargetValues(GameObject targetedCharacter, Slider slider, TMPro.TextMeshProUGUI sliderText, TMPro.TextMeshProUGUI characterText)
+    {
+        characterText.text = targetedCharacter.name;
+        sliderText.text = targetedCharacter.GetComponent<Unit>().health.ToString();
+        slider.maxValue = targetedCharacter.GetComponent<Unit>().maxHealth;
+        slider.value = targetedCharacter.GetComponent<Unit>().health;
     }
 }
