@@ -24,4 +24,18 @@ public class BattleLog : MonoBehaviour
 
         battleText.text = characterName + action + targetName;
     }
+
+    private void Update()
+    {
+        if(isActive)
+        {
+            StartCoroutine("DelayedDeactivate");
+        }
+    }
+
+    IEnumerator DelayedDeactivate()
+    {
+        yield return new WaitForSecondsRealtime(6);
+        battleLog.SetActive(false);
+    }
 }
