@@ -26,6 +26,6 @@ public class Level2Object : MonoBehaviour
     public void Killing()
     {
         killcount++;
-        kill.GetComponent<TMPro.TextMeshProUGUI>().text = "Defeat all malwares (" + killcount.ToString() + "/5)";
+        kill.GetComponent<TMPro.TextMeshProUGUI>().text = "Defeat 5 malwares (" + killcount.ToString() + "/5)";
     }
 }
