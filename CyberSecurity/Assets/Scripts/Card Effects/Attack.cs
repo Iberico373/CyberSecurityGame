@@ -23,7 +23,6 @@ public class Attack : Effect
                 (u.gameObject.transform.position), 1));
             }
         }
-        //List<Node> attackTiles = manager.grid.GetNeighbours(manager.grid.NodeFromWorldPoint(manager.selectedCharacter.transform.position), 1);
         
         foreach (Node n in attackTiles)
         {
