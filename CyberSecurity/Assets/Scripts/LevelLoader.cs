@@ -7,10 +7,10 @@ public class LevelLoader : MonoBehaviour
     public GameObject loadingScreen;
     public Slider slider;
     public Text progressText;
+
     public void LoadLevel(int sceneIndex)
     {
         StartCoroutine(LoadAsynchronously(sceneIndex));
-        
     }
 
     IEnumerator LoadAsynchronously (int sceneIndex)
