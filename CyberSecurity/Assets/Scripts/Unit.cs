@@ -68,12 +68,17 @@ public class Unit : MonoBehaviour
         statusEffectDurations.Add(corrupt);
         statusEffectDurations.Add(slow);
 
-        if (SceneManager.GetActiveScene().name == "Level1")
+        if (SceneManager.GetActiveScene().name.Equals("TestLevel"))
+        {
+            UnitManager.instance.murderGoals = 1;
+        }
+     
+        else if (SceneManager.GetActiveScene().name.Equals("Level1"))
         {
             UnitManager.instance.murderGoals = 3;
         }
 
-        else if (SceneManager.GetActiveScene().name == "Level2")
+        else if (SceneManager.GetActiveScene().name.Equals("Level2"))
         {
             UnitManager.instance.murderGoals = 5;
         }
@@ -89,14 +94,9 @@ public class Unit : MonoBehaviour
             }
         }
         
-        if (GameObject.FindWithTag("Malware") && UnitManager.instance.slaughtered <= UnitManager.instance.murderGoals || !UnitManager.instance.objective1 || !UnitManager.instance.objective2)
+        if (UnitManager.instance.slaughtered >= UnitManager.instance.murderGoals && UnitManager.instance.objective1 && UnitManager.instance.objective2)
         {
-            return;
-        }
-        
-        else
-        {           
-            FindObjectOfType<GameManager>().WinGame();            
+            FindObjectOfType<GameManager>().WinGame(); 
         }
     }
 
@@ -179,7 +179,7 @@ public class Unit : MonoBehaviour
         {
             if (!isAlive)
             {
-                UnitManager.instance.EndTurn();
+                UnitManager.instance.Invoke("EndTurn", 2);
                 return;
             }
 
@@ -204,7 +204,6 @@ public class Unit : MonoBehaviour
             isAlive = true;
         }
 
-
         if (corrupt > 0)
         {
             foreach (Node n in UnitManager.instance.grid.GetNeighbours(UnitManager.instance.grid.NodeFromWorldPoint(transform.position), 1))
@@ -224,6 +223,30 @@ public class Unit : MonoBehaviour
                 isCorrupted = true;
                 corrupt++;
                 health -= 3 * corrupt;
+
+                if (health <= 0)
+                {
+                    if (!isAlive)
+                    {
+                        UnitManager.instance.Invoke("EndTurn", 2);
+                        return;
+                    }
+
+                    anim.SetTrigger("Dead");
+
+                    for (int i = 0; i < corrupt; i++)
+                    {
+                        Destroy(transform.Find("CorruptionEffect(Clone)").gameObject);
+                    }
+
+                    for (int i = 0; i < statusEffects.Count; i++)
+                    {
+                        statusEffects[i] = false;
+                        statusEffectDurations[i] = 0;
+                    }
+
+                    isAlive = false;
+                }
             }
 
             else if (corrupt == 7)
@@ -254,7 +277,7 @@ public class Unit : MonoBehaviour
             {
                 isStunned = true;
                 stun--;
-                UnitManager.instance.EndTurn();
+                UnitManager.instance.Invoke("EndTurn", 2);
             }
 
             else
@@ -288,7 +311,7 @@ public class Unit : MonoBehaviour
                 movementSpeed++;
                 isThrottled = true;
             }
-            
+
             throttled--;
         }
 
@@ -296,10 +319,10 @@ public class Unit : MonoBehaviour
         {
             isThrottled = false;
             movementSpeed = baseMovementSpeed;
-            if(transform.Find("SpeedUp(Clone)") != null)
+            if (transform.Find("SpeedUp(Clone)") != null)
             {
                 Destroy(transform.Find("SpeedUp(Clone)").gameObject);
             }
-        }
+        }    
     }
 }

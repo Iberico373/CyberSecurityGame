@@ -41,12 +41,15 @@ public class Attack : Effect
 
                 if (manager.selectedCharacter != null)
                 {
-                    if (attackTiles.Contains(node) && character.CompareTag("Malware"))
+                    if (attackTiles.Contains(node) && character != null)
                     {
-                        target = character;
-                        manager.selectedCharacter.transform.LookAt(character.transform);
-                        manager.selectedCharacter.anim.SetTrigger("Attack");
-                        manager.selectedCharacter.GetComponent<Unit>().UseCard();
+                        if (character.CompareTag("Malware"))
+                        {
+                            target = character;
+                            manager.selectedCharacter.transform.LookAt(character.transform);
+                            manager.selectedCharacter.anim.SetTrigger("Attack");
+                            manager.selectedCharacter.GetComponent<Unit>().UseCard();
+                        }                        
                     }
 
                     manager.selectedCharacter.GetComponent<Unit>().DeselectCard();

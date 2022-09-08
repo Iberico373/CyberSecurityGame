@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: bab5feac3804722419d8d2bb1ba711d6, type: 3}
   m_Name: Attack
-  m_EditorClassIdentifier: Assembly-CSharp::CardSO
+  m_EditorClassIdentifier: 
   id: 2
   cardName: Attack
   cardEffect: {fileID: 11400000, guid: 818ca7a840b19dc43aa42dae277072c3, type: 2}

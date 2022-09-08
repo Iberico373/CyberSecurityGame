@@ -97,18 +97,17 @@ public class UnitManager : MonoBehaviour
     {
         Unit temp = unitList[0];
         unitList.Remove(unitList[0]);
-        unitList.Insert(unitList.Count, temp);
+        unitList.Add(temp);
         selectedCharacter = unitList[0];
     }
 
     void SwitchState()
     {
-        string selectedCharacterTag = selectedCharacter.tag;
-
-        switch (selectedCharacterTag)
+        switch (selectedCharacter.tag)
         {
             case "Objective":
-                EndTurn();
+                deck.SetActive(false);
+                Invoke("EndTurn", 2);
                 break;
 
             case "Data Structure":
@@ -120,7 +119,7 @@ public class UnitManager : MonoBehaviour
                     selectedCharacter.GetComponent<DataStructure>().StateEffect();
                 }
 
-                EndTurn();
+                Invoke("EndTurn", 2);
                 break;
 
             case "Security Control":
@@ -136,15 +135,15 @@ public class UnitManager : MonoBehaviour
                 break;
 
             case "Malware":
-                if (selectedCharacter == null)
+                if (selectedCharacter.GetComponent<BaseAI>() == null)
                 {
-                    EndTurn();
+                    Debug.Log(selectedCharacter.name + "does not have the BaseAI script");
                 }
 
                 else
                 {
-                    selectedCharacter.CheckStatus();
                     deck.SetActive(false);
+                    selectedCharacter.CheckStatus();                    
                     selectedCharacter.pointer.SetActive(true);
                     selectedCharacter.GetComponent<BaseAI>().SelectTarget();
                 }
@@ -152,7 +151,7 @@ public class UnitManager : MonoBehaviour
                 break;
 
             default:
-                EndTurn();
+                Invoke("EndTurn", 2);
                 break;
         }
     }

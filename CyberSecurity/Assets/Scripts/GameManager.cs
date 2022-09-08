@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public WinLose lose;
     public WinLose win;
     public AudioSource winSound;
+
     public void EndGame()
     {
         if(gameHasEnded == false)

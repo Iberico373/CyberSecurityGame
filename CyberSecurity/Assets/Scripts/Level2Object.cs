@@ -10,6 +10,7 @@ public class Level2Object : MonoBehaviour
     public GameObject cleansecomp;
     public GameObject kill;
     private int killcount = 0;
+
     void Start()
     {
         upgrade = transform.Find("Upgrade").gameObject;
@@ -19,8 +20,7 @@ public class Level2Object : MonoBehaviour
         kill = transform.Find("Kill").gameObject;
 
         upgradecomp.SetActive(false);
-        cleansecomp.SetActive(false);
-  
+        cleansecomp.SetActive(false);  
     }
 
     public void Killing()

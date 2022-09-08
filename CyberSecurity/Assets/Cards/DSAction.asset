@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: bab5feac3804722419d8d2bb1ba711d6, type: 3}
   m_Name: DSAction
-  m_EditorClassIdentifier: Assembly-CSharp::CardSO
+  m_EditorClassIdentifier: 
   id: 4
   cardName: DSA
   cardEffect: {fileID: 11400000, guid: 67c79fcb5bd28a94b8fcdb92b13ce0da, type: 2}
-  cardDesc: Captures Data structure
+  cardDesc: Captures data structure
   cost: 2
   cardArtwork: {fileID: 21300000, guid: 932c9c91d3898134791305164ec4f046, type: 3}
   cardType: 
