@@ -107,7 +107,7 @@ public class UnitManager : MonoBehaviour
         {
             case "Objective":
                 deck.SetActive(false);
-                Invoke("EndTurn", 2);
+                Invoke("EndTurn", 1);
                 break;
 
             case "Data Structure":
@@ -119,7 +119,7 @@ public class UnitManager : MonoBehaviour
                     selectedCharacter.GetComponent<DataStructure>().StateEffect();
                 }
 
-                Invoke("EndTurn", 2);
+                Invoke("EndTurn", 1);
                 break;
 
             case "Security Control":
@@ -151,7 +151,7 @@ public class UnitManager : MonoBehaviour
                 break;
 
             default:
-                Invoke("EndTurn", 2);
+                Invoke("EndTurn", 1);
                 break;
         }
     }

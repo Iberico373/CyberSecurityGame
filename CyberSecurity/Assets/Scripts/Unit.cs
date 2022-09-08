@@ -179,7 +179,7 @@ public class Unit : MonoBehaviour
         {
             if (!isAlive)
             {
-                UnitManager.instance.Invoke("EndTurn", 2);
+                UnitManager.instance.Invoke("EndTurn", 1);
                 return;
             }
 
@@ -228,7 +228,7 @@ public class Unit : MonoBehaviour
                 {
                     if (!isAlive)
                     {
-                        UnitManager.instance.Invoke("EndTurn", 2);
+                        UnitManager.instance.Invoke("EndTurn", 1);
                         return;
                     }
 
@@ -277,7 +277,7 @@ public class Unit : MonoBehaviour
             {
                 isStunned = true;
                 stun--;
-                UnitManager.instance.Invoke("EndTurn", 2);
+                UnitManager.instance.Invoke("EndTurn", 1);
             }
 
             else
