@@ -13,6 +13,10 @@ public class LevelLoader : MonoBehaviour
     {
         StartCoroutine(LoadAsynchronously(sceneIndex));
     }
+    public void Quit()
+    {
+        Application.Quit();
+    }
 
     IEnumerator LoadAsynchronously (int sceneIndex)
     {

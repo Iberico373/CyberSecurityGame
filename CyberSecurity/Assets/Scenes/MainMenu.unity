@@ -1565,8 +1565,20 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 9008804098362938948, guid: 458ce7402f1b6d54796f62ae4a41e758, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008804098362938948, guid: 458ce7402f1b6d54796f62ae4a41e758, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1452527992}
+    - target: {fileID: 9008804098362938948, guid: 458ce7402f1b6d54796f62ae4a41e758, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Quit
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008804098362938948, guid: 458ce7402f1b6d54796f62ae4a41e758, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelLoader, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9008804098843185501, guid: 458ce7402f1b6d54796f62ae4a41e758, type: 3}
       propertyPath: m_AnchoredPosition.y
