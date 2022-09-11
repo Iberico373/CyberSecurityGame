@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SuicideIsBadass : MonoBehaviour
+public class SelfDestroy : MonoBehaviour
 {
     public float time;
     // Start is called before the first frame update
