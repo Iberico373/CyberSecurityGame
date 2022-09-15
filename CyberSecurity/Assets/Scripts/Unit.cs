@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Unit : MonoBehaviour
 {
@@ -14,18 +13,14 @@ public class Unit : MonoBehaviour
 
     public bool isAlive;
     public bool isDetected;
-    public bool startTurn;
+    public bool inAction;    
 
-    
-
-    public List<bool> statusEffects = new List<bool>();
     public bool isThrottled = false;
     public bool isBuffed = false;
     public bool isStunned = false;
     public bool isCorrupted = false;
     public bool isSlowed = false;
 
-    public List<int> statusEffectDurations = new List<int>();
     public int throttled = 0;
     public int buffed = 0;
     public int stun = 0;
@@ -55,33 +50,6 @@ public class Unit : MonoBehaviour
         isAlive = true;
         maxHealth = health;
         movementSpeed = baseMovementSpeed;
-
-        statusEffects.Add(isThrottled);
-        statusEffects.Add(isBuffed);
-        statusEffects.Add(isStunned);
-        statusEffects.Add(isCorrupted);
-        statusEffects.Add(isSlowed);
-
-        statusEffectDurations.Add(throttled);
-        statusEffectDurations.Add(buffed);
-        statusEffectDurations.Add(stun);
-        statusEffectDurations.Add(corrupt);
-        statusEffectDurations.Add(slow);
-
-        if (SceneManager.GetActiveScene().name.Equals("TestLevel"))
-        {
-            UnitManager.instance.murderGoals = 1;
-        }
-     
-        else if (SceneManager.GetActiveScene().name.Equals("Level1"))
-        {
-            UnitManager.instance.murderGoals = 3;
-        }
-
-        else if (SceneManager.GetActiveScene().name.Equals("Level2"))
-        {
-            UnitManager.instance.murderGoals = 5;
-        }
     }
 
     private void Update()
@@ -107,6 +75,7 @@ public class Unit : MonoBehaviour
 
     public void Move(Vector3 targetPos)
     {
+        inAction = true;
         PathRequestManager.RequestPath(transform.position, targetPos, OnPathFound);
     }
 
@@ -134,7 +103,7 @@ public class Unit : MonoBehaviour
                     if (targetIndex >= path.Length)
                     {
                         anim.SetBool("Walk", false);
-                        startTurn = false;
+                        inAction = false;
                         yield break;
                     }
                 }
@@ -144,7 +113,7 @@ public class Unit : MonoBehaviour
                     if (targetIndex >= movementSpeed)
                     {
                         anim.SetBool("Walk", false);
-                        startTurn = false;
+                        inAction = false;
                         yield break;
                     }
                 }
@@ -175,33 +144,9 @@ public class Unit : MonoBehaviour
 
     public void CheckStatus()
     {
-        if (health <= 0)
+        if (!isAlive)
         {
-            if (!isAlive)
-            {
-                UnitManager.instance.Invoke("EndTurn", 1);
-                return;
-            }
-
-            anim.SetTrigger("Dead");
-
-            for (int i = 0; i < corrupt; i++)
-            {
-                Destroy(transform.Find("CorruptionEffect(Clone)").gameObject);
-            }
-
-            for (int i = 0; i < statusEffects.Count; i++)
-            {
-                statusEffects[i] = false;
-                statusEffectDurations[i] = 0;
-            }
-
-            isAlive = false;
-        }
-
-        else
-        {
-            isAlive = true;
+            return;
         }
 
         if (corrupt > 0)
@@ -210,7 +155,7 @@ public class Unit : MonoBehaviour
             {
                 if (n.ReturnObject() != null)
                 {
-                    if (n.ReturnObject().CompareTag("Security Control"))
+                    if (n.ReturnObject().CompareTag("Security Control") && n.ReturnObject().GetComponent<Unit>().isAlive)
                     {
                         n.ReturnObject().GetComponent<Unit>().corrupt += 1;
                         Instantiate(corruptEffect, n.ReturnObject().transform);
@@ -223,34 +168,11 @@ public class Unit : MonoBehaviour
                 isCorrupted = true;
                 corrupt++;
                 health -= 3 * corrupt;
-
-                if (health <= 0)
-                {
-                    if (!isAlive)
-                    {
-                        UnitManager.instance.Invoke("EndTurn", 1);
-                        return;
-                    }
-
-                    anim.SetTrigger("Dead");
-
-                    for (int i = 0; i < corrupt; i++)
-                    {
-                        Destroy(transform.Find("CorruptionEffect(Clone)").gameObject);
-                    }
-
-                    for (int i = 0; i < statusEffects.Count; i++)
-                    {
-                        statusEffects[i] = false;
-                        statusEffectDurations[i] = 0;
-                    }
-
-                    isAlive = false;
-                }
             }
 
             else if (corrupt == 7)
             {
+                health -= 3 * corrupt;
                 List<Node> nodesInRange = UnitManager.instance.grid.
                 GetNeighbours(UnitManager.instance.grid.NodeFromWorldPoint(transform.position), 1);
 
@@ -262,6 +184,11 @@ public class Unit : MonoBehaviour
                         virusClone.transform.position = n.worldPos;
                         virusClone.layer = 3;
                         UnitManager.instance.SortTurnOrder();
+
+                        for (int i = 0; i < corrupt; i++)
+                        {
+                            Destroy(transform.Find("CorruptionEffect(Clone)").gameObject);
+                        }
 
                         corrupt = 0;
                         isCorrupted = false;
@@ -323,6 +250,30 @@ public class Unit : MonoBehaviour
             {
                 Destroy(transform.Find("SpeedUp(Clone)").gameObject);
             }
-        }    
+        }
+
+        if (health <= 0)
+        {
+            anim.SetTrigger("Dead");
+
+            for (int i = 0; i < corrupt; i++)
+            {
+                Destroy(transform.Find("CorruptionEffect(Clone)").gameObject);
+            }
+
+            isThrottled = false;
+            isBuffed = false;
+            isStunned = false;
+            isCorrupted = false;
+            isSlowed = false;
+
+            throttled = 0;
+            buffed = 0;
+            stun = 0;
+            corrupt = 0;
+            slow = 0;
+
+            isAlive = false;
+        }
     }
 }

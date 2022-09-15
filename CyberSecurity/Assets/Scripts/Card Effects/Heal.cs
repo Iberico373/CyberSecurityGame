@@ -56,8 +56,7 @@ public class Heal : Effect
                             if (character.GetComponent<Unit>().health + Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.2f)
                                 > character.GetComponent<Unit>().maxHealth)
                             {
-                                manager.battleLog.UpdateBattleLog(manager.selectedCharacter.name, " healed ",
-                                        character.name + " for " + character.GetComponent<Unit>().maxHealth * character.GetComponent<Unit>().health + " health!");
+                                manager.battleLog.UpdateBattleLog(manager.selectedCharacter.name, " healed " + character.name + " to full health!");
                                 character.GetComponent<Unit>().health = character.GetComponent<Unit>().maxHealth;                                
                             }
 
@@ -68,7 +67,7 @@ public class Heal : Effect
                                     if (character.GetComponent<Unit>().health + Mathf.RoundToInt(character.GetComponent<Unit>().maxHealth * 0.5f)
                                         > character.GetComponent<Unit>().maxHealth)
                                     {
-                                        manager.battleLog.UpdateBattleLog(manager.selectedCharacter.name, " healed " + character.name + " to full!");
+                                        manager.battleLog.UpdateBattleLog(manager.selectedCharacter.name, " healed " + character.name + " to full health!");
                                         character.GetComponent<Unit>().health = character.GetComponent<Unit>().maxHealth;
                                     }
 

@@ -44,6 +44,7 @@ public class DataStructure : Unit
         manager = UnitManager.instance;
         nodesInRange = manager.pathfinding.MovementRadius(transform.position, true, 2);
         adjacentNodes = manager.grid.GetNeighbours(manager.grid.NodeFromWorldPoint(transform.position), 1);
+        isAlive = true;
 
         foreach(Unit character in manager.unitList)
         {

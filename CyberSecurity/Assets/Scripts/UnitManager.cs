@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UnitManager : MonoBehaviour
 {
@@ -39,6 +40,21 @@ public class UnitManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if (SceneManager.GetActiveScene().name.Equals("TestLevel"))
+        {
+            murderGoals = 1;
+        }
+
+        else if (SceneManager.GetActiveScene().name.Equals("Level1"))
+        {
+            murderGoals = 3;
+        }
+
+        else if (SceneManager.GetActiveScene().name.Equals("Level2"))
+        {
+            murderGoals = 5;
+        }
+
         deckUI = deck.GetComponent<DeckUI>();
 
         SortTurnOrder();
@@ -57,6 +73,16 @@ public class UnitManager : MonoBehaviour
             selectedCard.GetComponent<DisplayCard>().cardHighlight.SetActive(false);
             grid.ClearGrid();
             selectedCard = null;
+        }
+
+        if (selectedCharacter.inAction && selectedCharacter.CompareTag("Security Control"))
+        {
+            deck.SetActive(false);
+        }
+
+        else if (!selectedCharacter.inAction && selectedCharacter.CompareTag("Security Control"))
+        {
+            deck.SetActive(true);
         }
     }
 
@@ -125,11 +151,16 @@ public class UnitManager : MonoBehaviour
             case "Security Control":
                 selectedCharacter.CheckStatus();
 
-                if (selectedCharacter.GetComponent<Unit>().isAlive)
+                if (selectedCharacter.isAlive)
                 {
                     deck.SetActive(true);
                     selectedCharacter.GetComponent<Deck>().Draw();
                     selectedCharacter.pointer.SetActive(true);
+                }
+                
+                else if (!selectedCharacter.isAlive)
+                {
+                    EndTurn();
                 }
 
                 break;

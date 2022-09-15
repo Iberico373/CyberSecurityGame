@@ -31,9 +31,9 @@ public class Blast : Effect
 
                 if (manager.selectedCharacter != null && character != null)
                 {
-
                     if (blastTiles.Contains(node) && character.CompareTag("Malware"))
                     {
+                        manager.selectedCharacter.inAction = true;
                         Vector3 dir = (character.transform.position - manager.selectedCharacter.transform.position).normalized;
                         Vector3 targetPos = character.transform.position + dir * manager.grid.nodeRadius * 2;
 
@@ -58,12 +58,12 @@ public class Blast : Effect
                             }
                         }
                     }
-
-                    manager.selectedCharacter.GetComponent<Unit>().DeselectCard();
-
-                    manager.grid.ClearGrid();
-                    manager.effect = null;
                 }
+
+                manager.selectedCharacter.GetComponent<Unit>().DeselectCard();
+
+                manager.grid.ClearGrid();
+                manager.effect = null;
             }
         }
     }

@@ -12,11 +12,10 @@ public class Walk : Effect
         manager = UnitManager.instance;
         manager.grid.ClearGrid();
         manager.effect = this;
-
-        
         
         HashSet<Node> movementTiles = manager.selectedCharacter.Select(false, manager.selectedCharacter.movementSpeed);
         manager.grid.HighlightGrid(movementTiles);
+
         if (GameObject.Find("Tutorial Canvas 1") != null)
         {
             tutorial = GameObject.Find("Tutorial Canvas 1").GetComponent<CardTutorial>();

@@ -5,7 +5,7 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - cards: {fileID: 11400000, guid: e4b724bb2fa38fa4e946b01b95c7a54f, type: 2}
-  executionOrder: -500
+  executionOrder: -70
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 

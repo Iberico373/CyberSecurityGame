@@ -13695,14 +13695,12 @@ MonoBehaviour:
   movementSpeed: 0
   isAlive: 0
   isDetected: 0
-  startTurn: 0
-  statusEffects: 
+  inAction: 0
   isThrottled: 0
   isBuffed: 0
   isStunned: 0
   isCorrupted: 0
   isSlowed: 0
-  statusEffectDurations: 
   throttled: 0
   buffed: 0
   stun: 0
@@ -13730,6 +13728,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 4, z: 4}
   m_Center: {x: 0, y: 1.5, z: 0}
+--- !u!95 &1718545448
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718545444}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1721767587
 GameObject:
   m_ObjectHideFlags: 0
